@@ -1,10 +1,6 @@
-# Accounting System ENGG1340 Group 120
+# Accounting System
 
-> Subtitle or Short Description Goes Here
-
-> ideally one sentence
-
-> include terms/tags that can be searched
+> This is a group project from HKU ENGG1340 Group 120
 
 ---
 
