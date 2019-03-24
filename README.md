@@ -29,18 +29,18 @@
 ```C++
 //Structure of an account
 struct Account {
-  string name;
-  bool type; //type of the account, true for debit account, false for credit account
-  float balance;
+ 	string name; 	//name of the account
+ 	bool type; 	//type of the account, true for debit account, false for credit account
+ 	float balance; 	// balance of the account
 };
 
 //Structure of a transaction
 struct Transaction {
-  int id;
-	string date;
-	string account1;
-	string account2;
-	float amount;
+ 	int id;		//id of the transaction
+	string date;	//date of the transaction
+	string account1;//the first account of the transaction
+	string account2;//the second account of the transaction
+	float amount;	//the transaction amount
 };
 
 //Function: Create a new account
