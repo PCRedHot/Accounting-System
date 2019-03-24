@@ -24,6 +24,7 @@
 ## Usage
 
 > This section is under construction, and changes are likely in the future
+
 ** Functions **
 ```C++
 //Structure of an account
