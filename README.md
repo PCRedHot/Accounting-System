@@ -8,7 +8,7 @@
 
 ---
 
-##Table of content
+## Table of content
 
 - [Problem Statement](#problem-statement)
 - [Problem Setting](#problem-setting)
