@@ -21,9 +21,9 @@
 
 ## Problem Setting
 
--In this case, we focus on exploring the solution to the personal financial status, and building up a new Accounting system to help manage personal wealth efficiently.
+- In this case, we focus on exploring the solution to the personal financial status, and building up a new Accounting system to help manage personal wealth efficiently.
 
--The accounting system will provide kinds of accounting operations for users, making them able to create new accounts, and further add or modify data stored in the current accounts. When needed, the system will output the records so far, as well as a variety of statistic data of the wealth, on the demand of the users. Making proper use of C++, Commands, various programming and accounting knowledge, we hope the Accounting system can operate efficiently and achieve the established functions.
+The accounting system will provide kinds of accounting operations for users, making them able to create new accounts, and further add or modify data stored in the current accounts. When needed, the system will output the records so far, as well as a variety of statistic data of the wealth, on the demand of the users. Making proper use of C++, Commands, various programming and accounting knowledge, we hope the Accounting system can operate efficiently and achieve the established functions.
 
 -The system will accept different type as its input and, thus, achieve relevant functions to store them.
 Set name and balance for the initial users: As long as created, the initial user data can be in further operations.
