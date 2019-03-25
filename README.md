@@ -86,7 +86,7 @@ float addAmount(Account& acc, float amount);
 
 ## Team
 
-| **CHOI Chong Hing** | **CHEN Xing Sheung** | 
+| **CHOI Chong Hing** | **CHEN Xing Sheng** | 
 | :---: |:---:|
 | [![CHOI Chong Hing](https://i.imgur.com/elZNX0z.jpg)](https://github.com/PCRedHot)    | [![CHEN Xing Sheung](https://i.imgur.com/xasWEFT.jpg)](https://github.com/XsChen524) | 
 | <a href="https://github.com/PCRedHot" target="_blank">`github.com/PCRedHot`</a> | <a href="https://github.com/XsChen524" target="_blank">`github.com/XsChen524`</a> | 
