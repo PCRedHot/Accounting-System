@@ -14,7 +14,7 @@
 ---
 
 ## Problem Statement
-
+Living in high-paced life with much pressure, people need dealing with their personal financial status every day, including income and expense data for all possible areas, which will be extraordinarily complicated and time-consuming tasks in case operated by traditional accounting methods. Thus, a more visual and efficient accounting system aimed at solving personal financial data’s tracking and management is in sore demand.
 ---
 
 ## Problem Setting
