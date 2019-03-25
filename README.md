@@ -21,6 +21,24 @@
 
 ## Problem Setting
 
+-In this case, we focus on exploring the solution to the personal financial status, and building up a new Accounting system to help manage personal wealth efficiently.
+
+-The accounting system will provide kinds of accounting operations for users, making them able to create new accounts, and further add or modify data stored in the current accounts. When needed, the system will output the records so far, as well as a variety of statistic data of the wealth, on the demand of the users. Making proper use of C++, Commands, various programming and accounting knowledge, we hope the Accounting system can operate efficiently and achieve the established functions.
+
+-The system will accept different type as its input and, thus, achieve relevant functions to store them.
+Set name and balance for the initial users: As long as created, the initial user data can be in further operations.
+Add records of income and expenses to the specific user: The basic operation on the users’ balance. In order to record clearly, users can choose multiple categories (i.e. food, game, salary) for their transactions from different accounts (Cash, debit card, credit card default) and date.
+Delete and edit: Recorded data can be accessed to be further modified or deleted easily by specifying the category.
+
+-Also, the system can output multiple statistic reports which are calculated based on the existing data. Additionally, it will evaluate the general financial status of the user.
+
+List the record: The system will be able to output the records that have stored so far, including the information about the amount, date, types of income or expense, account and remarks (if needed) for users purposes of viewing. We can also ask for just part of the current data, or sort them in different order by date or categories.
+Statistic report: Based on the record data, the system will give users statistic report about their financial state so far (including monthly income and expense, the percentage of the particular set of expenses, the variability of income and expense), which will help them handle the future plan more accurately.
+Budget setting and alert: The system will allow the user to set a default budget. When the total expense is reaching the budget, there should be alarm from the system to warn the user.
+
+-In the coming soon, we may add more features for the system, based on the completion and implementation of the program.
+
+
 ---
 
 ## Usage
@@ -86,7 +104,7 @@ float addAmount(Account& acc, float amount);
 
 ## Team
 
-| **CHOI Chong Hing** | **CHEN Xing Sheng** | 
+| **CHOI Chong Hing** | **CHEN Xingsheng** | 
 | :---: |:---:|
 | [![CHOI Chong Hing](https://i.imgur.com/elZNX0z.jpg)](https://github.com/PCRedHot)    | [![CHEN Xing Sheung](https://i.imgur.com/xasWEFT.jpg)](https://github.com/XsChen524) | 
 | <a href="https://github.com/PCRedHot" target="_blank">`github.com/PCRedHot`</a> | <a href="https://github.com/XsChen524" target="_blank">`github.com/XsChen524`</a> | 
