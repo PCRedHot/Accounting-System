@@ -9,7 +9,7 @@
 - [Problem Statement](#problem-statement)
 - [Problem Setting](#problem-setting)
 - [Usage](#usage)
-- [Team](#team)
+- [Teammembers](#teammembers)
 
 ---
 
@@ -100,7 +100,7 @@ float addAmount(Account& acc, float amount);
 
 ---
 
-## Team
+## Teammembers
 
 | **CHOI Chong Hing** | **CHEN Xingsheng** | 
 | :---: |:---:|
