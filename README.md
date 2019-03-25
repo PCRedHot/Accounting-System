@@ -70,7 +70,7 @@ void createAccount(string name, bool type);
 //Function: Find the index of the account in account list with its name
 //	input:	string name-  the name of the account
 //	output:	int index - return the index of the account in account list
-void  findIndexOfAccount(string name);
+void findIndexOfAccount(string name);
 
 //Function: Create new transaction
 //	input:	string date - the date of the transaction
