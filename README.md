@@ -43,12 +43,13 @@ The system receives user input with different information, and launchs relevant 
 
 &nbsp;
 
-Features  | Purpose
+Feature | Purpose
 ------------- | -------------
 Set name and balance  | Create initial accounts which can be further operated
 Add records of transaction  | Record income and expense of multiple categories from different accounts
 Delete and edit | Access and modify records easily
 
+&nbsp;
 
 Also, the system outputs multiple statistic reports which are calculated based on the existing data. Additionally, it will evaluate the general financial status of the user.
 
@@ -58,15 +59,27 @@ Also, the system outputs multiple statistic reports which are calculated based o
 
 &nbsp;
 
-
-Features | Purpose
+Feature | Purpose
 ------ | ------
 List the record | View previous transactions with accounts, date, amount or category (all or part)
 Statistic reports | Give report of users' financial state in detail, about income and expenditure, proportion and variation
 Evaluation | Briefly evaluate wealth states
 
+&nbsp;
 
-- Budget setting and alert: The system will allow the user to set a default budget. When the total expense is reaching the budget, there should be alarm from the system to warn the user.
+Besides, the accounting system provides practical and user-friendly functions
+
+	7. Budget and alert
+	8. Cross-account remittance
+
+&nbsp;
+
+Feature | Purpose
+------ | ------
+Budget and alert | Alert the user if total expenditure exceeds default budget
+Cross-account remittance | Transfer between multiple accounts
+
+&nbsp;
 
 In the coming soon, we may add more features for the system, based on the completion and implementation of the program.
 
