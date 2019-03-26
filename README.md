@@ -81,7 +81,7 @@ Cross-account remittance | Transfer between multiple accounts
 
 &nbsp;
 
-In the coming soon, we may add more features for the system, based on the completion and implementation of the program.
+The system will launch more incredible features in the comming soon.
 
 ---
 
