@@ -21,22 +21,33 @@ Living in high-paced life with much pressure, people need dealing with their bal
 
 ## Problem Setting
 
+
 ### Introduction
+
 
 The Accounting System focus on helping manage personal wealth efficiently.
 
-It will provide a variety of accounting operations for users, making them able to create new accounts, and further add or modify records stored in the current accounts. The system will also output the records so far, as well as statistic data of the wealth, on the demand of the users. 
+It will provide advanced accounting operations for users, making them able to create new accounts, and further add or modify records stored in the current accounts. The system will also output the records so far, as well as statistic data of the wealth, on the demand of the users. 
 
 ![](https://img.shields.io/badge/Language-C++-brightgreen.svg)
 
-###Features
 
-Making proper use of C++, Commands, various programming and accounting knowledge, we hope the Accounting system can operate efficiently and achieve the established functions.
+### Features
 
-The system will accept different type as its input and, thus, achieve relevant functions to store them.
-- Set name and balance for the initial users: As long as created, the initial user data can be in further operations.
-- Add records of income and expenses to the specific user: The basic operation on the users’ balance. In order to record clearly, users can choose multiple categories (i.e. food, game, salary) for their transactions from different accounts (Cash, debit card, credit card default) and date.
-- Delete and edit: Recorded data can be accessed to be further modified or deleted easily by specifying the category.
+
+The system receives user input with different information, and launchs relevant function to store them.
+
+	1. Set name and balance for initial accounts
+	2. Add records of transaction
+	3. Delete and edit
+
+
+Features  | Purpose
+------------- | -------------
+Set name and balance  | Create initial accounts which can be further operated
+Add records of transaction  | Record income and expense of multiple categories from different accounts
+Delete and edit | Access and modify records easily
+
 
 Also, the system can output multiple statistic reports which are calculated based on the existing data. Additionally, it will evaluate the general financial status of the user.
 - List the record: The system will be able to output the records that have stored so far, including the information about the amount, date, types of income or expense, account and remarks (if needed) for users purposes of viewing. We can also ask for just part of the current data, or sort them in different order by date or categories.
