@@ -41,6 +41,7 @@ The system receives user input with different information, and launchs relevant 
 	2. Add records of transaction
 	3. Delete and edit
 
+&nbsp;
 
 Features  | Purpose
 ------------- | -------------
@@ -49,9 +50,22 @@ Add records of transaction  | Record income and expense of multiple categories f
 Delete and edit | Access and modify records easily
 
 
-Also, the system can output multiple statistic reports which are calculated based on the existing data. Additionally, it will evaluate the general financial status of the user.
-- List the record: The system will be able to output the records that have stored so far, including the information about the amount, date, types of income or expense, account and remarks (if needed) for users purposes of viewing. We can also ask for just part of the current data, or sort them in different order by date or categories.
-- Statistic report: Based on the record data, the system will give users statistic report about their financial state so far (including monthly income and expense, the percentage of the particular set of expenses, the variability of income and expense), which will help them handle the future plan more accurately.
+Also, the system outputs multiple statistic reports which are calculated based on the existing data. Additionally, it will evaluate the general financial status of the user.
+
+	4. List the record
+	5. Statistic reports
+	6. Evaluation
+
+&nbsp;
+
+
+Features | Purpose
+------ | ------
+List the record | View previous transactions with accounts, date, amount or category (all or part)
+Statistic reports | Give report of users' financial state in detail, about income and expenditure, proportion and variation
+Evaluation | Briefly evaluate wealth states
+
+
 - Budget setting and alert: The system will allow the user to set a default budget. When the total expense is reaching the budget, there should be alarm from the system to warn the user.
 
 In the coming soon, we may add more features for the system, based on the completion and implementation of the program.
