@@ -70,14 +70,12 @@ Evaluation | Briefly evaluate wealth states
 Besides, the accounting system provides practical and user-friendly functions
 
 	7. Budget and alert
-	8. Cross-account remittance
 
 &nbsp;
 
 Feature | Purpose
 ------ | ------
 Budget and alert | Alert the user if total expenditure exceeds default budget
-Cross-account remittance | Transfer between multiple accounts
 
 &nbsp;
 
