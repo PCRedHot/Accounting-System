@@ -8,7 +8,6 @@ using namespace std;
 
 //========================================
 //functions
-void outputAccountFile();
 
 //========================================
 static account* accHead; //head account pointer
@@ -54,23 +53,8 @@ int main(){
   }
 
   //store accounts and transactions to files
-  outputAccountFile();
+  outputAccountFile(accHead);
   //**TO-DO**//
 
   return 0;
-}
-
-void outputAccountFile(){
-  if (accHead != nullptr){
-    ofstream file;
-    file.open("account");
-    account* curr = accHead;
-    while (curr != nullptr){
-      file << curr->getData();
-      curr = curr->next;
-    }
-    file.close();
-  }else{
-    cout << "No account to store" << endl;
-  }
 }

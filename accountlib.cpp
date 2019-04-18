@@ -64,3 +64,18 @@ void rsortAccount_Balance(account* head){
     }
   }
 };
+
+void outputAccountFile(account* head){
+  if (head != nullptr){
+    ofstream file;
+    file.open("account");
+    account* curr = accHead;
+    while (curr != nullptr){
+      file << curr->getData();
+      curr = curr->next;
+    }
+    file.close();
+  }else{
+    cout << "No account to store" << endl;
+  }
+}
