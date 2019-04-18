@@ -3,6 +3,10 @@
 
 using namespace std;
 
+//Function: get the pointer that point to account that named InputName
+//	input: 	string InputName - name to search
+//	        account* head - the pointer that point to the first account
+//	output:	account* - pointer that point to account that named InputName
 account* getAccount(string InputName, account* head){
   account* curr = head;
   while (curr != nullptr){
@@ -10,16 +14,6 @@ account* getAccount(string InputName, account* head){
     curr = curr->next;
   }
   cout << "No Account named " << InputName << " is found." << endl;
-  return nullptr;
-};
-
-account* getAccount(float val, account* head){
-  account* curr = head;
-  while (curr != nullptr){
-    if (curr->balance == val) return curr;
-    curr = curr->next;
-  }
-  cout << "No Account has " << val << " balance." << endl;
   return nullptr;
 };
 
