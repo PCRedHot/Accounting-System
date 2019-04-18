@@ -4,6 +4,10 @@ public:
   float balance;
   account* previous;
   account* next;
+
+  account(string);
+  account(string, float);
+
   void setName(string);
   void setBalance(float);
   float addAmount(float);
@@ -12,10 +16,7 @@ public:
   void setNext(account);
   void setNext(account*);
 
-  string getName();
-  float getBalance();
-  account* getNext();
-  account* getPrevious();
-
   string getData();
+
+  void deleteAccount();
 }
