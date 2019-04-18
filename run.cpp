@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include "account.h"
+#include "accountlib.h"
 #include "transaction.h"
 
 using namespace std;
@@ -49,7 +49,8 @@ int main(){
   while (userInput != "Exit"){
       cin >> userInput;
       //**TO-DO**//
-      
+      //reminders: check if it is the first account to be created!! if so, accHead = newAcc
+
   }
 
   //store accounts and transactions to files
@@ -66,7 +67,7 @@ void outputAccountFile(){
     account* curr = accHead;
     while (curr != nullptr){
       file << curr->getData();
-      curr = curr->getNext();
+      curr = curr->next;
     }
     file.close();
   }else{

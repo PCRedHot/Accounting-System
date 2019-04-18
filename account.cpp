@@ -27,22 +27,13 @@ float account::addAmount(float val){
   return balance;
 };
 
-void account::setPrevious(account acc){
-  previous = &acc;
-};
-
 void account::setPrevious(account* acc){
   previous = acc;
-};
-
-void account::setNext(account acc){
-  next = &acc;
 };
 
 void account::setNext(account* acc){
   next = acc;
 };
-
 
 string account::getData(){
   string data = date + '\t' + to_string(balance);
