@@ -17,6 +17,10 @@ account* getAccount(string InputName, account* head){
   return nullptr;
 };
 
+//Function: switch the position of the two accounts
+//	input: 	account* acc1 - first account
+//	        account* acc2 - second account
+//	output:	None
 void switchAccount(account* acc1, account* acc2){
   account* tempP2 = acc2->previous, tempN2 = acc2->next;
   acc2.setPrevious(acc1->previous);
@@ -25,6 +29,9 @@ void switchAccount(account* acc1, account* acc2){
   acc1.setPrevious(tempN2);
 };
 
+//Function: sort the accounts by balance, ascending order
+//	input: 	account* head - the pointer that point to the first account
+//	output:	None
 void sortAccount_Balance(account* head){
   account* curr = head;
   bool change;
@@ -40,6 +47,9 @@ void sortAccount_Balance(account* head){
   }
 };
 
+//Function: sort the accounts by balance, descending order
+//	input: 	account* head - the pointer that point to the first account
+//	output:	None
 void rsortAccount_Balance(account* head){
   account* curr = head;
   bool change;
