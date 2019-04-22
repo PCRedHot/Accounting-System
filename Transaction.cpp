@@ -1,44 +1,44 @@
 #include <iostream>
 #include <string>
-#include "Transaction.h"
+#include "transaction.h"
 #include "account.h"
 #include "accountlib.h"
 using namespace std;
 
-//int id;		       //id of the transaction
-//string date;	   //date of the transaction
-//string account1->name; //the first account of the transaction
-//string account2->name; //the second account of the transaction
-//float amount;	   //the transaction amount
-//Transaction* previous;
-//Transaction* next;
 
-Transaction::Transaction(int id_input){
-  id = order;
-  previous = nullptr;
-  next = nullptr;
-}//main function needs to set previous and next transaction automatically
+transaction::transaction(string dateInput, float amountInput, account* acc1Input){
+  date = dateInput;
+  amount = amountInput;
+  acc1 = acc1Input;
+}
+
+transaction::transaction(string dateInput, float amountInput, account* acc1Input, account* acc2Input){
+  date = dateInput;
+  amount = amountInput;
+  acc1 = acc1Input;
+  acc2 = acc2Input;
+}
 
 void setdate_T(string date_input){
-  date = stoi(date_input)
-}//stoi
+  date = stoi(date_input);
+}
 
-void set_from_account(account*){
+void setAccount1(account*){
   name_from = account->name;
 }
 
-void set_to_account(account*){
+void setAccount2(account*){
   name_to = account->name;
 }
 
-void setamount_T(string amount_input){
+void setamount(string amount_input){
   amount = stoi(amount_input)
 }
 
-void setPrevious_T(Transaction* acc){
+void setPrevious(transaction* acc){
   previous = acc;
 }
 
-void setNext_T(Transaction* acc){
+void setNext(transaction* acc){
   next = acc;
 }

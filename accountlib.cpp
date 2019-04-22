@@ -7,7 +7,7 @@ using namespace std;
 //	input: 	string InputName - name to search
 //	        account* head - the pointer that point to the first account
 //	output:	account* - pointer that point to account that named InputName
-account* getAccount(string InputName, account* head){
+account* accountlib::getAccount(string InputName, account* head){
   account* curr = head;
   while (curr != nullptr){
     if (curr->name == InputName) return curr;
@@ -21,7 +21,7 @@ account* getAccount(string InputName, account* head){
 //	input: 	account* acc1 - first account
 //	        account* acc2 - second account
 //	output:	None
-void switchAccount(account* acc1, account* acc2){
+void accountlib::switchAccount(account* acc1, account* acc2){
   account* tempP2 = acc2->previous, tempN2 = acc2->next;
   acc2.setPrevious(acc1->previous);
   acc2.setNext(acc1->next);
@@ -32,7 +32,7 @@ void switchAccount(account* acc1, account* acc2){
 //Function: sort the accounts by balance, ascending order
 //	input: 	account* head - the pointer that point to the first account
 //	output:	None
-void sortAccount_Balance(account* head){
+void accountlib::sortAccount_Balance(account* head){
   account* curr = head;
   bool change;
   while (change){
@@ -50,7 +50,7 @@ void sortAccount_Balance(account* head){
 //Function: sort the accounts by balance, descending order
 //	input: 	account* head - the pointer that point to the first account
 //	output:	None
-void rsortAccount_Balance(account* head){
+void accountlib::rsortAccount_Balance(account* head){
   account* curr = head;
   bool change;
   while (change){
@@ -65,7 +65,7 @@ void rsortAccount_Balance(account* head){
   }
 };
 
-void outputAccountFile(account* head){
+void accountlib::outputAccountFile(account* head){
   if (head != nullptr){
     ofstream file;
     file.open("account");
@@ -78,4 +78,20 @@ void outputAccountFile(account* head){
   }else{
     cout << "No account to store" << endl;
   }
-}
+};
+
+account* accountlib::getLastAccount(account* head){
+  account* curr = head;
+  while (curr->next != nullptr){
+    curr = curr->next;
+  }
+  return curr;
+};
+
+void accountlib::listAccount(account* head){
+  account* curr = head;
+  while (curr != nullptr){
+    cout << curr->getData();
+    curr = curr->next();
+  }
+};

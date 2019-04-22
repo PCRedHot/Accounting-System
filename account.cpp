@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include "account.h"
 
 using namespace std;
 
@@ -10,7 +9,7 @@ using namespace std;
 account::account(string InputName){
   name = InputName;
   balance = 0;
-}
+};
 
 //Function: initialize account
 //	input: 	string InputName - name of the account
@@ -19,7 +18,7 @@ account::account(string InputName){
 account::account(string InputName, float val){
   name = InputName;
   balance = val;
-}
+};
 
 //Function: set the name of the account to InputName
 //	input: 	string InputName - name of the account
@@ -57,6 +56,14 @@ void account::setNext(account* acc){
   next = acc;
 };
 
+void account::setPrevious(account& acc){
+  previous = &acc;
+};
+
+void account::setNext(account& acc){
+  next = &acc;
+};
+
 //Function: output a string in the standard format for storage
 //	input:  None
 //	output: data - data of the account in standard format
@@ -72,4 +79,4 @@ void account::deleteAccount(){
   previous->setNext(next);
   next->setPrevious(previous);
   delete this;
-}
+};

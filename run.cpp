@@ -1,9 +1,10 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <iomanip>
 #include <fstream>
 #include "accountlib.h"
-#include "transaction.h"
+#include "tranlib.h"
 
 using namespace std;
 
@@ -16,9 +17,8 @@ static transaction* tranHead;  //head transaction pointer
 
 int main(){
   //Create head and tail of transaction, point to nullptr
-  Transaction* head_T = nullptr;
-  Transaction* tail_T = nullptr;
-  int order_T = 1;
+  transaction* head_T = nullptr;
+  transaction* tail_T = nullptr;
   //
 
   //get accounts from file
@@ -31,14 +31,15 @@ int main(){
       int substrIndex = line.find('\t');
       string name = line.substr(0, substrIndex);
       float balance = stof(line.substr(substrIndex+1, line.length()-substrIndex-1));
-      account NewAcc = new account(name, balance);
+      account* NewAcc = new account(name, balance);
       if (curr != nullptr){
-        NewAcc.setPrevious(curr);
+        NewAcc->setPrevious(curr);
         curr->setNext(NewAcc);
       }else{
-        accHead = &NewAcc;
+        accHead = NewAcc;
       }
-      curr = &NewAcc;
+      curr = NewAcc;
+      delete NewAcc;
     }
   }else{
     cout << "No account file is found" << endl;
@@ -57,7 +58,6 @@ int main(){
       //**TO-DO**//
       //reminders: check if it is the first account to be created!! if so, accHead = newAcc
 
-
       if (userInput == "Transction"){
 
         //Functions menu of transactions
@@ -71,57 +71,141 @@ int main(){
 
         cin >> userInput;
 
-        switch (userInput){
+        switch (stoi(userInput)){
           case 1:
-            //Create new dynamic transaction object
-            Transaction* current_T = new Transaction (order_T);
-
+          {
+            string dateInput, acc1Input, acc2Input, amountInput;
             //User enter infomation of transactions
             cout << "Please enter transaction infomation" << endl;
-            cout << "Format: YYYYMMDD From To Amount" << endl;
+            cout << "Date: ";
+            cin >> dateInput;
+            cout << endl << "Account 1: ";
+            cin >> acc1Input;
+            cout << endl << "Account 2 (input \'none\" if no second account): ";
+            cin >> acc2Input;
+            cout << endl << "Amount: ";
+            cin >> amountInput;
 
-            getline(cin,userInput);
-            string temp;
-            istringstream iss(userInput);
-            iss >> temp;
-            current_T->date = stoi(temp);
-            iss >> current_T->name_from;
-            iss >> current_T->name_to;
-            iss >> temp;
-            current_T->amount = stof(temp);
+            //Create new dynamic transaction object
+            account* acc1 = getAccount(acc1Input), acc2;
+            transaction* current_T;
+            if (acc2Input != "none"){
+              acc2 = getAccount(acc2Input);
+              current_T = new transaction(dateInput, stof(amountInput), acc1, acc2);
+            }else{
+              current_T = new transaction(dateInput, stof(amountInput), acc1);
+            }
 
             //Link the new created transaction to linked list
-            if (head_T = nullptr){
+            if (head_T == nullptr){
               head_T = current_T;
-              tail_T = current_T;
-              current_T = head->next;
+            }else{
+
             }
-            else{
-              tail_T->next = current_T;
-              tail_T = current_T->next;
-            }
-            order_T++;
+
 
             modifyAccounts(current_T, head_A);
             current_T = nullptr;
+            delete current_T;
             break;
+          }
 
           case 2:
             break;
 .
           case 5:
-            Transaction* current_T = head_T
+            transaction* current_T = head_T
             while (current_T->next != nullptr) {
-              outputTransaction(current_T);
+              outputtransaction(current_T);
             }
-            cout << "All Transactions listed!" <<endl;
+            cout << "All transactions listed!" <<endl;
             break;
           }
-        }else if (userInput=="Account"){
+        }else if (userInput == "Account"){
           cout << "Please select functions of accounts" << endl;
           cout << "1. Add an account" << endl;
           cout << "2. Delete an account" << endl;
-          cout << "3. " << endl;
+          cout << "3. Get information of an account" << endl;
+          cout << "4. List all accounts in ascending order" << endl;
+          cout << "5. List all accounts in descending order" << endl;
+
+          cin >> userInput;
+          string name;
+          switch (stoi(userInput)) {
+            case 1:
+            {
+            cout << "Please input the name of the account: ";
+            cin >> name;
+            cout << endl;
+            if (getAccount(name, accHead) != nullptr){
+              cout << "Account named \"" << name << "\" already exist!" << endl;
+            }else{
+              account* newAcc = new account(name);
+              if (accHead == nullptr){
+                accHead = newAcc;
+              }else{
+                account* lastAcc = getLastAccount(accHead);
+                lastAcc->setNext(newAcc);
+                newAcc->setPrevious(lastAcc);
+              }
+              cout << "Account named \"" << name << "\" created!" << endl;
+              delete newAcc;
+            }
+            break;
+            }
+
+            case 2:
+            {
+            cout << "Please input the name of the account: ";
+            cin >> name;
+            cout << endl;
+            account* accPtr = getAccount(name, accHead);
+            if (accPtr == nullptr){
+              cout << "Account named \"" << name << "\" not exist!" << endl;
+            }else{
+              accPtr->deleteAccount();
+            }
+            break;
+            }
+
+            case 3:
+            {
+            cout << "Please input the name of the account: ";
+            cin >> name;
+            cout << endl;
+            account* accPtr = getAccount(name, accHead);
+            if (accPtr == nullptr){
+              cout << "Account named \"" << name << "\" not exist!" << endl;
+            }else{
+              cout << "Account information of " << name << ":"<< endl;
+              cout << fixed << setprecision(2);
+              cout << "Current Balance: " <<  accPtr->balance;
+              cout << "-----transaction History-----" << endl;
+              //**To-DO**//
+            }
+            break;
+            }
+
+            case 4:
+            {
+            sortAccount_Balance(accHead);
+            listAccount(accHead);
+            break;
+            }
+
+            case 5:
+            {
+            rsortAccount_Balance(accHead);
+            listAccount(accHead);
+            break;
+            }
+
+            default:
+            {
+            cout << "Unknown user input" << endl;
+            break;
+            }
+          }
         }
 
   }

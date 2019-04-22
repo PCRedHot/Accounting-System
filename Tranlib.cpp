@@ -1,30 +1,30 @@
-#include "Tranlib.h"
+#include "tranlib.h"
 #include <iostream>
 #include <string>
 using namespace std;
 
-Transaction* getTransaction(int date, Transaction*){
+transaction* getTransaction(int date, transaction*){
 
 }
 void switchTransation(account*, account*);
 
-void sortTransaction_Date(Transaction* &head_T){
+void sortTransaction_Date(transaction* &head_T){
   //Insert sort
   //Create a new linked list to store sorted transactions
-  Transaction* current_T = head_T;
-  Transaction* head_T_sorted = nullptr;
+  transaction* current_T = head_T;
+  transaction* head_T_sorted = nullptr;
 
   while (current_T != nullptr){
 
-    Transaction temp = *current_T;
+    transaction temp = *current_T;
 
     if (head_T_sorted == nullptr || temp.date < head_T_sorted->date){
       temp.next = head_T_sorted;
       head_T_sorted = &temp;
     }
     else{
-      Transaction* insert = head_T_sorted;
-      while (insert->next->date < temp.date)
+      transaction* insert = head_T_sorted;
+      while (insert->next->date < temp.date){
         insert = insert->next;
 
       temp.next = insert->next;
@@ -35,7 +35,7 @@ void sortTransaction_Date(Transaction* &head_T){
   }
 
   int new_id = 1;
-  Transaction* current_T_sorted = head_T_sorted;
+  transaction* current_T_sorted = head_T_sorted;
   while (current_T_sorted != nullptr){
     current_T_sorted->id = new_id;
     new_id++;
@@ -46,22 +46,22 @@ void sortTransaction_Date(Transaction* &head_T){
   //Assign the new linked list to the original head pointer
 }
 
-void rsortTransaction_Date(Transaction* &head_T){
+void rsortTransaction_Date(transaction* &head_T){
   //Insert sort
   //Create a new linked list to store sorted transactions
-  Transaction* current_T = head_T;
-  Transaction* head_T_rsorted = nullptr;
+  transaction* current_T = head_T;
+  transaction* head_T_rsorted = nullptr;
 
   while (current_T != nullptr){
 
-    Transaction temp = *current_T;
+    transaction temp = *current_T;
 
     if (head_T_rsorted == nullptr || temp.date > head_T_rsorted->date){
       temp.next = head_T_rsorted;
       head_T_rsorted = &temp;
     }
     else{
-      Transaction* insert = head_T_rsorted;
+      transaction* insert = head_T_rsorted;
       while (insert->next->date > temp.date)
         insert = insert->next;
 
@@ -73,7 +73,7 @@ void rsortTransaction_Date(Transaction* &head_T){
   }
 
   int new_id = 1;
-  Transaction* current_T_rsorted = head_T_rsorted;
+  transaction* current_T_rsorted = head_T_rsorted;
   while (current_T_rsorted != nullptr){
     current_T_rsorted->id = new_id;
     new_id++;
@@ -84,14 +84,14 @@ void rsortTransaction_Date(Transaction* &head_T){
   //Assign the new linked list to the original head pointer
 }
 
-void outputTransaction(Transaction* current_T){
+void outputTransaction(transaction* current_T){
   cout << current_T->id << " ";
   cout << current_T->name_from << " ";
   cout << current_T->name_to << " ";
   cout << current_T->amount <<endl;
 }
 
-void modifyAccounts(Transaction* current_T, Account* head_A){
+void modifyAccounts(transaction* current_T, Account* head_A){
   Account* fromAccount = head_A;
   Account* toAccount = head_A;
 
