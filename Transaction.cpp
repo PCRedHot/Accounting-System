@@ -14,6 +14,8 @@ using namespace std;
 
 Transaction::Transaction(int id_input){
   id = order;
+  previous = nullptr;
+  next = nullptr;
 }//main function needs to set previous and next transaction automatically
 
 void setdate_T(string date_input){
