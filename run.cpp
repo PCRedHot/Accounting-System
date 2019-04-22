@@ -39,7 +39,6 @@ int main(){
         accHead = NewAcc;
       }
       curr = NewAcc;
-      delete NewAcc;
     }
   }else{
     cout << "No account file is found" << endl;
@@ -77,7 +76,7 @@ int main(){
             string dateInput, acc1Input, acc2Input, amountInput;
             //User enter infomation of transactions
             cout << "Please enter transaction infomation" << endl;
-            cout << "Date: ";
+            cout << "Date (DDMMYYYY): ";
             cin >> dateInput;
             cout << endl << "Account 1: ";
             cin >> acc1Input;
@@ -85,12 +84,19 @@ int main(){
             cin >> acc2Input;
             cout << endl << "Amount: ";
             cin >> amountInput;
+            cout << endl;
 
             //Create new dynamic transaction object
             account* acc1 = getAccount(acc1Input), acc2;
+            if (acc1 == nullptr){
+              break;
+            }
             transaction* current_T;
             if (acc2Input != "none"){
               acc2 = getAccount(acc2Input);
+              if (acc2 == nullptr){
+                break;
+              }
               current_T = new transaction(dateInput, stof(amountInput), acc1, acc2);
             }else{
               current_T = new transaction(dateInput, stof(amountInput), acc1);
@@ -100,13 +106,12 @@ int main(){
             if (head_T == nullptr){
               head_T = current_T;
             }else{
-
+              transaction* last = getLastTransaction(head_T);
+              last->setNext(current_T);
+              current_T->setPrevious(last);
             }
 
-
-            modifyAccounts(current_T, head_A);
-            current_T = nullptr;
-            delete current_T;
+            //modifyAccounts(current_T, head_A); ??
             break;
           }
 
@@ -148,8 +153,7 @@ int main(){
                 lastAcc->setNext(newAcc);
                 newAcc->setPrevious(lastAcc);
               }
-              cout << "Account named \"" << name << "\" created!" << endl;
-              delete newAcc;
+              cout << "Account named \"" << name << "\" is created!" << endl;
             }
             break;
             }

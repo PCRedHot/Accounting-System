@@ -1,8 +1,8 @@
 #include <string>
 #include "transaction.h"
 
-transaction* gettransaction(int, transaction*);
-
+transaction* getTransaction(string, transaction*);
+transacrion* getLastTransaction(transaction*);
 void switchTransation(account*, account*);
 void sortTransaction_Date(transaction* &head_T);
 void rsortTransaction_Date(transaction* &head_T);

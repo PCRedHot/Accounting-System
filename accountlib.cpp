@@ -13,7 +13,7 @@ account* accountlib::getAccount(string InputName, account* head){
     if (curr->name == InputName) return curr;
     curr = curr->next;
   }
-  cout << "No Account named " << InputName << " is found." << endl;
+  //cout << "No Account named " << InputName << " is found." << endl;
   return nullptr;
 };
 

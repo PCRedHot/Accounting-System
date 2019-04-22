@@ -3,12 +3,21 @@
 #include <string>
 using namespace std;
 
-transaction* getTransaction(int date, transaction*){
+transaction* tranlib::getTransaction(string date, transaction* head){
 
-}
-void switchTransation(account*, account*);
+};
 
-void sortTransaction_Date(transaction* &head_T){
+transaction* tranlib::getLastTransaction(string date, transaction* head){
+  curr = head;
+  while (curr->next != nullptr){
+    curr = curr->next;
+  }
+  return curr;
+};
+
+void tranlib::switchTransation(account*, account*);
+
+void tranlib::sortTransaction_Date(transaction* &head_T){
   //Insert sort
   //Create a new linked list to store sorted transactions
   transaction* current_T = head_T;
@@ -44,9 +53,9 @@ void sortTransaction_Date(transaction* &head_T){
   //Assign new id to the linked list sequently
   head_T = head_T_sorted;
   //Assign the new linked list to the original head pointer
-}
+};
 
-void rsortTransaction_Date(transaction* &head_T){
+void tranlib::rsortTransaction_Date(transaction* &head_T){
   //Insert sort
   //Create a new linked list to store sorted transactions
   transaction* current_T = head_T;
@@ -82,16 +91,15 @@ void rsortTransaction_Date(transaction* &head_T){
   //Assign new id to the linked list sequently
   head_T = head_T_rsorted;
   //Assign the new linked list to the original head pointer
-}
+};
 
-void outputTransaction(transaction* current_T){
-  cout << current_T->id << " ";
-  cout << current_T->name_from << " ";
-  cout << current_T->name_to << " ";
+void tranlib::outputTransaction(transaction* current_T){
+  cout << current_T->acc1->name << " ";
+  cout << current_T->acc2->name << " ";
   cout << current_T->amount <<endl;
-}
+};
 
-void modifyAccounts(transaction* current_T, Account* head_A){
+void tranlib::modifyAccounts(transaction* current_T, Account* head_A){
   Account* fromAccount = head_A;
   Account* toAccount = head_A;
 
@@ -109,4 +117,4 @@ void modifyAccounts(transaction* current_T, Account* head_A){
   toAccount = nullptr;
 
   cout << "Accounts have been modified!" << endl;
-}
+};
