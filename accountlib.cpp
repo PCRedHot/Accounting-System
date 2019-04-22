@@ -106,6 +106,6 @@ void accountlib::listAccount(account* head){
   account* curr = head;
   while (curr != nullptr){
     cout << curr->getData();
-    curr = curr->next();
+    curr = curr->next;
   }
 };

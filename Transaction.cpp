@@ -42,3 +42,9 @@ void transaction::setPrevious(transaction* tran){
 void transaction::setNext(transaction* tran){
   next = tran;
 };
+
+string transaction::getData(){
+  string output = data + '\t' + to_string(amount) + acc1->name;
+  if (acc2 != nullptr) output += '\t' acc2-> name;
+  return output;
+};

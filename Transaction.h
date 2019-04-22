@@ -20,4 +20,6 @@ public:
 
   void setPrevious(transaction*);
   void setNext(transaction*);
+
+  string getData(); //format DDMMYYY<tab>amount<tab>acc1(<tab>acc2)
 };

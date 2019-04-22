@@ -46,7 +46,7 @@ void tranlib::sortTransaction_Date(transaction* head){
   }
 };
 
-void tranlib::rsortTransaction_Date(transaction* &head_T){
+void tranlib::rsortTransaction_Date(transaction* head){
   if (head == nullptr) return;
   transaction* curr = head;
   bool change = true;
@@ -61,10 +61,12 @@ void tranlib::rsortTransaction_Date(transaction* &head_T){
   }
 };
 
-void tranlib::outputTransaction(transaction* current_T){
-  cout << current_T->acc1->name << " ";
-  cout << current_T->acc2->name << " ";
-  cout << current_T->amount <<endl;
+void tranlib::listTransaction(transaction* head){
+  transaction* curr = head;
+  while (curr != nullptr){
+    cout << curr->getData();
+    curr = curr->next;
+  }
 };
 
 void tranlib::modifytransactions(transaction* current_T, account* head_A){
