@@ -1,10 +1,9 @@
+#include <string>
 #include "Transaction.h"
 
-void createTransaction();
-Transaction* getTransaction(string, account*);
+Transaction* getTransaction(int, Transaction*);
 void switchTransation(account*, account*);
-void sortTransaction_Date(account*);
-void rsortTransaction_Date(account*);
-void outputTransaction(Transaction*);
-
-void modifyAccounts(Transaction*);
+void sortTransaction_Date(Transaction* &head_T);
+void rsortTransaction_Date(Transaction* &head_T);
+void outputTransaction(Transaction* current_T);
+void modifyAccounts(Transaction* current_T, Account* head_A);
