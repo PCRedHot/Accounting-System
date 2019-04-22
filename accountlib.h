@@ -1,4 +1,5 @@
 #include "account.h"
+#include <string>
 
 account* getAccount(string, account*);
 void switchAccount(account*, account*);
