@@ -101,6 +101,20 @@ int main(){
               tail_T = current_T->next;
             }
             order_T++;
+            
+            modifyAccounts(current_T, head_A);
+            current_T = nullptr;
+            break;
+
+          case 2:
+            break;
+.
+          case 5:
+            Transaction* current_T = head_T
+            while (current_T->next != nullptr) {
+              outputTransaction(current_T);
+            }
+            cout << "All Transactions listed!" <<endl;
             break;
   }
 
