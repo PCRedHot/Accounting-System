@@ -56,20 +56,52 @@ int main(){
       cin >> userInput;
       //**TO-DO**//
       //reminders: check if it is the first account to be created!! if so, accHead = newAcc
-        if (userInput == "Transction"){
-          Transaction* current_T = new Transaction (order);
-          if( head_T = nullptr ){
-            head_T = current_T;
-            tail_T = current_T;
-            current_T = head->next;
-            order++;
-          }
-          else{
-            tail_T->next = current_T;
-            tail_T = current_T->next;
-            order++;
-          }
-        }
+      
+    
+      if (userInput == "Transction"){
+        
+        //Functions menu of transactions
+        cout << "Please select functions of transaction" << endl;
+        cout << "1. Create new transaction" << endl;
+        cout << "2. Get existing transaction" << endl;
+        cout << "3. Switch transactions" << endl;
+        cout << "4. Sort existing transactions accouring date" << endl;
+        cout << "5. List all transactions" << endl;
+        cout << "Please enter the number" << endl;
+
+        cin >> userInput;
+       
+        switch (userInput){
+          case 1:
+            //Create new dynamic transaction object
+            Transaction* current_T = new Transaction (order_T);
+            
+            //User enter infomation of transactions
+            cout << "Please enter transaction infomation" << endl;
+            cout << "Format: YYYYMMDD From To Amount" << endl;
+            
+            getline(cin,userInput);
+            string temp;
+            istringstream iss(userInput);
+            iss >> temp;
+            current_T->date = stoi(temp);
+            iss >> current_T->name_from;
+            iss >> current_T->name_to;
+            iss >> temp;
+            current_T->amount = stof(temp);
+
+            //Link the new created transaction to linked list
+            if (head_T = nullptr){
+              head_T = current_T;
+              tail_T = current_T;
+              current_T = head->next;
+            }
+            else{
+              tail_T->next = current_T;
+              tail_T = current_T->next;
+            }
+            order_T++;
+            break;
   }
 
   //store accounts and transactions to files
