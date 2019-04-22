@@ -19,26 +19,26 @@ transaction::transaction(string dateInput, float amountInput, account* acc1Input
   acc2 = acc2Input;
 }
 
-void setdate_T(string date_input){
-  date = stoi(date_input);
+void transaction::setDate(string date_input){
+  date = date_input;
 }
 
-void setAccount1(account*){
-  name_from = account->name;
+void transaction::setAccount1(account* acc){
+  acc1 = acc;
 }
 
-void setAccount2(account*){
-  name_to = account->name;
+void transaction::setAccount2(account* acc){
+  acc2 = acc;
 }
 
-void setamount(string amount_input){
-  amount = stoi(amount_input)
+void transaction::setAmount(string amount_input){
+  amount = stof(amount_input);
 }
 
-void setPrevious(transaction* acc){
-  previous = acc;
+void transaction::setPrevious(transaction* tran){
+  previous = tran;
 }
 
-void setNext(transaction* acc){
-  next = acc;
+void transaction::setNext(transaction* tran){
+  next = tran;
 }

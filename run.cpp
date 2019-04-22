@@ -128,7 +128,7 @@ int main(){
           cout << "3. Get information of an account" << endl;
           cout << "4. List all accounts in ascending order" << endl;
           cout << "5. List all accounts in descending order" << endl;
-
+          cout << "Please enter the number" << endl;
           cin >> userInput;
           string name;
           switch (stoi(userInput)) {

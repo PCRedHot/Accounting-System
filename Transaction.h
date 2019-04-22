@@ -13,11 +13,11 @@ public:
   transaction(string, float, account*);//main function needs to set previous and next transaction
   transaction(string, float, account*, account*);
 
-  void setdate_T(std::string);//atoi
-  void set_from_account(account*);
-  void set_to_account(account*);
-  void setamount_T(float);
+  void setDate(std::string);//atoi
+  void setAccount1(account*);
+  void setAccount2(account*);
+  void setAmount(float);
 
-  void setPrevious_T(transaction*);
-  void setNext_T(transaction*);
+  void setPrevious(transaction*);
+  void setNext(transaction*);
 };
