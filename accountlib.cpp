@@ -23,16 +23,29 @@ account* accountlib::getAccount(string InputName, account* head){
 //	output:	None
 void accountlib::switchAccount(account* acc1, account* acc2){
   account* tempP2 = acc2->previous, tempN2 = acc2->next;
-  acc2.setPrevious(acc1->previous);
-  acc2.setNext(acc1->next);
-  acc1.setPrevious(tempP2);
-  acc1.setPrevious(tempN2);
+  if (tempP2 != acc1 && tempN2 != acc1){
+    acc2->setPrevious(acc1->previous);
+    acc2->setNext(acc1->next);
+    acc1->setPrevious(tempP2);
+    acc1->setNext(tempN2);
+  }else if (tempP2 == acc1){
+    acc2->setPrevious(acc1->previous);
+    acc2->setNext(acc1);
+    acc1->setPrevious(acc2);
+    acc1->setNext(tempN2);
+  }else if (tempN2 == acc1){
+    acc2->setPrevious(acc1);
+    acc2->setNext(acc1->next);
+    acc1->setPrevious(tempP2);
+    acc1->setNext(acc2);
+  }
 };
 
 //Function: sort the accounts by balance, ascending order
 //	input: 	account* head - the pointer that point to the first account
 //	output:	None
 void accountlib::sortAccount_Balance(account* head){
+  if (head == nullptr) return;
   account* curr = head;
   bool change;
   while (change){
@@ -51,6 +64,7 @@ void accountlib::sortAccount_Balance(account* head){
 //	input: 	account* head - the pointer that point to the first account
 //	output:	None
 void accountlib::rsortAccount_Balance(account* head){
+  if (head == nullptr) return;
   account* curr = head;
   bool change;
   while (change){
