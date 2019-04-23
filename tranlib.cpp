@@ -70,8 +70,8 @@ void tranlib::listTransaction(transaction* head){
 };
 
 void tranlib::modifytransactions(transaction* current_T, account* head_A){
-  Account* fromAccount = head_A;
-  Account* toAccount = head_A;
+  account* fromAccount = head_A;
+  account* toAccount = head_A;
 
   while (current_T->name_from != fromAccount->name){
     fromAccount = fromAccount->next;
@@ -88,3 +88,11 @@ void tranlib::modifytransactions(transaction* current_T, account* head_A){
 
   cout << "Accounts have been modified!" << endl;
 };
+
+account* findNode (string nameinput, account* head_A){
+  account* current = head_A;
+  while (current->name != nameinput){
+    current = current->next;
+  }
+  return current;
+}
