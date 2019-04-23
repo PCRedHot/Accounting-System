@@ -3,7 +3,7 @@
 
 class transaction {
 public:
-  std::string date;	   //date of the transaction
+  int date;	   //date of the transaction
   account* acc1; //the first account of the transaction
   account* acc2; //the second account of the transaction
   float amount;	   //the transaction amount
@@ -21,5 +21,8 @@ public:
   void setPrevious(transaction*);
   void setNext(transaction*);
 
-  string getData(); //format DDMMYYY<tab>amount<tab>acc1(<tab>acc2)
+  void deleteTransaction();
+  void reverseTransaction();
+
+  string getData(); //format YYYYMMDD <tab> amount <tab> acc1 (<tab> acc2)
 };

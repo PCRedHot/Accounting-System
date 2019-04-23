@@ -47,6 +47,7 @@ int main(){
   file.close();
 
   //get transactions from file
+  file,open("transaction"); //line format: YYYYMMDD <tab> amount <tab> acc1 <tab> acc2
   //**TO-DO**//
 
 
@@ -86,7 +87,7 @@ int main(){
             string dateInput, acc1Input, acc2Input, amountInput;
             //User enter infomation of transactions
             cout << "Please enter transaction infomation" << endl;
-            cout << "Date (DDMMYYYY): ";
+            cout << "Date (YYYYMMDD): ";
             cin >> dateInput;
 
             if (stoi(input) == 1){
@@ -111,6 +112,9 @@ int main(){
               cout << "This transaction is not created" << endl;
               break;
             }
+            if (acc1->type != 1){
+              cout << "Account \""
+            }
             transaction* current_T;
             if (acc2Input != "none"){
               acc2 = getAccount(acc2Input, accHead);
@@ -119,11 +123,11 @@ int main(){
                 cout << "This transaction is not created" << endl;
                 break;
               }
-              current_T = new transaction(dateInput, stof(amountInput), acc1, acc2);
+              current_T = new transaction(stoi(dateInput), stof(amountInput), acc1, acc2);
               acc1->balance += amount;
               acc2->balance -= amount;
             }else{
-              current_T = new transaction(dateInput, stof(amountInput), acc1);
+              current_T = new transaction(stoi(dateInput), stof(amountInput), acc1);
               acc1->balance += amount;
             }
 
