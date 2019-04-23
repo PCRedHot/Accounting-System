@@ -44,7 +44,7 @@ int main(){
   file.close();
 
   //get transactions from file
-  file,open("transaction"); //line format: YYYYMMDD <tab> amount <tab> acc1 <tab> acc2
+  file.open("transaction"); //line format: YYYYMMDD <tab> amount <tab> acc1 <tab> acc2
   //**TO-DO**//
 
 
@@ -186,6 +186,10 @@ int main(){
               cout << "2. Revenue Account" << endl;
               cout << "3. Asset Account" << endl;
               cin >> typeAcc;
+              if (stoi(typeAcc) < 1 || stoi(typeAcc) > 3){
+                cout << "Unknown user input" << endl;
+                break;
+              }
               newAcc->type = stoi(typeAcc)-1;
               cout << "Account named \"" << name << "\" is created!" << endl;
             }
@@ -219,7 +223,13 @@ int main(){
               cout << fixed << setprecision(2);
               cout << "Current Balance: " <<  accPtr->balance;
               cout << "-----transaction History-----" << endl;
-              //**To-DO**//
+              transaction* curr = tranHead;
+              while (curr != nullptr){
+                if (curr->acc1 == accPtr || curr->acc2 == accPtr){
+                  cout << curr->getData << endl;
+                }
+                curr = curr->next;
+              }
             }
             break;
             }
@@ -240,7 +250,11 @@ int main(){
 
             case 6:
             {
-
+              string fileName;
+              cout << "Input the name of the file, include file type (e.g. output.txt)" << endl;
+              cin >> fileName;
+              outputAccountFile(accHead, fileName);
+              cout << "Output as \"" << fileName << "\"" << endl;
             }
 
             default:

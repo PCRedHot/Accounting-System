@@ -6,13 +6,13 @@
 using namespace std;
 
 
-transaction::transaction(string dateInput, float amountInput, account* acc1Input){
+transaction::transaction(int dateInput, float amountInput, account* acc1Input){
   date = dateInput;
   amount = amountInput;
   acc1 = acc1Input;
 };
 
-transaction::transaction(string dateInput, float amountInput, account* acc1Input, account* acc2Input){
+transaction::transaction(int dateInput, float amountInput, account* acc1Input, account* acc2Input){
   date = dateInput;
   amount = amountInput;
   acc1 = acc1Input;
