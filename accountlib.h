@@ -10,3 +10,4 @@ void rsortAccount_Balance(account*);
 void outputAccountFile(account*, string);
 account* getLastAccount(account*);
 void listAccount(account*);
+void deleteAccount(account*, account*&);

@@ -23,6 +23,4 @@ public:
   void setNext(account&);
 
   string getData();
-
-  void deleteAccount();
 };

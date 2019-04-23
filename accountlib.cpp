@@ -86,7 +86,7 @@ void outputAccountFile(account* head, string name){
     file.open(name);
     account* curr = head;
     while (curr != nullptr){
-      file << curr->getData();
+      file << curr->getData() << endl;
       curr = curr->next;
     }
     file.close();
@@ -105,8 +105,24 @@ account* getLastAccount(account* head){
 
 void listAccount(account* head){
   account* curr = head;
+  cout << "Name\tBalannce\tType" << endl;
   while (curr != nullptr){
-    cout << curr->getData();
+    cout << curr->getData() << endl;
     curr = curr->next;
   }
+};
+
+void deleteAccount(account* acc, account* &head){
+  if (acc->previous == nullptr && acc->next != nullptr){
+    acc->next->previous = nullptr;
+    head = acc->next;
+  }else if (acc->previous != nullptr && acc->next == nullptr){
+    acc->previous->next = nullptr;
+  }else if (acc->previous != nullptr && acc->next != nullptr){
+    acc->previous->next = acc->next;
+    acc->next->previous = acc->previous;
+  }else{
+    head = nullptr;
+  }
+  delete acc;
 };

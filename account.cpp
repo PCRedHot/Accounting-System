@@ -72,12 +72,3 @@ string account::getData(){
   string data = name + '\t' + to_string(balance) + '\t' + to_string(type);
   return data;
 };
-
-//Function: delete this account
-//	input:  None
-//	output: None
-void account::deleteAccount(){
-  previous->setNext(next);
-  next->setPrevious(previous);
-  delete this;
-};

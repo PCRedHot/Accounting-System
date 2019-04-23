@@ -32,6 +32,7 @@ int main(){
       NewAcc->type = stoi(line.substr(line.length()-1));
       if (curr != nullptr){
         NewAcc->setPrevious(curr);
+        NewAcc->next = nullptr;
         curr->setNext(NewAcc);
       }else{
         accHead = NewAcc;
@@ -75,15 +76,15 @@ int main(){
   //**TO-DO**//
 
 
-  cout << "intro" << endl;    //**TO-DO**//
   string userInput = "";
 
   while (userInput != "Exit"){
+      cout << "intro" << endl;
       cin >> userInput;
       //**TO-DO**//
       //reminders: check if it is the first account to be created!! if so, accHead = newAcc
 
-      if (userInput == "Transction"){
+      if (userInput == "Transaction"){
 
         //Functions menu of transactions
         cout << "Please select functions of transaction" << endl;
@@ -114,19 +115,18 @@ int main(){
             cin >> dateInput;
 
             if (stoi(input) == 1){
-              cout << endl << "Expense account: ";
+              cout << "Expense account: ";
               cin >> acc1Input;
-              cout << endl << "Account to deduct (input \'none\" if no asset account): ";
+              cout << "Asset account (input \"none\" if no asset account): ";
               cin >> acc2Input;
             }else {
-              cout << endl << "Revenue account: ";
+              cout << "Revenue account: ";
               cin >> acc1Input;
-              cout << endl << "Asset account  (input \'none\" if no asset account): ";
+              cout <<  "Asset account  (input \"none\" if no asset account): ";
               cin >> acc2Input;
             }
-            cout << endl << "Amount: ";
+            cout <<  "Amount: ";
             cin >> amountInput;
-            cout << endl;
 
             //Create new dynamic transaction object
             account* acc1 = getAccount(acc1Input, accHead);
@@ -136,12 +136,12 @@ int main(){
               cout << "This transaction is not created" << endl;
               break;
             }
-            if (acc1->type != 1 && stoi(input) == 1){
+            if (acc1->type != 0 && stoi(input) == 1){
               cout << "Account \"" << acc1Input << "\" is not an expense account!" << endl;
               cout << "This transaction is not created" << endl;
               break;
             }
-            if (acc1->type != 2 && stoi(input) == 2){
+            if (acc1->type != 1 && stoi(input) == 2){
               cout << "Account \"" << acc1Input << "\" is not a revenue account!" << endl;
               cout << "This transaction is not created" << endl;
               break;
@@ -154,8 +154,8 @@ int main(){
                 cout << "This transaction is not created" << endl;
                 break;
               }
-              if (acc2->type != 3){
-                cout << "Account \"" << acc1Input << "\" is not an asset account!" << endl;
+              if (acc2->type != 2){
+                cout << "Account \"" << acc2Input << "\" is not an asset account!" << endl;
                 cout << "This transaction is not created" << endl;
                 break;
               }
@@ -200,6 +200,7 @@ int main(){
           cout << "4. List all accounts in ascending order" << endl;
           cout << "5. List all accounts in descending order" << endl;
           cout << "6. Output all accounts to a file" << endl;
+          cout << "7. Set amount of an account" << endl;
           cout << "Please enter the number" << endl;
           cin >> userInput;
           string name;
@@ -219,6 +220,7 @@ int main(){
                 account* lastAcc = getLastAccount(accHead);
                 lastAcc->setNext(newAcc);
                 newAcc->setPrevious(lastAcc);
+                newAcc->next = nullptr;
               }
               string typeAcc;
               cout << "Which type is the account?" << endl;
@@ -240,12 +242,12 @@ int main(){
             {
             cout << "Please input the name of the account: ";
             cin >> name;
-            cout << endl;
             account* accPtr = getAccount(name, accHead);
             if (accPtr == nullptr){
               cout << "Account named \"" << name << "\" not exist!" << endl;
             }else{
-              accPtr->deleteAccount();
+              deleteAccount(accPtr, accHead);
+              cout << "Account \"" << name << "\" deleted!" << endl;
             }
             break;
             }
@@ -254,15 +256,15 @@ int main(){
             {
             cout << "Please input the name of the account: ";
             cin >> name;
-            cout << endl;
             account* accPtr = getAccount(name, accHead);
             if (accPtr == nullptr){
               cout << "Account named \"" << name << "\" not exist!" << endl;
             }else{
               cout << "Account information of " << name << ":"<< endl;
               cout << fixed << setprecision(2);
-              cout << "Current Balance: " <<  accPtr->balance;
+              cout << "Current Balance: " <<  accPtr->balance << endl;
               cout << "-----transaction History-----" << endl;
+              cout << "Date\tType\tBalance\tAccount1\tAccount2" << endl;
               transaction* curr = tranHead;
               while (curr != nullptr){
                 if (curr->acc1 == accPtr || curr->acc2 == accPtr){
@@ -291,10 +293,35 @@ int main(){
             case 6:
             {
               string fileName;
-              cout << "Input the name of the file, include file type (e.g. output.txt)" << endl;
+              cout << "Input the name of the file, include file type (e.g. output.txt): ";
               cin >> fileName;
               outputAccountFile(accHead, fileName);
               cout << "Output as \"" << fileName << "\"" << endl;
+              break;
+            }
+
+            case 7:
+            {
+              string accName, input, input2;
+              cout << "Input the name of the account: ";
+              cin >> accName;
+              cout << "Input the amount: ";
+              cin >> input;
+              cout << "!WARNING! THIS ACTION WILL CHANGE THE AMOUNT OF THE ACCOUNT DIRECTLY!" << endl;
+              cout << "Proceed? (Y/N) ";
+              cin >> input2;
+              if (input2 != "Y"){
+                cout << "Cancelled" << endl;
+              }else{
+                account* accPtr = getAccount(accName, accHead);
+                if (accPtr == nullptr){
+                  cout << "Account named \"" << accName << "\" not exist!" << endl;
+                }else{
+                  cout << accName << " has been set to " << input << endl;
+                  accPtr->balance = stof(input);
+                }
+              }
+              break;
             }
 
             default:

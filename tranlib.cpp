@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-transaction* getLastTransaction(string date, transaction* head){
+transaction* getLastTransaction(transaction* head){
   transaction* curr = head;
   while (curr->next != nullptr){
     curr = curr->next;
