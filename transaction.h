@@ -3,7 +3,8 @@
 
 class transaction {
 public:
-  int date;	   //date of the transaction YYYYMMDD
+  int date; //date of the transaction YYYYMMDD
+  int type;
   account* acc1; //the first account of the transaction
   account* acc2; //the second account of the transaction
   float amount;	   //the transaction amount
@@ -24,5 +25,5 @@ public:
   void deleteTransaction();
   void reverseTransaction();
 
-  string getData(); //format YYYYMMDD <tab> amount <tab> acc1 (<tab> acc2)
+  string getData(); //format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
 };

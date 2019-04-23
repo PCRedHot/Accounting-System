@@ -44,9 +44,17 @@ void transaction::setNext(transaction* tran){
 };
 
 string transaction::getData(){
-  string output = to_string(date) + '\t' + to_string(amount) + '\t' + acc1->name;
+  string output = to_string(date) + '\t' + type + '\t' + to_string(amount) + '\t' + acc1->name;
   if (acc2 != nullptr) output += '\t' acc2-> name;
   return output;
 };// format: YYYYMMDD <tab> amount <tab> acc1 <tab> acc2
 
-void
+void transaction::deleteTransaction(){
+  previous->setNext(next);
+  next->setPrevious(previous);
+  delete this;
+}
+
+void transaction::reverseTransaction(){
+
+}

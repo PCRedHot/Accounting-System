@@ -44,7 +44,7 @@ int main(){
   file.close();
 
   //get transactions from file
-  file.open("transaction"); //line format: YYYYMMDD <tab> amount <tab> acc1 <tab> acc2
+  file.open("transaction"); //line format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
   //**TO-DO**//
 
 
@@ -90,12 +90,12 @@ int main(){
             if (stoi(input) == 1){
               cout << endl << "Expense account: ";
               cin >> acc1Input;
-              cout << endl << "Account to deduct (input \'none\" if no second account): ";
+              cout << endl << "Account to deduct (input \'none\" if no asset account): ";
               cin >> acc2Input;
             }else {
-              cout << endl << "revenue account: ";
+              cout << endl << "Revenue account: ";
               cin >> acc1Input;
-              cout << endl << "Account to deduct (input \'none\" if no second account): ";
+              cout << endl << "Asset account  (input \'none\" if no asset account): ";
               cin >> acc2Input;
             }
             cout << endl << "Amount: ";
@@ -103,14 +103,22 @@ int main(){
             cout << endl;
 
             //Create new dynamic transaction object
-            account* acc1 = getAccount(acc1Input, accHead), acc2;
+            account* acc1 = getAccount(acc1Input, accHead);
+            account* acc2;
             if (acc1 == nullptr){
               cout << "Account \"" << acc1Input << "\" not found!" << endl;
               cout << "This transaction is not created" << endl;
               break;
             }
-            if (acc1->type != 1){
-              cout << "Account \""
+            if (acc1->type != 1 && stoi(input) == 1){
+              cout << "Account \"" << acc1Input << "\" is not an expense account!" << endl;
+              cout << "This transaction is not created" << endl;
+              break;
+            }
+            if (acc1->type != 2 && stoi(input) == 2){
+              cout << "Account \"" << acc1Input << "\" is not a revenue account!" << endl;
+              cout << "This transaction is not created" << endl;
+              break;
             }
             transaction* current_T;
             if (acc2Input != "none"){
@@ -120,22 +128,32 @@ int main(){
                 cout << "This transaction is not created" << endl;
                 break;
               }
+              if (acc2->type != 3){
+                cout << "Account \"" << acc1Input << "\" is not an asset account!" << endl;
+                cout << "This transaction is not created" << endl;
+                break;
+              }
               current_T = new transaction(stoi(dateInput), stof(amountInput), acc1, acc2);
-              acc1->balance += amount;
-              acc2->balance -= amount;
+              acc1->balance += stof(amountInput);
+              if (stoi(input) == 1){
+                acc2->balance -= stof(amountInput);
+              } else{
+                acc2->balance += stof(amountInput);
+              }
             }else{
               current_T = new transaction(stoi(dateInput), stof(amountInput), acc1);
-              acc1->balance += amount;
+              acc1->balance += stof(amountInput);
             }
 
             //Link the new created transaction to linked list
-            if (head_T == nullptr){
-              head_T = current_T;
+            if (tranHead == nullptr){
+              tranHead = current_T;
             }else{
-              transaction* last = getLastTransaction(head_T);
+              transaction* last = getLastTransaction(tranHead);
               last->setNext(current_T);
               current_T->setPrevious(last);
             }
+            current_T->type = stoi(input);
 
             //modifyAccounts(current_T, head_A); ??
             break;
@@ -143,13 +161,9 @@ int main(){
 
           case 2:
             break;
-.
+
           case 5:
-            transaction* current_T = head_T
-            while (current_T->next != nullptr) {
-              outputtransaction(current_T);
-            }
-            cout << "All transactions listed!" <<endl;
+            listTransaction(tranHead);
             break;
           }
         }else if (userInput == "Account"){
@@ -226,7 +240,7 @@ int main(){
               transaction* curr = tranHead;
               while (curr != nullptr){
                 if (curr->acc1 == accPtr || curr->acc2 == accPtr){
-                  cout << curr->getData << endl;
+                  cout << curr->getData() << endl;
                 }
                 curr = curr->next;
               }
