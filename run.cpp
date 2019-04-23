@@ -13,7 +13,8 @@ using namespace std;
 
 //========================================
 static account* accHead; //head account pointer
-static transaction* tranHead;  //head transaction pointer
+static transaction* tranHead = nullptr;  //head transaction pointer
+static transaction* tranTail = nullptr;
 
 int main(){
   //Create head and tail of transaction, point to nullptr
@@ -44,7 +45,33 @@ int main(){
   file.close();
 
   //get transactions from file
-  file.open("transaction"); //line format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
+  file.open("transaction"); //line format: YYYYMMDD <tab> amount <tab> acc1 <tab> acc2
+  if (file.is_open()){
+    string line;
+    istringstream iss(line);
+    while (getline(file, line)){
+
+      transaction* current_T = nullptr;
+      string date, acc1, acc2, amount;
+      iss >> date >> amount >> acc1 >> acc2;
+      if (!acc2.empty())
+        current_T = new transaction(stoi(date), stof(amount), findNode(acc1, accHead), findNode(acc2, accHead));
+      else  current_T = new transaction(stoi(date), stof(amount), findNode(acc1, accHead));
+
+      if (tranHead != nullptr){
+        tranTail->next = current_T;
+        tranTail = current_T;
+      }
+      else{
+        tranHead = current_T;
+        tranTail = current_T;
+      }
+
+    }
+  }else{
+    cout << "No transaction file is found !" << endl;
+  }
+  file.close();
   //**TO-DO**//
 
 
@@ -61,10 +88,9 @@ int main(){
         //Functions menu of transactions
         cout << "Please select functions of transaction" << endl;
         cout << "1. Create new transaction" << endl;
-        cout << "2. Get existing transaction" << endl;
-        cout << "3. Switch transactions" << endl;
-        cout << "4. Sort existing transactions accouring date" << endl;
-        cout << "5. List all transactions" << endl;
+        cout << "2. Get transactions on specific date" << endl;
+        cout << "3. Sort existing transactions accouring date" << endl;
+        cout << "4. List all transactions" << endl;
         cout << "Please enter the number" << endl;
 
         cin >> userInput;
