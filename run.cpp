@@ -12,7 +12,7 @@ using namespace std;
 //functions
 
 //========================================
-static account* accHead; //head account pointer
+static account* accHead = nullptr; //head account pointer
 static transaction* tranHead = nullptr;  //head transaction pointer
 static transaction* tranTail = nullptr;
 
@@ -24,7 +24,7 @@ int main(){
   file.open("account");
   if (file.is_open()){
     string line;  //line format: name <tab> balance <tab> type
-    account* curr;
+    account* curr = nullptr;
     while (getline(file, line)){
       int substrIndex = line.find('\t');
       string name = line.substr(0, substrIndex);
@@ -54,22 +54,23 @@ int main(){
       transaction* current_T = nullptr;
       string date, acc1, acc2, amount;
       iss >> date >> amount >> acc1 >> acc2;
-      if (!acc2.empty())
-        current_T = new transaction(stoi(date), stof(amount), findNode(acc1, accHead), findNode(acc2, accHead));
-      else  current_T = new transaction(stoi(date), stof(amount), findNode(acc1, accHead));
+      if (!acc2.empty()){
+        current_T = new transaction(accHead, stoi(date), stof(amount), acc1, acc2);
+      }else{
+        current_T = new transaction(accHead, stoi(date), stof(amount), acc1);
+      }
 
       if (tranHead != nullptr){
         tranTail->next = current_T;
         tranTail = current_T;
-      }
-      else{
+      }else{
         tranHead = current_T;
         tranTail = current_T;
       }
 
     }
   }else{
-    cout << "No transaction file is found !" << endl;
+    cout << "No transaction file is found" << endl;
   }
   file.close();
   //**TO-DO**//

@@ -7,14 +7,18 @@ public:
   int type;
   account* acc1; //the first account of the transaction
   account* acc2; //the second account of the transaction
+  string name1;
+  string name2;
   float amount;	   //the transaction amount
   transaction* previous;
   transaction* next;
 
-  transaction(int, float, account*);//main function needs to set previous and next transaction
+  transaction(account*, int, float, std::string);//main function needs to set previous and next transaction
+  transaction(account*, int, float, std::string, std::string);
   transaction(int, float, account*, account*);
+  transaction(int, float, account*);
 
-  void setDate(std::string);//atoi
+  void setDate(std::string);
   void setAccount1(account*);
   void setAccount2(account*);
   void setAmount(float);

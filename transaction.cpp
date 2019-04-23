@@ -6,10 +6,20 @@
 using namespace std;
 
 
-transaction::transaction(int dateInput, float amountInput, account* acc1Input){
+transaction::transaction(account* head, int dateInput, float amountInput, string acc1Input){
   date = dateInput;
   amount = amountInput;
   acc1 = acc1Input;
+  acc1 = getAccount(acc1Input, head);
+};
+
+transaction::transaction(account* head, int dateInput, float amountInput, string acc1Input, string acc2Input){
+  date = dateInput;
+  amount = amountInput;
+  name1 = acc1Input;
+  name2 = acc2Input;
+  acc1 = getAccount(acc1Input, head);
+  acc2 = getAccount(acc2Input, head);
 };
 
 transaction::transaction(int dateInput, float amountInput, account* acc1Input, account* acc2Input){
@@ -17,6 +27,15 @@ transaction::transaction(int dateInput, float amountInput, account* acc1Input, a
   amount = amountInput;
   acc1 = acc1Input;
   acc2 = acc2Input;
+  name1 = acc1Input->name;
+  name2 = acc2Input->name;
+};
+
+transaction::transaction(int dateInput, float amountInput, account* acc1Input){
+  date = dateInput;
+  amount = amountInput;
+  acc1 = acc1Input;
+  name1 = acc1Input->name;
 };
 
 void transaction::setDate(string date_input){
@@ -44,8 +63,8 @@ void transaction::setNext(transaction* tran){
 };
 
 string transaction::getData(){
-  string output = to_string(date) + '\t' + type + '\t' + to_string(amount) + '\t' + acc1->name;
-  if (acc2 != nullptr) output += '\t' acc2-> name;
+  string output = to_string(date) + '\t' + type + '\t' + to_string(amount) + '\t' + name1;
+  if (name2 != "") output += '\t' + name2;
   return output;
 };// format: YYYYMMDD <tab> amount <tab> acc1 <tab> acc2
 
