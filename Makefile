@@ -13,7 +13,7 @@ tranlib.o:tranlib.cpp tranlib.h
 run.o:run.cpp accountlib.h tranlib.h
 	g++ -c $<
 
-run:run.o accout.o accountlib.o transaction.o tranlib.o
+run:run.o account.o accountlib.o transaction.o tranlib.o
 	g++ $^ -o $@
 
 clean:
