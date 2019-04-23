@@ -1,11 +1,12 @@
 #include "account.h"
 #include <string>
-#include <iostream>
 
-account* getAccount(std::string, account*);
+using namespace std;
+
+account* getAccount(string, account*);
 void switchAccount(account*, account*);
 void sortAccount_Balance(account*);
 void rsortAccount_Balance(account*);
-void outputAccountFile(account*, std::string);
+void outputAccountFile(account*, string);
 account* getLastAccount(account*);
 void listAccount(account*);

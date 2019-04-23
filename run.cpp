@@ -3,7 +3,6 @@
 #include <sstream>
 #include <iomanip>
 #include <fstream>
-#include "accountlib.h"
 #include "tranlib.h"
 
 using namespace std;

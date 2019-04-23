@@ -1,13 +1,13 @@
 account.o:account.cpp account.h
 	g++ -c $<
 
-accountlib.o:accountlib.cpp accountlib.h
+accountlib.o:accountlib.cpp accountlib.h account.h
 	g++ -c $<
 
-transaction.o:transaction.cpp transaction.h
+transaction.o:transaction.cpp transaction.h account.h accountlib.h
 	g++ -c $<
 
-tranlib.o:tranlib.cpp tranlib.h
+tranlib.o:tranlib.cpp tranlib.h accountlib.h transaction.h
 	g++ -c $<
 
 run.o:run.cpp accountlib.h tranlib.h

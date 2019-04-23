@@ -3,16 +3,16 @@
 #include <string>
 using namespace std;
 
-transaction* tranlib::getLastTransaction(string date, transaction* head){
-  curr = head;
+transaction* getLastTransaction(string date, transaction* head){
+  transaction* curr = head;
   while (curr->next != nullptr){
     curr = curr->next;
   }
   return curr;
 };
 
-void tranlib::switchTransation(transaction* tran1, transaction* tran2){
-  transaction* tempP2 = tran2->previous, tempN2 = tran2->next;
+void switchTransation(transaction* tran1, transaction* tran2){
+  transaction* tempP2 = tran2->previous, *tempN2 = tran2->next;
   if (tempP2 != tran1 && tempN2 != tran1){
     tran2->setPrevious(tran1->previous);
     tran2->setNext(tran1->next);
@@ -31,14 +31,14 @@ void tranlib::switchTransation(transaction* tran1, transaction* tran2){
   }
 };
 
-void tranlib::sortTransaction_Date(transaction* head){
+void sortTransaction_Date(transaction* head){
   if (head == nullptr) return;
   transaction* curr = head;
   bool change = true;
   while (change){
     change = false;
     while (curr->next != nullptr){
-      if (stoi(curr->date) > stoi(curr->next->date)){
+      if (curr->date > curr->next->date){
         switchTransation(curr, curr->next);
         change = true;
       }
@@ -46,14 +46,14 @@ void tranlib::sortTransaction_Date(transaction* head){
   }
 };
 
-void tranlib::rsortTransaction_Date(transaction* head){
+void rsortTransaction_Date(transaction* head){
   if (head == nullptr) return;
   transaction* curr = head;
   bool change = true;
   while (change){
     change = false;
     while (curr->next != nullptr){
-      if (stoi(curr->date) < stoi(curr->next->date)){
+      if (curr->date < curr->next->date){
         switchTransation(curr, curr->next);
         change = true;
       }
@@ -61,32 +61,12 @@ void tranlib::rsortTransaction_Date(transaction* head){
   }
 };
 
-void tranlib::listTransaction(transaction* head){
+void listTransaction(transaction* head){
   transaction* curr = head;
   while (curr != nullptr){
     cout << curr->getData();
     curr = curr->next;
   }
-};
-
-void tranlib::modifytransactions(transaction* current_T, account* head_A){
-  account* fromAccount = head_A;
-  account* toAccount = head_A;
-
-  while (current_T->name_from != fromAccount->name){
-    fromAccount = fromAccount->next;
-  }
-  while (current_T->name_to != toAccount->name){
-    toAccount = toAccount->next;
-  }
-
-  fromAccount->balance -= current_T->amount;
-  toAccount->balance += current_T->amount;
-
-  fromAccount = nullptr;
-  toAccount = nullptr;
-
-  cout << "Accounts have been modified!" << endl;
 };
 
 account* findNode (string nameinput, account* head_A){

@@ -1,5 +1,6 @@
 #include "accountlib.h"
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -7,7 +8,7 @@ using namespace std;
 //	input: 	string InputName - name to search
 //	        account* head - the pointer that point to the first account
 //	output:	account* - pointer that point to account that named InputName
-account* accountlib::getAccount(string InputName, account* head){
+account* getAccount(string InputName, account* head){
   account* curr = head;
   while (curr != nullptr){
     if (curr->name == InputName) return curr;
@@ -21,8 +22,8 @@ account* accountlib::getAccount(string InputName, account* head){
 //	input: 	account* acc1 - first account
 //	        account* acc2 - second account
 //	output:	None
-void accountlib::switchAccount(account* acc1, account* acc2){
-  account* tempP2 = acc2->previous, tempN2 = acc2->next;
+void switchAccount(account* acc1, account* acc2){
+  account* tempP2 = acc2->previous, *tempN2 = acc2->next;
   if (tempP2 != acc1 && tempN2 != acc1){
     acc2->setPrevious(acc1->previous);
     acc2->setNext(acc1->next);
@@ -44,7 +45,7 @@ void accountlib::switchAccount(account* acc1, account* acc2){
 //Function: sort the accounts by balance, ascending order
 //	input: 	account* head - the pointer that point to the first account
 //	output:	None
-void accountlib::sortAccount_Balance(account* head){
+void sortAccount_Balance(account* head){
   if (head == nullptr) return;
   account* curr = head;
   bool change;
@@ -63,7 +64,7 @@ void accountlib::sortAccount_Balance(account* head){
 //Function: sort the accounts by balance, descending order
 //	input: 	account* head - the pointer that point to the first account
 //	output:	None
-void accountlib::rsortAccount_Balance(account* head){
+void rsortAccount_Balance(account* head){
   if (head == nullptr) return;
   account* curr = head;
   bool change;
@@ -79,11 +80,11 @@ void accountlib::rsortAccount_Balance(account* head){
   }
 };
 
-void accountlib::outputAccountFile(account* head, string name){
+void outputAccountFile(account* head, string name){
   if (head != nullptr){
     ofstream file;
     file.open(name);
-    account* curr = accHead;
+    account* curr = head;
     while (curr != nullptr){
       file << curr->getData();
       curr = curr->next;
@@ -94,7 +95,7 @@ void accountlib::outputAccountFile(account* head, string name){
   }
 };
 
-account* accountlib::getLastAccount(account* head){
+account* getLastAccount(account* head){
   account* curr = head;
   while (curr->next != nullptr){
     curr = curr->next;
@@ -102,7 +103,7 @@ account* accountlib::getLastAccount(account* head){
   return curr;
 };
 
-void accountlib::listAccount(account* head){
+void listAccount(account* head){
   account* curr = head;
   while (curr != nullptr){
     cout << curr->getData();
