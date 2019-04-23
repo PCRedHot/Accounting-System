@@ -6,6 +6,6 @@ account* getAccount(std::string, account*);
 void switchAccount(account*, account*);
 void sortAccount_Balance(account*);
 void rsortAccount_Balance(account*);
-void outputAccountFile(account*);
+void outputAccountFile(account*, std::string);
 account* getLastAccount(account*);
 void listAccount(account*);

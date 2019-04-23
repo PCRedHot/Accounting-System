@@ -48,3 +48,5 @@ string transaction::getData(){
   if (acc2 != nullptr) output += '\t' acc2-> name;
   return output;
 };// format: YYYYMMDD <tab> amount <tab> acc1 <tab> acc2
+
+void

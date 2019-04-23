@@ -79,10 +79,10 @@ void accountlib::rsortAccount_Balance(account* head){
   }
 };
 
-void accountlib::outputAccountFile(account* head){
+void accountlib::outputAccountFile(account* head, string name){
   if (head != nullptr){
     ofstream file;
-    file.open("account");
+    file.open(name);
     account* curr = accHead;
     while (curr != nullptr){
       file << curr->getData();

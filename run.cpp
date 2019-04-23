@@ -17,9 +17,6 @@ static transaction* tranHead;  //head transaction pointer
 
 int main(){
   //Create head and tail of transaction, point to nullptr
-  transaction* head_T = nullptr;
-  transaction* tail_T = nullptr;
-  //
 
   //get accounts from file
   ifstream file;
@@ -162,6 +159,7 @@ int main(){
           cout << "3. Get information of an account" << endl;
           cout << "4. List all accounts in ascending order" << endl;
           cout << "5. List all accounts in descending order" << endl;
+          cout << "6. Output all accounts to a file" << endl;
           cout << "Please enter the number" << endl;
           cin >> userInput;
           string name;
@@ -240,6 +238,11 @@ int main(){
             break;
             }
 
+            case 6:
+            {
+
+            }
+
             default:
             {
             cout << "Unknown user input" << endl;
@@ -251,7 +254,7 @@ int main(){
   }
 
   //store accounts and transactions to files
-  outputAccountFile(accHead);
+  outputAccountFile(accHead, "account");
   //**TO-DO**//
 
   return 0;
