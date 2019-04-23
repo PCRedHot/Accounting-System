@@ -88,10 +88,9 @@ int main(){
         //Functions menu of transactions
         cout << "Please select functions of transaction" << endl;
         cout << "1. Create new transaction" << endl;
-        cout << "2. Get existing transaction" << endl;
-        cout << "3. Switch transactions" << endl;
-        cout << "4. Sort existing transactions accouring date" << endl;
-        cout << "5. List all transactions" << endl;
+        cout << "2. Get transactions on specific date" << endl;
+        cout << "3. Sort existing transactions accouring date" << endl;
+        cout << "4. List all transactions" << endl;
         cout << "Please enter the number" << endl;
 
         cin >> userInput;
@@ -171,7 +170,7 @@ int main(){
           case 2:
             break;
 .
-          case 5:
+          case 4:
             transaction* current_T = head_T
             while (current_T->next != nullptr) {
               outputtransaction(current_T);
