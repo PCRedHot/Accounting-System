@@ -68,7 +68,7 @@ void account::setNext(account& acc){
 //	input:  None
 //	output: data - data of the account in standard format
 string account::getData(){
-  string data = date + '\t' + to_string(balance);
+  string data = name + '\t' + to_string(balance) + '\t' + to_string(type);
   return data;
 };
 

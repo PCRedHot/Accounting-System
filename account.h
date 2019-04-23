@@ -9,6 +9,7 @@ public:
   float balance;
   account* previous;
   account* next;
+  int type; //0: expense 1: revenue 2: asset
 
   account(string);
   account(string, float);

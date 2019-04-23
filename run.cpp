@@ -25,13 +25,14 @@ int main(){
   ifstream file;
   file.open("account");
   if (file.is_open()){
-    string line;  //line format: name <tab> balance
+    string line;  //line format: name <tab> balance <tab> type
     account* curr;
     while (getline(file, line)){
       int substrIndex = line.find('\t');
       string name = line.substr(0, substrIndex);
-      float balance = stof(line.substr(substrIndex+1, line.length()-substrIndex-1));
+      float balance = stof(line.substr(substrIndex+1, line.length()-substrIndex-3));
       account* NewAcc = new account(name, balance);
+      NewAcc->type = stoi(line.substr(line.length()-1));
       if (curr != nullptr){
         NewAcc->setPrevious(curr);
         curr->setNext(NewAcc);
@@ -73,33 +74,57 @@ int main(){
         switch (stoi(userInput)){
           case 1:
           {
+            string input;
+            cout << "Which kinds of transaction you want to record?" << endl;
+            cout << "1. Expenses" << endl;
+            cout << "2. Revenues" << endl;
+            cin >> input;
+            if (stoi(input) > 2 || stoi(input) < 1){
+              cout << "Unknown user input, returning to menu" << endl;
+              break;
+            }
             string dateInput, acc1Input, acc2Input, amountInput;
             //User enter infomation of transactions
             cout << "Please enter transaction infomation" << endl;
             cout << "Date (DDMMYYYY): ";
             cin >> dateInput;
-            cout << endl << "Account 1: ";
-            cin >> acc1Input;
-            cout << endl << "Account 2 (input \'none\" if no second account): ";
-            cin >> acc2Input;
+
+            if (stoi(input) == 1){
+              cout << endl << "Expense account: ";
+              cin >> acc1Input;
+              cout << endl << "Account to deduct (input \'none\" if no second account): ";
+              cin >> acc2Input;
+            }else {
+              cout << endl << "revenue account: ";
+              cin >> acc1Input;
+              cout << endl << "Account to deduct (input \'none\" if no second account): ";
+              cin >> acc2Input;
+            }
             cout << endl << "Amount: ";
             cin >> amountInput;
             cout << endl;
 
             //Create new dynamic transaction object
-            account* acc1 = getAccount(acc1Input), acc2;
+            account* acc1 = getAccount(acc1Input, accHead), acc2;
             if (acc1 == nullptr){
+              cout << "Account \"" << acc1Input << "\" not found!" << endl;
+              cout << "This transaction is not created" << endl;
               break;
             }
             transaction* current_T;
             if (acc2Input != "none"){
-              acc2 = getAccount(acc2Input);
+              acc2 = getAccount(acc2Input, accHead);
               if (acc2 == nullptr){
+                cout << "Account \"" << acc2Input << "\" not found!" << endl;
+                cout << "This transaction is not created" << endl;
                 break;
               }
               current_T = new transaction(dateInput, stof(amountInput), acc1, acc2);
+              acc1->balance += amount;
+              acc2->balance -= amount;
             }else{
               current_T = new transaction(dateInput, stof(amountInput), acc1);
+              acc1->balance += amount;
             }
 
             //Link the new created transaction to linked list
@@ -153,6 +178,13 @@ int main(){
                 lastAcc->setNext(newAcc);
                 newAcc->setPrevious(lastAcc);
               }
+              string typeAcc;
+              cout << "Which type is the account?" << endl;
+              cout << "1. Expense Account" << endl;
+              cout << "2. Revenue Account" << endl;
+              cout << "3. Asset Account" << endl;
+              cin >> typeAcc;
+              newAcc->type = stoi(typeAcc)-1;
               cout << "Account named \"" << name << "\" is created!" << endl;
             }
             break;
