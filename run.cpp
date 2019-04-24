@@ -255,31 +255,45 @@ int main(){
               }
               beforeTran = beforeTran->next;
             }
+            tranHead = tranHead_new;
           }
 
           case 5:
-            listTransaction(tranHead);
+            {
+            transaction* current_output = tranHead;
+            cout<< "Date  Type  Account1  Account2  Amount";//Need to correct format
+            while (current_output != nullptr){
+              cout << current_output->date << " ";
+              if (current_output->type == 1) cout << "Expense" <<" ";
+              else  cout << "Revenue" <<" ";
+              cout << current_output->name1 << " ";
+              if (!current_output->name2.empty()) cout << current_output->name2 << " ";
+              cout << current_output->amount <<endl;
+            }
+            current_output = nullptr;
             break;
+            }
 
           case 6:
-            //Open file and output transactions
-            ofstream fout("transaction");
-            if (fout.is_open()){
-              transaction* current_output = tranHead;
-              cout<< "Date  Type  Account1  Account2  Amount";//Need to correct format
-              while (current_output != nullptr){
-                fout << current_output->date << " ";
-                if (current_output->type == 1) cout << "Expense" <<" ";
-                else  cout << "Revenue" <<" ";
-                fout << current_output->name1 << " ";
-                if (!current_output->name2.empty()) cout << current_output->name2 << " ";
-                fout << current_output->amount <<endl;
+            {
+              ofstream fout("transaction");
+              if (fout.is_open()){
+                transaction* current_output = tranHead;
+                cout<< "Date  Type  Account1  Account2  Amount";//Need to correct format
+                while (current_output != nullptr){
+                  fout << current_output->date << " ";
+                  if (current_output->type == 1) fout << "Expense" <<" ";
+                  else  fout << "Revenue" <<" ";
+                  fout << current_output->name1 << " ";
+                  if (!current_output->name2.empty()) fout << current_output->name2 << " ";
+                  fout << current_output->amount <<endl;
+                }
               }
+              fout.close();
+
+              cout << "All Transactions have been outputed to file!" << endl;
+              break;
             }
-            fout.close();
-            /////
-            cout << "All Transactions have been outputed to file!" << endl;
-            break;
           }
         }
         else if (userInput == "Account"){
