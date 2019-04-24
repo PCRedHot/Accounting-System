@@ -95,9 +95,9 @@ int main(){
         cout << "1. Create new transaction" << endl;
         cout << "2. Get transactions on specific date" << endl;
         cout << "3. Get transactions of particular type" << endl;
-        cout << "3. Sort existing transactions accouring date" << endl;
-        cout << "4. List all transactions" << endl;
-        cout << "5. Output all transactions to file" << endl;
+        cout << "4. Sort existing transactions accouring date" << endl;
+        cout << "5. List all transactions" << endl;
+        cout << "6. Output all transactions to file" << endl;
         cout << "Please enter the number" << endl;
 
         cin >> userInput;
@@ -128,7 +128,7 @@ int main(){
             }else {
               cout << "Revenue account: ";
               cin >> acc1Input;
-              cout <<  "Asset account  (input \"none\" if no asset account): ";
+              cout <<  "Asset account (input \"none\" if no asset account): ";
               cin >> acc2Input;
             }
             cout <<  "Amount: ";
@@ -196,6 +196,26 @@ int main(){
 
           case 5:
             listTransaction(tranHead);
+            break;
+
+          case 6:
+            //Open file and output transactions
+            ofstream fout("transaction");
+            if (fout.is_open()){
+              transaction* current_output = tranHead;
+              cout<< "Date  Type  Account1  Account2  Amount";//Need to correct format
+              while (current_output != nullptr){
+                fout << current_output->date << " ";
+                if (current_output->type == 1) cout << "Expense" <<" ";
+                else  cout << "Revenue" <<" ";
+                fout << current_output->name1 << " ";
+                if (!current_output->name2.empty()) cout << current_output->name2 << " ";
+                fout << current_output->amount <<endl;
+              }
+            }
+            fout.close();
+            /////
+            cout << "All Transactions have been outputed to file!" << endl;
             break;
           }
         }else if (userInput == "Account"){
