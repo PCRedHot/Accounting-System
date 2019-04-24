@@ -78,3 +78,18 @@ void transaction::deleteTransaction(){
 void transaction::reverseTransaction(){
 
 }
+
+transaction* find_insert(transaction* head, int datetemp){
+  if (head == nullptr || head->date >= datetemp)
+    return nullptr;
+
+  transaction* current = head;
+
+  while (current->next != nullptr){
+    if (current->next->date >= datetemp)
+      return current;
+    else current = current->;
+  }
+
+  return current;
+}

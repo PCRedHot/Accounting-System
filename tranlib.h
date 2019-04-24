@@ -7,3 +7,4 @@ void sortTransaction_Date(transaction*);
 void rsortTransaction_Date(transaction*);
 void listTransaction(transaction*);
 string typeofTran (int);
+transaction* find_insert(transaction*, int);

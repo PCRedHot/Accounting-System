@@ -230,30 +230,29 @@ int main(){
 
           case 4:{
             transaction* tranHead_new = nullptr;
-            transaction* tranTail_new = nullptr;
             transaction* beforeTran = tranHead;
 
             int dateBefore;
             while (beforeTran != nullptr){
               transaction* current_T_new = tranHead_new;
-              dateBefore = beforeTran->date;
               transaction temp = *beforeTran;
+              temp.previous = nullptr;
+              temp.next = nullptr;
+              transaction* afterthis = find_insert(tranHead_new, temp.date);
 
-              if (tranHead_new != nullptr){
-                while( current_T_new->next->date < temp.date){
-                  current_T_new = current_T_new->next;
-                }
-                temp.next = current_T_new->next;
-                current_T_new->next = &temp;
+              if (afterthis == nullptr){
+                temp.next = tranHead_new;
+                tranHead_new = &temp;
+                temp.previous = nullptr;
               }
               else {
-                tranHead_new = &temp;
-                tranTail_new = &temp;
-                temp.previous = nullptr;
-                temp.next = nullptr;
+
+                afterthis->next->previous = &temp;
+                temp.next = afterthis->next;
+                temp.previous = afterthis;
+                afterthis->next = &temp;
+
               }
-
-
               beforeTran = beforeTran->next;
             }
           }
