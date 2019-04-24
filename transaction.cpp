@@ -3,21 +3,24 @@
 #include "transaction.h"
 using namespace std;
 
-
-transaction::transaction(account* head, int dateInput, float amountInput, string acc1Input){
+transaction::transaction(account* head, int dateInput, string typeInput, float amountInput, string acc1Input){
   date = dateInput;
   amount = amountInput;
   name1 = acc1Input;
   acc1 = getAccount(acc1Input, head);
+  //Type: 1. Expense 2. Revenue
+  type = (typeInput = "Expense")?1:2;
 };
 
-transaction::transaction(account* head, int dateInput, float amountInput, string acc1Input, string acc2Input){
+transaction::transaction(account* head, int dateInput, string type, float amountInput, string acc1Input, string acc2Input){
   date = dateInput;
   amount = amountInput;
   name1 = acc1Input;
   name2 = acc2Input;
   acc1 = getAccount(acc1Input, head);
   acc2 = getAccount(acc2Input, head);
+  //Type: 1. Expense 2. Revenue
+  type = (typeInput = "Expense")?1:2;
 };
 
 transaction::transaction(int dateInput, float amountInput, account* acc1Input, account* acc2Input){

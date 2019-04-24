@@ -6,4 +6,3 @@ void switchTransation(transaction*, transaction*);
 void sortTransaction_Date(transaction*);
 void rsortTransaction_Date(transaction*);
 void listTransaction(transaction*);
-account* findNode (string, account*);

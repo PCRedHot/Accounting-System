@@ -52,12 +52,15 @@ int main(){
     while (getline(file, line)){
 
       transaction* current_T = nullptr;
-      string date, acc1, acc2, amount;
-      iss >> date >> amount >> acc1 >> acc2;
-      if (!acc2.empty()){
-        current_T = new transaction(accHead, stoi(date), stof(amount), acc1, acc2);
-      }else{
-        current_T = new transaction(accHead, stoi(date), stof(amount), acc1);
+      string date, type, name1, name2, amount;
+      iss >> date >> type >> name1 >> name2 >> amount;
+      if (!amount.empty()){//(account head, date, type, amount, name1, name2)
+        current_T = new transaction(accHead, stoi(date), type, stof(amount), name1, name2);
+      }
+      else{//(account head, date, type, amount, name1)
+        amount = name2;
+        name2 = "";
+        current_T = new transaction(accHead, stoi(date), type, stof(amount), name1);
       }
 
       if (tranHead != nullptr){
@@ -69,7 +72,8 @@ int main(){
       }
 
     }
-  }else{
+  }
+  else{
     cout << "No transaction file is found" << endl;
   }
   file.close();
@@ -90,8 +94,10 @@ int main(){
         cout << "Please select functions of transaction" << endl;
         cout << "1. Create new transaction" << endl;
         cout << "2. Get transactions on specific date" << endl;
+        cout << "3. Get transactions of particular type" << endl;
         cout << "3. Sort existing transactions accouring date" << endl;
         cout << "4. List all transactions" << endl;
+        cout << "5. Output all transactions to file" << endl;
         cout << "Please enter the number" << endl;
 
         cin >> userInput;
@@ -101,8 +107,8 @@ int main(){
           {
             string input;
             cout << "Which kinds of transaction you want to record?" << endl;
-            cout << "1. Expenses" << endl;
-            cout << "2. Revenues" << endl;
+            cout << "1. Expense" << endl;
+            cout << "2. Revenue" << endl;
             cin >> input;
             if (stoi(input) > 2 || stoi(input) < 1){
               cout << "Unknown user input, returning to menu" << endl;
