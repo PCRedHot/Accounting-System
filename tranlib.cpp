@@ -69,10 +69,8 @@ void listTransaction(transaction* head){
   }
 };
 
-account* findNode (string nameinput, account* head_A){
-  account* current = head_A;
-  while (current->name != nameinput){
-    current = current->next;
-  }
-  return current;
+string typeofTran (int type){
+  if (type == 1)
+    return "Expense";
+  else return "Revenue";
 }

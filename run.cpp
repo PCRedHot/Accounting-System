@@ -192,7 +192,71 @@ int main(){
           }
 
           case 2:
+            {
+              cout << "Please enter the date" << endl;
+              string userInput;
+              cin >> userInput;
+              int dateFound = stoi(userInput);
+
+              transaction* current_T = tranHead;
+              while (current_T != nullptr){
+                if (current_T->date == dateFound){
+                  cout << current_T->date << " " << typeofTran(current_T->type) <<" ";
+                  cout << current_T->name1 << " " << current_T->name2 << " ";
+                  cout << current_T->amount <<endl;
+                }
+              }
+              break;
+            }
+
+          case 3:{
+            cout << "Please enter number of type" <<endl;
+            cout << "1. Expense" << endl;
+            cout << "2. Revenue" << endl;
+            int typeFound;
+            cin >> typeFound;
+
+            transaction* current_T = tranHead;
+            while (current_T != nullptr){
+              if (current_T->type == typeFound){
+                cout << current_T->date << " " << typeofTran(current_T->type) <<" ";
+                cout << current_T->name1 << " " << current_T->name2 << " ";
+                cout << current_T->amount <<endl;
+              }
+              current_T = current_T->next;
+            }
             break;
+          }
+
+          case 4:{
+            transaction* tranHead_new = nullptr;
+            transaction* tranTail_new = nullptr;
+            transaction* beforeTran = tranHead;
+
+            int dateBefore;
+            while (beforeTran != nullptr){
+              transaction* current_T_new = tranHead_new;
+              dateBefore = beforeTran->date;
+              transaction temp = *beforeTran;
+
+              if (tranHead_new != nullptr){
+                while( current_T_new->next->date < temp.date){
+                  current_T_new = current_T_new->next;
+                }
+                temp.next = current_T_new->next;
+                current_T_new->next = &temp;
+              }
+              else {
+                tranHead_new = &temp;
+                tranTail_new = &temp;
+                temp.previous = nullptr;
+                temp.next = nullptr;
+              }
+
+
+              beforeTran = beforeTran->next;
+            }
+          }
 
           case 5:
             listTransaction(tranHead);
@@ -218,7 +282,8 @@ int main(){
             cout << "All Transactions have been outputed to file!" << endl;
             break;
           }
-        }else if (userInput == "Account"){
+        }
+        else if (userInput == "Account"){
           cout << "Please select functions of accounts" << endl;
           cout << "1. Add an account" << endl;
           cout << "2. Delete an account" << endl;
