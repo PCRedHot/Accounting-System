@@ -137,7 +137,7 @@ Note that if you run the program for the first time, these words will be display
 
 Don't worry, that's because your have never created any data before.
 
-The program will output and save existing data automatically, in the file **account** and **transaction**.
+The program will output and save existing data automatically, in the file **account**, **transaction** and **alert**.
 Next time when you run, it will read initialized data and add them to you current data.
 
 This can optimize users' control and storage of their personal financial data.
