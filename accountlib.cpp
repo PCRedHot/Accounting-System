@@ -43,7 +43,7 @@ void sortAccount_Balance(account* head){
     return;
   }
   account* curr = head;
-  bool change;
+  bool change = true;
   while (change){
     change = false;
     curr = head;
@@ -65,7 +65,7 @@ void rsortAccount_Balance(account* head){
     return;
   }
   account* curr = head;
-  bool change;
+  bool change = true;
   while (change){
     change = false;
     curr = head;
