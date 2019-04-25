@@ -80,7 +80,7 @@ void listTransaction(transaction* head){
   cout << "==========Transactions===========" << endl;
   cout << "Date\t\tType\tAmount\t\tAccount1\tAccount2" << endl;
   while (curr != nullptr){
-    cout << curr->getData() << endl;
+    cout << curr->getPrintData() << endl;
     curr = curr->next;
   }
 };
@@ -117,7 +117,7 @@ int listTransaction_date(int date, transaction* head){
   cout << "ID\tDate\t\tType\tAmount\t\tAccount1\tAccount2" << endl;
   while (curr != nullptr){
     if (curr->date == date){
-        cout << id << "\t" << curr->getData() << endl;
+        cout << id << "\t" << curr->getPrintData() << endl;
     }
     curr = curr->next;
   }

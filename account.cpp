@@ -72,3 +72,33 @@ string account::getData(){
   string data = name + '\t' + to_string(balance) + '\t' + to_string(type);
   return data;
 };
+
+string account::getPrintData(){
+  string data = name + '\t' + to_string(balance) + '\t';
+  switch (type) {
+    case 0:
+    {
+      data += "Expense";
+      break;
+    }
+
+    case 1:
+    {
+      data += "Revenue";
+      break;
+    }
+
+    case 2:
+    {
+      data += "Asset";
+      break;
+    }
+
+    default:
+    {
+      data += "Unknown";
+      break;
+    }
+  }
+  return data;
+};

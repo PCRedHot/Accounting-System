@@ -13,7 +13,7 @@ void listExpense(account* head){
   cout << "Name\tBalance\tType" << endl;
   while (curr != nullptr){
     if (curr->type == 0){
-      cout << curr->getData() << endl;//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
+      cout << curr->getPrintData() << endl;//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
       totalExpense += curr->balance;
     }
     curr = curr->next;
@@ -29,7 +29,7 @@ void listRevenue(account* head){
   cout << "Name\tBalance\t\tType" << endl;
   while (curr != nullptr){
     if (curr->type == 1){
-      cout << curr->getData() << endl;//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
+      cout << curr->getPrintData() << endl;//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
       totalRevenue += curr->balance;
     }
     curr = curr->next;
@@ -45,7 +45,7 @@ void listAsset(account* head){
   cout << "Name\tBalance\t\tType" << endl;
   while (curr != nullptr){
     if (curr->type == 2){
-      cout << curr->getData() << endl;//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
+      cout << curr->getPrintData() << endl;//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
       totalAsset += curr->balance;
     }
     curr = curr->next;
@@ -61,7 +61,7 @@ void incomeStatement(account* head){
   cout << "Name\tBalance\t\tType" << endl;
   while (curr != nullptr){
     if (curr->type == 1){
-      cout << curr->getData() << endl;//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
+      cout << curr->getPrintData() << endl;//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
       totalRevenue += curr->balance;
     }
     curr = curr->next;
@@ -73,7 +73,7 @@ void incomeStatement(account* head){
   cout << "Name\tBalance\t\tType" << endl;
   while (curr != nullptr){
     if (curr->type == 0){
-      cout << curr->getData() << endl;//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
+      cout << curr->getPrintData() << endl;//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
       totalExpense += curr->balance;
     }
     curr = curr->next;
