@@ -28,13 +28,13 @@ void switchTransaction(transaction* tran1, transaction* tran2){
   tran2->name1 = tran1->name1;
   tran2->name2 = tran1->name2;
   tran2->amount = tran1->amount;
-  tran2->date = date2;
-  tran2->type = type2;
-  tran2->acc1 = acc12;
-  tran2->acc2 = acc22;
-  tran2->name1 = name12;
-  tran2->name2 = name22;
-  tran2->amount = amount2;
+  tran1->date = date2;
+  tran1->type = type2;
+  tran1->acc1 = acc12;
+  tran1->acc2 = acc22;
+  tran1->name1 = name12;
+  tran1->name2 = name22;
+  tran1->amount = amount2;
 };
 
 void sortTransaction_Date(transaction* head){
@@ -45,6 +45,7 @@ void sortTransaction_Date(transaction* head){
   bool change = true;
   while (change){
     change = false;
+    curr = head;
     while (curr->next != nullptr){
       if (curr->date > curr->next->date){
         switchTransaction(curr, curr->next);
@@ -63,6 +64,7 @@ void rsortTransaction_Date(transaction* head){
   bool change = true;
   while (change){
     change = false;
+    curr = head;
     while (curr->next != nullptr){
       if (curr->date < curr->next->date){
         switchTransaction(curr, curr->next);

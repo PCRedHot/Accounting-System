@@ -260,7 +260,7 @@ int main(){
 
           case 4:
           {
-            sortTransaction_Date(tranHead);
+            rsortTransaction_Date(tranHead);
             listTransaction(tranHead);
             break;
           }
