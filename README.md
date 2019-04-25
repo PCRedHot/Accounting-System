@@ -84,6 +84,7 @@ The system will launch more incredible features in the comming soon.
 
 ## Usage
 
+
 ###Step 1. Makefile
 
 If users use Accounting System for the first time, it's necessary to compile the executable programs from source files by reading Makefile.
