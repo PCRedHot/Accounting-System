@@ -16,7 +16,7 @@ AccountingSystem.o:AccountingSystem.cpp AccountingSystem.h
 run.o:run.cpp accountlib.h tranlib.h
 	g++ -c $<
 
-run:run.o account.o accountlib.o transaction.o tranlib.o
+run:run.o account.o accountlib.o transaction.o tranlib.o AccountingSystem.o
 	g++ $^ -o $@
 
 clean:
