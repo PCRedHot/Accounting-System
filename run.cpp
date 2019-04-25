@@ -77,9 +77,9 @@ int main(){
 
       current_T->type = stoi(type);
 
-      if (acc01->type == 0){
+      if (stoi(type) == 0){
         totalExpense += stof(amount);
-      }else if (acc01->type == 1){
+      }else if (stoi(type) == 1){
         totalExpense -= stof(amount);
       }
 
