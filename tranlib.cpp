@@ -91,6 +91,7 @@ transaction* getTransaction(int date, int id, transaction* head){
       }
     }
   }
+  return nullptr;
 }
 
 int listTransaction_date(int date, transaction* head){
