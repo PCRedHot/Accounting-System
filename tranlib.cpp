@@ -37,7 +37,7 @@ void switchTransaction(transaction* tran1, transaction* tran2){
   tran2->amount = amount2;
 };
 
-void sortTransaction_Date(transaction*& head, transaction*& tail){
+void sortTransaction_Date(transaction* head){
   if (head == nullptr) {
     return;
   }
@@ -55,7 +55,7 @@ void sortTransaction_Date(transaction*& head, transaction*& tail){
   }
 };
 
-void rsortTransaction_Date(transaction*& head, transaction*& tail){
+void rsortTransaction_Date(transaction* head){
   if (head == nullptr) {
     return;
   }
