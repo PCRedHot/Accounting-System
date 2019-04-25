@@ -37,7 +37,7 @@ void listRevenue(account* head){
   cout << left;
 };
 
-void listAsset(accout* head){
+void listAsset(account* head){
   cout << fixed << setprecision(2);
   account* curr = head;
   float totalAsset = 0;
