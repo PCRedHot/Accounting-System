@@ -106,7 +106,7 @@ int listTransaction_date(int date, transaction* head){
 };
 
 void deleteTransaction(transaction* target){
-  target->previous->setNext(next);
-  target->next->setPrevious(previous);
+  target->previous->next = next;
+  target->next->previous = previous;
   delete target;
 }
