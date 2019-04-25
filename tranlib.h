@@ -6,7 +6,7 @@ void switchTransation(transaction*, transaction*);
 void sortTransaction_Date(transaction*);
 void rsortTransaction_Date(transaction*);
 void listTransaction(transaction*);
-void outputTransactionFile(string, transaction*);
+void outputTransactionFile(transaction*, string);
 transaction* getTransaction(int, int, transaction*);
 int listTransaction_date(int, transaction*);
 void deleteTransaction(transaction*);

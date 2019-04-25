@@ -220,19 +220,10 @@ int main(){
 
           case 2:
             {
-              cout << "Please enter the date" << endl;
+              cout << "Please input the date:";
               string userInput;
               cin >> userInput;
-              int dateFound = stoi(userInput);
-
-              transaction* current_T = tranHead;
-              while (current_T != nullptr){
-                if (current_T->date == dateFound){
-                  cout << current_T->date << " " << typeofTran(current_T->type) <<" ";
-                  cout << current_T->name1 << " " << current_T->name2 << " ";
-                  cout << current_T->amount <<endl;
-                }
-              }
+              listTransaction_date(stoi(userInput), tranHead);
               break;
             }
 
@@ -263,7 +254,7 @@ int main(){
               cout << "invaild user input" << endl;
               break;
             }else {
-              transaction* target = getTransaction(stoi(dateInput), stoi(id), tranhead);
+              transaction* target = getTransaction(stoi(dateInput), stoi(id), tranHead);
               if (target != nullptr){
                 target->reverseTransaction();
                 deleteTransaction(target);
@@ -291,7 +282,8 @@ int main(){
           cout << "Unknown user input" << endl;
           break;
           }
-        }else if (userInput == "Account"){
+        }
+      }else if (userInput == "Account"){
           cout << "Please select functions of accounts" << endl;
           cout << "1. Add an account" << endl;
           cout << "2. Delete an account" << endl;

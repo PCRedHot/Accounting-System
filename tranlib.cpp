@@ -70,7 +70,7 @@ void listTransaction(transaction* head){
   }
 };
 
-void outputTransactionFile(string name, transaction* head){
+void outputTransactionFile(transaction* head, string name){
   transaction* curr = head;
   ofstream file;
   file.open(name);
