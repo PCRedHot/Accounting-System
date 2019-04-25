@@ -13,35 +13,41 @@ transaction* getLastTransaction(transaction* head){
   return curr;
 };
 
-void switchTransation(transaction* tran1, transaction* tran2){
+void switchTransation(transaction* tran1, transaction* tran2, transaction* &head, transaction* &tail){
   transaction* tempP2 = tran2->previous, *tempN2 = tran2->next;
   if (tempP2 != tran1 && tempN2 != tran1){
-    tran2->setPrevious(tran1->previous);
-    tran2->setNext(tran1->next);
-    tran1->setPrevious(tempP2);
-    tran1->setNext(tempN2);
+    tran2->previous = tran1->previous;
+    tran2->next = tran1->next;
+    tran1->previous = tempP2;
+    tran1->next = tempN2;
   }else if (tempP2 == tran1){
-    tran2->setPrevious(tran1->previous);
-    tran2->setNext(tran1);
-    tran1->setPrevious(tran2);
-    tran1->setNext(tempN2);
+    tran2->previous = tran1->previous;
+    tran2->next = tran1;
+    tran1->previous = tran2;
+    tran1->next = tempN2;
   }else if (tempN2 == tran1){
-    tran2->setPrevious(tran1);
-    tran2->setNext(tran1->next);
-    tran1->setPrevious(tempP2);
-    tran1->setNext(tran2);
+    tran2->previous = tran1;
+    tran2->next = tran1->next;
+    tran1->previous = tempP2;
+    tran1->next = tran2;
   }
+  if (head == tran1) head = tran2;
+  if (head == tran2) head = tran1;
+  if (tail == tran1) tail = tran2;
+  if (tail == tran2) tail = tran1;
 };
 
-void sortTransaction_Date(transaction* head){
-  if (head == nullptr) return;
+void sortTransaction_Date(transaction*& head, transaction*& tail){
+  if (head == nullptr) {
+    return;
+  }
   transaction* curr = head;
   bool change = true;
   while (change){
     change = false;
     while (curr->next != nullptr){
       if (curr->date > curr->next->date){
-        switchTransation(curr, curr->next);
+        switchTransation(curr, curr->next, head, tail);
         change = true;
       }
       curr = curr->next;
@@ -49,15 +55,17 @@ void sortTransaction_Date(transaction* head){
   }
 };
 
-void rsortTransaction_Date(transaction* head){
-  if (head == nullptr) return;
+void rsortTransaction_Date(transaction*& head, transaction*& tail){
+  if (head == nullptr) {
+    return;
+  }
   transaction* curr = head;
   bool change = true;
   while (change){
     change = false;
     while (curr->next != nullptr){
       if (curr->date < curr->next->date){
-        switchTransation(curr, curr->next);
+        switchTransation(curr, curr->next, head, tail);
         change = true;
       }
       curr = curr->next;

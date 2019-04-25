@@ -251,14 +251,14 @@ int main(){
 
           case 3:
           {
-            sortTransaction_Date(tranHead);
+            sortTransaction_Date(tranHead, tranTail);
             listTransaction(tranHead);
             break;
           }
 
           case 4:
           {
-            sortTransaction_Date(tranHead);
+            sortTransaction_Date(tranHead, tranTail);
             listTransaction(tranHead);
             break;
           }
