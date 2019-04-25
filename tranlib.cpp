@@ -106,16 +106,16 @@ int listTransaction_date(int date, transaction* head){
 };
 
 void deleteTransaction(transaction* target, transaction* & head){
-  if (acc->previous == nullptr && acc->next != nullptr){
-    acc->next->previous = nullptr;
-    head = acc->next;
-  }else if (acc->previous != nullptr && acc->next == nullptr){
-    acc->previous->next = nullptr;
-  }else if (acc->previous != nullptr && acc->next != nullptr){
-    acc->previous->next = acc->next;
-    acc->next->previous = acc->previous;
+  if (target->previous == nullptr && target->next != nullptr){
+    target->next->previous = nullptr;
+    head = target->next;
+  }else if (target->previous != nullptr && target->next == nullptr){
+    target->previous->next = nullptr;
+  }else if (target->previous != nullptr && target->next != nullptr){
+    target->previous->next = target->next;
+    target->next->previous = target->previous;
   }else{
     head = nullptr;
   }
-  delete acc;
+  delete target;
 }
