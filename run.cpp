@@ -23,6 +23,7 @@ static const string transactionFileName = "transaction";
 //========================================
 
 int main(){
+
   //Create head and tail of transaction, point to nullptr
 
   //get accounts from file
@@ -100,8 +101,18 @@ int main(){
     cout << "No transaction file is found" << endl;
   }
   file.close();
-  //**TO-DO**//
 
+  //Main menu
+  cout << "********************************************" << endl;
+  cout << "This is an ENGG1340 project of group 120"  << endl;
+  cout << "Powered by Parry Choi and Shane Chen" << endl;
+  cout << "********************************************" << endl;
+  cout << "Welcome to Accounting System!" << endl;
+  cout << "1. Account" << endl;
+  cout << "2. Transaction" << endl;
+  cout << "Please select the function" << endl;
+  cout << "Enter 'Exit' to teminate"
+  cout << "********************************************" << endl;
 
   string userInput = "";
 
@@ -116,17 +127,19 @@ int main(){
         cout << "!WARNING! Total expense exceed budget set!" << endl;
       }
 
-      if (userInput == "Transaction"){
+      if (userInput == "Transaction" || userInput == "2"){
 
         //Functions menu of transactions
-        cout << "Please select functions of transaction" << endl;
+        cout << "********************************************" << endl;
+        cout << "Transaction Menu" << endl;
         cout << "1. Create new transaction" << endl;
         cout << "2. Get transactions on specific date" << endl;
         cout << "3. List all transactions from old to new" << endl;
         cout << "4. List all transactions from new to old" << endl;
         cout << "5. Reverse and delete a transaction" << endl;
         cout << "6. Output transactions to a file" << endl;
-        cout << "Please enter the number" << endl;
+        cout << "Please select functions of transaction" << endl;
+        cout << "********************************************" << endl;
 
         cin >> userInput;
 
@@ -289,8 +302,11 @@ int main(){
           break;
           }
         }
-      }else if (userInput == "Account"){
-          cout << "Please select functions of accounts" << endl;
+      }else if (userInput == "Account" || userInput == "1"){
+
+          //Account menu
+          cout << "********************************************" << endl;
+          cout << "Account Menu" << endl;
           cout << "1. Add an account" << endl;
           cout << "2. Delete an account" << endl;
           cout << "3. Get information of an account" << endl;
@@ -298,7 +314,9 @@ int main(){
           cout << "5. List all accounts in descending order" << endl;
           cout << "6. Output all accounts to a file" << endl;
           cout << "7. Set amount of an account" << endl;
-          cout << "Please enter the number" << endl;
+          cout << "Please select the function" << endl;
+          cout << "********************************************" << endl;
+
           cin >> userInput;
           string name;
           switch (stoi(userInput)) {
