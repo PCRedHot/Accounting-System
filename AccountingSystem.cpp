@@ -18,8 +18,7 @@ void listExpense(account* head){
     }
     curr = curr->next;
   }
-  cout << "Total Expenses:" << right << totalExpense << endl;
-  cout << left;
+  cout << "Total Expenses:" << totalExpense << endl;
 };
 
 void listRevenue(account* head){
@@ -35,8 +34,7 @@ void listRevenue(account* head){
     }
     curr = curr->next;
   }
-  cout << "Total Revenues:" << right << totalRevenue << endl;
-  cout << left;
+  cout << "Total Revenues:" << totalRevenue << endl;
 };
 
 void listAsset(account* head){
@@ -52,8 +50,7 @@ void listAsset(account* head){
     }
     curr = curr->next;
   }
-  cout << "Total Assets:" << right << totalAsset << endl;
-  cout << left;
+  cout << "Total Assets:" << totalAsset << endl;
 }
 
 void incomeStatement(account* head){
@@ -69,8 +66,7 @@ void incomeStatement(account* head){
     }
     curr = curr->next;
   }
-  cout << "Total Revenues:" << right << totalRevenue << endl;
-  cout << left;
+  cout << "Total Revenues:" << totalRevenue << endl;
   curr = head;
   float totalExpense = 0;
   cout << "==========Expenses==========" << endl;
@@ -82,7 +78,7 @@ void incomeStatement(account* head){
     }
     curr = curr->next;
   }
-  cout << "Total Expenses:" << right << totalExpense << endl;
-  cout << left << "----------------------------" << endl;
-  cout << "Net Gain/Loss" << right << totalRevenue - totalExpense << left << endl;
+  cout << "Total Expenses:" << totalExpense << endl;
+  cout << "----------------------------" << endl;
+  cout << "Net Gain/Loss" << totalRevenue - totalExpense << endl;
 };
