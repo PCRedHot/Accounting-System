@@ -37,6 +37,7 @@ int main(){
   }else{
     cout << "No expense alert file is found" << endl;
   }
+  file.close();
 
   //get accounts from file
   file.open(accountFileName);

@@ -80,18 +80,14 @@ void rsortAccount_Balance(account* head){
 };
 
 void outputAccountFile(account* head, string name){
-  if (head != nullptr){
-    ofstream file;
-    file.open(name);
-    account* curr = head;
-    while (curr != nullptr){
-      file << curr->getData() << endl;
-      curr = curr->next;
-    }
-    file.close();
-  }else{
-    cout << "No account to store" << endl;
+  ofstream file;
+  file.open(name);
+  account* curr = head;
+  while (curr != nullptr){
+    file << curr->getData() << '\n';
+    curr = curr->next;
   }
+  file.close();
 };
 
 account* getLastAccount(account* head){

@@ -92,7 +92,7 @@ void outputTransactionFile(transaction* head, string name){
   file.open(name);
   if (file.is_open()){
     while (curr != nullptr){
-      file << curr->getData() << endl;
+      file << curr->getData() << '\n';
       curr = curr->next;
     }
   }

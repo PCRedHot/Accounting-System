@@ -1,0 +1,12 @@
+1 1 Cash 3
+1 1 Salary 2
+2 1 2 20190301 Salary Cash 500
+1 1 Clothing 1
+2 1 1 20190303 Clothing Cash 200
+1 1 Healthcare 1
+2 1 1 20190330 Healthcare Cash 225
+1 4
+1 6 account.txt
+2 3
+2 6 transaction.txt
+Exit

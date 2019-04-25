@@ -1,0 +1,4 @@
+Cash	75.000000	2
+Clothing	200.000000	0
+Healthcare	225.000000	0
+Salary	500.000000	1
