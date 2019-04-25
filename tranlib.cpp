@@ -68,7 +68,7 @@ void rsortTransaction_Date(transaction* head){
 void listTransaction(transaction* head){
   transaction* curr = head;
   while (curr != nullptr){
-    cout << curr->getData();
+    cout << curr->getData() << endl;
     curr = curr->next;
   }
 };
