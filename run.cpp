@@ -481,7 +481,14 @@ int main(){
 
             case 4:
             {
-              incomeStatement()
+              incomeStatement(accHead);
+              break;
+            }
+
+            default:
+            {
+              cout << "Unknown user input" << endl;
+              break;
             }
           }
 
