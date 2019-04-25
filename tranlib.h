@@ -9,4 +9,4 @@ void listTransaction(transaction*);
 void outputTransactionFile(transaction*, string);
 transaction* getTransaction(int, int, transaction*);
 int listTransaction_date(int, transaction*);
-void deleteTransaction(transaction*, transaction*&);
+void deleteTransaction(transaction*, transaction*&, transaction*&);
