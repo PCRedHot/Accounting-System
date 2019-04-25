@@ -458,6 +458,33 @@ int main(){
           cout << "4. Income statement" << endl;
           cout << "Please select the function" << endl;
           cout << "********************************************" << endl;
+          cin >> userInput;
+
+          switch (stoi(userInput)) {
+            case 1:
+            {
+              listExpense(accHead);
+              break;
+            }
+
+            case 2:
+            {
+              listRevenue(accHead);
+              break;
+            }
+
+            case 3:
+            {
+              listAsset(accHead);
+              break;
+            }
+
+            case 4:
+            {
+              incomeStatement()
+            }
+          }
+
         }
 
   }

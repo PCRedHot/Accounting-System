@@ -8,10 +8,10 @@ using namespace std;
 void listExpense(account* head){
   cout << fixed << setprecision(2);
   float totalExpense = 0;
-  transaction* curr = head;
+  account* curr = head;
   sortTransaction_Date(head);
   cout << "==========Expenses==========" << endl;
-  cout << "Name\tBalane\tType" << endl;
+  cout << "Name\tBalance\tType" << endl;
   while (curr != nullptr){
     if (curr->type == 0){
       cout << curr->getData() << endl;//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
@@ -24,11 +24,11 @@ void listExpense(account* head){
 
 void listRevenue(account* head){
   cout << fixed << setprecision(2);
-  transaction* curr = head;
+  account* curr = head;
   float totalRevenue = 0;
   sortTransaction_Date(head);
   cout << "==========Revenues==========" << endl;
-  cout << "Name\tBalane\tType" << endl;
+  cout << "Name\tBalance\tType" << endl;
   while (curr != nullptr){
     if (curr->type == 1){
       cout << curr->getData() << endl;//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
@@ -41,11 +41,11 @@ void listRevenue(account* head){
 
 void listAsset(accout* head){
   cout << fixed << setprecision(2);
-  transaction* curr = head;
+  account* curr = head;
   sortTransaction_Date(head);
   float totalAsset = 0;
   cout << "==========Assets==========" << endl;
-  cout << "Name\tBalane\tType" << endl;
+  cout << "Name\tBalance\tType" << endl;
   while (curr != nullptr){
     if (curr->type == 2){
       cout << curr->getData() << endl;//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
@@ -56,25 +56,32 @@ void listAsset(accout* head){
   cout << left;
 }
 
-void incomeStatement(transaction* head){
+void incomeStatement(account* head){
   cout << fixed << setprecision(2);
-  transaction* curr = head;
-  float Revenue = 0;
-  cout << "=====Expense Transaction History=====" << endl;
-  cout << "Date\t\tType\tAmount\tAccount 1\tAccount 2(optional)" << endl;
-  while (curr != nullptr){
-    if (curr->type == 0){
-      Revenue -= curr->amount;
-      cout << curr->getData() << endl;//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
-    }
-  }
-  cout << "=====Renvenue Transaction History=====" << endl;
-  cout << "Date\t\tType\tAmount\tAccount 1\tAccount 2(optional)" << endl;
+  account* curr = head;
+  sortTransaction_Date(head);
+  float totalRevenue = 0;
+  cout << "==========Revenues==========" << endl;
+  cout << "Name\tBalance\tType" << endl;
   while (curr != nullptr){
     if (curr->type == 1){
-      Revenue += curr->amount;
       cout << curr->getData() << endl;//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
+      totalRevenue += curr->balance;
     }
   }
-  cout << endl << "Net Gain/Loss" << right << Renvenue << left << endl;
+  cout << "Total Revenues:" << right << totalRevenue << endl;
+  cout << left;
+  curr = head;
+  float totalExpense = 0;
+  cout << "==========Expenses==========" << endl;
+  cout << "Name\tBalance\tType" << endl;
+  while (curr != nullptr){
+    if (curr->type == 0){
+      cout << curr->getData() << endl;//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
+      totalExpense += curr->balance;
+    }
+  }
+  cout << "Total Expenses:" << right << totalExpense << endl;
+  cout << left << "----------------------------" << endl;
+  cout << "Net Gain/Loss" << right << totalRevenue - totalExpense << left << endl;
 };
