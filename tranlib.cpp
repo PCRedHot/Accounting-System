@@ -44,6 +44,7 @@ void sortTransaction_Date(transaction* head){
         switchTransation(curr, curr->next);
         change = true;
       }
+      curr = curr->next;
     }
   }
 };
@@ -59,6 +60,7 @@ void rsortTransaction_Date(transaction* head){
         switchTransation(curr, curr->next);
         change = true;
       }
+      curr = curr->next;
     }
   }
 };
