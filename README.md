@@ -105,7 +105,28 @@ If succeed, your terminal will display compilation process shown below
 
 Congratulations! The program has been built successfully.
 
-### Step 2.
+### Step 2. Run the program
+
+The executable program now is created in your folder, named **run**. You can access it directly or using terminal.
+
+In case of terminal, you can type in the command
+
+    $ ./run
+
+If succeed, the program will display like this
+
+    \********************************************
+    This is an ENGG1340 project of group 120
+    Powered by Parry Choi and Shane Chen
+    \********************************************
+    \********************************************
+    Welcome to Accounting System!
+    1. Account
+    2. Transaction
+    3. Finance analysis
+    Please select the function
+    Enter 'Exit' to teminate
+    \********************************************
 
 ## Teammembers
 
