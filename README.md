@@ -124,7 +124,7 @@ If succeed, the program will display like this
     1. Account
     2. Transaction
     3. Finance analysis
-    Please select the function
+    Please select a function
     Enter 'Exit' to teminate
     ********************************************
 
@@ -154,7 +154,8 @@ This can optimize users' control and storage of their personal financial data.
     5. List all accounts in descending order
     6. Output all accounts to a file
     7. Set amount of an account
-    Please select the function
+    8. Return to last page
+    Please select a function
     ********************************************
 
 ## Teammembers

@@ -131,7 +131,7 @@ int main(){
       cout << "1. Account" << endl;
       cout << "2. Transaction" << endl;
       cout << "3. Finance analysis" << endl;
-      cout << "Please select the function" << endl;
+      cout << "Please select a function" << endl;
       cout << "Enter 'Exit' to teminate" << endl;
       cout << "********************************************" << endl;
 
@@ -159,7 +159,7 @@ int main(){
         cout << "5. Reverse and delete a transaction" << endl;
         cout << "6. Output transactions to a file" << endl;
         cout << "7. Return to last page" << endl;
-        cout << "Please select functions of transaction" << endl;
+        cout << "Please select a function" << endl;
         cout << "********************************************" << endl;
 
         cin >> userInput;
@@ -352,7 +352,7 @@ int main(){
           cout << "6. Output all accounts to a file" << endl;
           cout << "7. Set amount of an account" << endl;
           cout << "8. Return to last page" << endl;
-          cout << "Please select the function" << endl;
+          cout << "Please select a function" << endl;
           cout << "********************************************" << endl;
 
           cin >> userInput;
@@ -505,7 +505,7 @@ int main(){
           cout << "4. Income statement" << endl;
           cout << "5. Set expense alert"
           cout << "6. Return to last page" << endl;
-          cout << "Please select the function" << endl;
+          cout << "Please select a function" << endl;
           cout << "********************************************" << endl;
           cin >> userInput;
 
