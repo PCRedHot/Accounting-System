@@ -113,17 +113,19 @@ void listAccount(account* head){
   }
 };
 
-void deleteAccount(account* acc, account* &head){
+void deleteAccount(account* acc, account* &head, account* &tail){
   if (acc->previous == nullptr && acc->next != nullptr){
     acc->next->previous = nullptr;
     head = acc->next;
   }else if (acc->previous != nullptr && acc->next == nullptr){
     acc->previous->next = nullptr;
+    tail = acc->previous;
   }else if (acc->previous != nullptr && acc->next != nullptr){
     acc->previous->next = acc->next;
     acc->next->previous = acc->previous;
   }else{
     head = nullptr;
+    tail = nullptr;
   }
   delete acc;
 };

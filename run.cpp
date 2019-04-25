@@ -14,6 +14,7 @@ using namespace std;
 //========================================
 //Static variables
 static account* accHead = nullptr; //head account pointer
+static account* accTail = nullptr;
 static transaction* tranHead = nullptr;  //head transaction pointer
 static transaction* tranTail = nullptr;
 static float expenseAlert = -3035564940;
@@ -32,21 +33,20 @@ int main(){
   file.open(accountFileName);
   if (file.is_open()){
     string line;  //line format: name <tab> balance <tab> type
-    account* curr = nullptr;
     while (getline(file, line)){
       int substrIndex = line.find('\t');
       string name = line.substr(0, substrIndex);
       float balance = stof(line.substr(substrIndex+1, line.length()-substrIndex-3));
       account* NewAcc = new account(name, balance);
       NewAcc->type = stoi(line.substr(line.length()-1));
-      if (curr != nullptr){
-        NewAcc->setPrevious(curr);
+      if (accTail != nullptr){
+        NewAcc->setPrevious(accTail);
         NewAcc->next = nullptr;
-        curr->setNext(NewAcc);
+        accTail->setNext(NewAcc);
       }else{
         accHead = NewAcc;
       }
-      curr = NewAcc;
+      accTail = NewAcc;
     }
   }else{
     cout << "No account file is found" << endl;
@@ -89,10 +89,12 @@ int main(){
       }
 
       if (tranHead != nullptr){
-        tranTail->next = current_T;
+        tranHead = current_T;
         tranTail = current_T;
       }else{
-        tranHead = current_T;
+        tranTail->next = current_T;
+        current_T->previous = tranTail;
+        current_T->next = nullptr;
         tranTail = current_T;
       }
 
@@ -228,8 +230,7 @@ int main(){
             if (tranHead == nullptr){
               tranHead = current_T;
             }else{
-              transaction* last = getLastTransaction(tranHead);
-              last->next = current_T;
+              tranTail->next = current_T;
               current_T->previous = last;
             }
             current_T->type = stoi(input)-1;
@@ -276,7 +277,7 @@ int main(){
               transaction* target = getTransaction(stoi(dateInput), stoi(id), tranHead);
               if (target != nullptr){
                 target->reverseTransaction();
-                deleteTransaction(target, tranHead);
+                deleteTransaction(target, tranHead, tranTail);
               }
               cout << "Transaction deleted!" << endl;
             }
@@ -332,9 +333,8 @@ int main(){
               if (accHead == nullptr){
                 accHead = newAcc;
               }else{
-                account* lastAcc = getLastAccount(accHead);
-                lastAcc->setNext(newAcc);
-                newAcc->setPrevious(lastAcc);
+                accTail->setNext(newAcc);
+                newAcc->setPrevious(accTail);
                 newAcc->next = nullptr;
               }
               string typeAcc;
@@ -361,7 +361,7 @@ int main(){
             if (accPtr == nullptr){
               cout << "Account named \"" << name << "\" not exist!" << endl;
             }else{
-              deleteAccount(accPtr, accHead);
+              deleteAccount(accPtr, accHead, accTail);
               cout << "Account \"" << name << "\" deleted!" << endl;
             }
             break;

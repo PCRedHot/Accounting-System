@@ -114,17 +114,19 @@ int listTransaction_date(int date, transaction* head){
   return id;
 };
 
-void deleteTransaction(transaction* target, transaction* & head){
+void deleteTransaction(transaction* target, transaction* &head, transaction* &tail){
   if (target->previous == nullptr && target->next != nullptr){
     target->next->previous = nullptr;
     head = target->next;
   }else if (target->previous != nullptr && target->next == nullptr){
     target->previous->next = nullptr;
+    tail = target->previous;
   }else if (target->previous != nullptr && target->next != nullptr){
     target->previous->next = target->next;
     target->next->previous = target->previous;
   }else{
     head = nullptr;
+    tail = nullptr;
   }
   delete target;
 }
