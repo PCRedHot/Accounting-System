@@ -83,7 +83,7 @@ void incomeStatement(account* head){
   cout << "Total Expenses: " << totalExpense << endl;
   cout << "----------------------------" << endl;
   cout << "Net Gain/Loss: " << totalRevenue - totalExpense << endl;
-  float ratio = revenue/expense;
+  float ratio = totalRevenue/totalExpense;
   cout << "Expense-Revenue Ratio: 1:" << ratio << endl;
 };
 
