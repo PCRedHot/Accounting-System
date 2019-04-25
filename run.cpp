@@ -492,7 +492,6 @@ int main(){
           }
 
         }
-    cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
   }
 
   //store accounts and transactions to files
