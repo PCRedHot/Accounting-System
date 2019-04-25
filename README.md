@@ -142,8 +142,17 @@ Next time when you run, it will read initialized data and add them to you curren
 
 This can optimize users' control and storage of their personal financial data.
 
+---
+
+## Functions
+
 ### Account
 
+The Accounting System provides the basic function **Account**.
+
+You can simply create varied type account, modified the existing accounts, list all of them and output to file.
+
+The Account Menu is shown below
 
     ********************************************
     Account Menu
@@ -157,6 +166,8 @@ This can optimize users' control and storage of their personal financial data.
     8. Return to last page
     Please select a function
     ********************************************
+
+#### Create a acount
 
 ## Teammembers
 
