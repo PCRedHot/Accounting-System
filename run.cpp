@@ -121,7 +121,7 @@ int main(){
       cout << "2. Transaction" << endl;
       cout << "3. Finance analysis" << endl;
       cout << "Please select the function" << endl;
-      cout << "Enter 'Exit' to teminate"
+      cout << "Enter 'Exit' to teminate" << endl;
       cout << "********************************************" << endl;
       //Expense Alert
       if (expenseAlert != -3035564940 && expenseAlert < totalExpense) {
