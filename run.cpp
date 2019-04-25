@@ -104,13 +104,13 @@ int main(){
   cout << "Welcome to Accounting System!" << endl;
   cout << "1. Account" << endl;
   cout << "2. Transaction" << endl;
-  cout << "3. Exit" << endl;
-  cout << "Please select the function or exit" << endl;
+  cout << "Please select the function" << endl;
+  cout << "Enter 'Exit' to teminate"
   cout << "********************************************" << endl;
 
   string userInput = "";
 
-  while (userInput != "Exit" && userInput != "3"){
+  while (userInput != "Exit"){
       cout << "intro" << endl;
       cin >> userInput;
       //**TO-DO**//
