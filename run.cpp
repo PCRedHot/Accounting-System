@@ -62,10 +62,13 @@ int main(){
       int substrIndex = line.find('\t');
       date = line.substr(0, substrIndex);
       line = line.substr(substrIndex+1);
+      substrIndex = line.find('\t');
       type = line.substr(0, substrIndex);
       line = line.substr(substrIndex+1);
+      substrIndex = line.find('\t');
       amount = line.substr(0, substrIndex);
       line = line.substr(substrIndex+1);
+      substrIndex = line.find('\t');
       name1 = line.substr(0, substrIndex);
       line = line.substr(substrIndex+1);
       if (!line.empty()){//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
