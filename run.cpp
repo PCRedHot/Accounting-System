@@ -231,8 +231,9 @@ int main(){
               tranHead = current_T;
             }else{
               tranTail->next = current_T;
-              current_T->previous = last;
+              current_T->previous = tranTail;
             }
+            tranTail = current_T;
             current_T->type = stoi(input)-1;
 
             break;
@@ -332,11 +333,13 @@ int main(){
               account* newAcc = new account(name);
               if (accHead == nullptr){
                 accHead = newAcc;
+                accTail = newAcc;
               }else{
                 accTail->setNext(newAcc);
                 newAcc->setPrevious(accTail);
                 newAcc->next = nullptr;
               }
+              accTail = newAcc;
               string typeAcc;
               cout << "Which type is the account?" << endl;
               cout << "1. Expense Account" << endl;
