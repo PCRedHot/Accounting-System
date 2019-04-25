@@ -122,12 +122,12 @@ int main(){
   cout << "This is an ENGG1340 project of group 120"  << endl;
   cout << "Powered by Parry Choi and Shane Chen" << endl;
   cout << "********************************************" << endl;
+  cout << "Welcome to Accounting System!" << endl;
 
   string userInput = "";
 
   while (userInput != "Exit"){
       cout << "********************************************" << endl;
-      cout << "Welcome to Accounting System!" << endl;
       cout << "1. Account" << endl;
       cout << "2. Transaction" << endl;
       cout << "3. Finance analysis" << endl;
