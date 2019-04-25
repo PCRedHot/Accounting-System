@@ -77,8 +77,8 @@ void outputTransactionFile(transaction* head, string name){
   if (file.is_open()){
     while (curr != nullptr){
       file << curr->getData() << endl;
+      curr = curr->next;
     }
-    curr = curr->next;
   }
 }
 
