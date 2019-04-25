@@ -22,4 +22,7 @@ run:run.o account.o accountlib.o transaction.o tranlib.o
 clean:
 	rm run *.o
 
-.PHONY:clean
+clean_store:
+	rm transaction account
+
+.PHONY:clean clean_store
