@@ -13,28 +13,28 @@ transaction* getLastTransaction(transaction* head){
   return curr;
 };
 
-void switchTransation(transaction* tran1, transaction* tran2, transaction* &head, transaction* &tail){
-  transaction* tempP2 = tran2->previous, *tempN2 = tran2->next;
-  if (tempP2 != tran1 && tempN2 != tran1){
-    tran2->previous = tran1->previous;
-    tran2->next = tran1->next;
-    tran1->previous = tempP2;
-    tran1->next = tempN2;
-  }else if (tempP2 == tran1){
-    tran2->previous = tran1->previous;
-    tran2->next = tran1;
-    tran1->previous = tran2;
-    tran1->next = tempN2;
-  }else if (tempN2 == tran1){
-    tran2->previous = tran1;
-    tran2->next = tran1->next;
-    tran1->previous = tempP2;
-    tran1->next = tran2;
-  }
-  if (head == tran1) head = tran2;
-  if (head == tran2) head = tran1;
-  if (tail == tran1) tail = tran2;
-  if (tail == tran2) tail = tran1;
+void switchTransaction(transaction* tran1, transaction* tran2){
+  int date2 = tran2->date;
+  int type2 = tran2->type;
+  account* acc12 = tran2->acc1;
+  account* acc22 = tran2->acc2;
+  string name12 = tran2->name1;
+  string name22 = tran2->name2;
+  float amount2 = tran2->amount;
+  tran2->date = tran1->date;
+  tran2->type = tran1->type;
+  tran2->acc1 = tran1->acc1;
+  tran2->acc2 = tran1->acc2;
+  tran2->name1 = tran1->name1;
+  tran2->name2 = tran1->name2;
+  tran2->amount = tran1->amount;
+  tran2->date = date2;
+  tran2->type = type2;
+  tran2->acc1 = acc12;
+  tran2->acc2 = acc22;
+  tran2->name1 = name12;
+  tran2->name2 = name22;
+  tran2->amount = amount2;
 };
 
 void sortTransaction_Date(transaction*& head, transaction*& tail){
@@ -47,7 +47,7 @@ void sortTransaction_Date(transaction*& head, transaction*& tail){
     change = false;
     while (curr->next != nullptr){
       if (curr->date > curr->next->date){
-        switchTransation(curr, curr->next, head, tail);
+        switchTransaction(curr, curr->next);
         change = true;
       }
       curr = curr->next;
@@ -65,7 +65,7 @@ void rsortTransaction_Date(transaction*& head, transaction*& tail){
     change = false;
     while (curr->next != nullptr){
       if (curr->date < curr->next->date){
-        switchTransation(curr, curr->next, head, tail);
+        switchTransaction(curr, curr->next);
         change = true;
       }
       curr = curr->next;
@@ -76,7 +76,7 @@ void rsortTransaction_Date(transaction*& head, transaction*& tail){
 void listTransaction(transaction* head){
   transaction* curr = head;
   cout << "==========Transactions===========" << endl;
-  cout << "Date\t\tType\tAmount\tAccount1\tAccount2" << endl;
+  cout << "Date\t\tType\tAmount\t\tAccount1\tAccount2" << endl;
   while (curr != nullptr){
     cout << curr->getData() << endl;
     curr = curr->next;
@@ -112,7 +112,7 @@ int listTransaction_date(int date, transaction* head){
   transaction* curr = head;
   int id = 1;
   cout << "==========Transactions===========" << endl;
-  cout << "ID\tDate\t\tType\tAmount\tAccount1\tAccount2" << endl;
+  cout << "ID\tDate\t\tType\tAmount\t\tAccount1\tAccount2" << endl;
   while (curr != nullptr){
     if (curr->date == date){
         cout << id << "\t" << curr->getData() << endl;

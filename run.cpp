@@ -92,6 +92,8 @@ int main(){
       if (tranHead == nullptr){
         tranHead = current_T;
         tranTail = current_T;
+        current_T->previous = nullptr;
+        current_T->next = nullptr;
       }else{
         tranTail->next = current_T;
         current_T->previous = tranTail;
@@ -251,14 +253,14 @@ int main(){
 
           case 3:
           {
-            sortTransaction_Date(tranHead, tranTail);
+            sortTransaction_Date(tranHead);
             listTransaction(tranHead);
             break;
           }
 
           case 4:
           {
-            sortTransaction_Date(tranHead, tranTail);
+            sortTransaction_Date(tranHead);
             listTransaction(tranHead);
             break;
           }
