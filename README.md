@@ -128,6 +128,20 @@ If succeed, the program will display like this
     Enter 'Exit' to teminate
     ********************************************
 
+Then you may choose function and enter the number, or type in **Exit** to terminate the programm.
+
+Note that if you run the program for the first time, these words will be displayed
+
+    No account file is found
+    No transaction file is found
+
+Don't worry, that's because your have never created any data before.
+The program will output and save existing data automatically, in the file **account** and **transaction**. Next time when you run, it will read initialized data. This can optimize users' control and storage of their personal financial data.
+
+### Step 3. Account
+
+
+
 ## Teammembers
 
 | **CHOI Chong Hing** | **CHEN Xingsheng** |
