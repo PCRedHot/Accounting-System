@@ -26,7 +26,7 @@ Living in high-paced life with much pressure, people need dealing with their bal
 
 The Accounting System focus on helping manage personal wealth efficiently.
 
-It will provide advanced accounting operations for users, making them able to create new accounts, and further add or modify records stored in the current accounts. The system will also output the records so far, as well as statistic data of the wealth, on the demand of the users. 
+It will provide advanced accounting operations for users, making them able to create new accounts, and further add or modify records stored in the current accounts. The system will also output the records so far, as well as statistic data of the wealth, on the demand of the users.
 
 ![](https://img.shields.io/badge/Language-C++-brightgreen.svg)
 
@@ -82,10 +82,26 @@ The system will launch more incredible features in the comming soon.
 
 ---
 
+## Usage
+
+###Step 1. Makefile
+
+If users use Accounting System for the first time, it's necessary to compile the executable programs from source files by reading Makefile.
+
+Users can type in the command below to compile run.cpp
+
+    $ make run
+
+If succeed, users' terminal will display compilation process shown below
+
+    
+
+Besides building programs, Make can be used to manage any project where some files must be updated automatically from others whenever the others change.
+
 ## Teammembers
 
-| **CHOI Chong Hing** | **CHEN Xingsheng** | 
+| **CHOI Chong Hing** | **CHEN Xingsheng** |
 | :---: |:---:|
 | 3035564940 | 3035535547 |
-| [![CHOI Chong Hing](https://i.imgur.com/elZNX0z.jpg)](https://github.com/PCRedHot)    | [![CHEN Xing Sheung](https://i.imgur.com/xasWEFT.jpg)](https://github.com/XsChen524) | 
-| <a href="https://github.com/PCRedHot" target="_blank">`github.com/PCRedHot`</a> | <a href="https://github.com/XsChen524" target="_blank">`github.com/XsChen524`</a> | 
+| [![CHOI Chong Hing](https://i.imgur.com/elZNX0z.jpg)](https://github.com/PCRedHot)    | [![CHEN Xing Sheung](https://i.imgur.com/xasWEFT.jpg)](https://github.com/XsChen524) |
+| <a href="https://github.com/PCRedHot" target="_blank">`github.com/PCRedHot`</a> | <a href="https://github.com/XsChen524" target="_blank">`github.com/XsChen524`</a> |
