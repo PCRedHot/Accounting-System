@@ -112,9 +112,6 @@ int main(){
   string userInput = "";
 
   while (userInput != "Exit"){
-      cout << "intro" << endl;
-      cin >> userInput;
-
       cout << "********************************************" << endl;
       cout << "Welcome to Accounting System!" << endl;
       cout << "1. Account" << endl;
@@ -123,6 +120,8 @@ int main(){
       cout << "Please select the function" << endl;
       cout << "Enter 'Exit' to teminate" << endl;
       cout << "********************************************" << endl;
+
+      cin >> userInput;
       //Expense Alert
       if (expenseAlert != -3035564940 && expenseAlert < totalExpense) {
         cout << "!WARNING! Total expense exceed budget set!" << endl;
