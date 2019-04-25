@@ -300,7 +300,6 @@ int main(){
             {
             cout << "Please input the name of the account: ";
             cin >> name;
-            cout << endl;
             if (getAccount(name, accHead) != nullptr){
               cout << "Account named \"" << name << "\" already exist!" << endl;
             }else{
