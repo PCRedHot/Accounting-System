@@ -55,23 +55,26 @@ int main(){
   file.open(transactionFileName); //format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
   if (file.is_open()){
     string line;
-    istringstream iss(line);
     while (getline(file, line)){
 
       transaction* current_T = nullptr;
-      string date, type, name1, name2, amount;
-      iss >> date >> type >> amount >> name1 >> name2;
-      if (!name2.empty()){//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
-        current_T = new transaction(accHead, stoi(date), stof(amount), name1, name2);
+      string date, type, name1, amount;
+      int substrIndex = line.find('\t');
+      date = line.substr(0, substrIndex);
+      line = line.substr(substrIndex+1);
+      type = line.substr(0, substrIndex);
+      line = line.substr(substrIndex+1);
+      amount = line.substr(0, substrIndex);
+      line = line.substr(substrIndex+1);
+      name1 = line.substr(0, substrIndex);
+      line = line.substr(substrIndex+1);
+      if (!line.empty()){//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
+        current_T = new transaction(accHead, stoi(date), stof(amount), name1, line);
       }
       else{
-        name2 = "";
         current_T = new transaction(accHead, stoi(date), stof(amount), name1);
       }
 
-      account *acc01 = getAccount(name1, accHead), *acc02 = getAccount(name2, accHead);
-      current_T->acc1 = acc01;
-      current_T->acc2 = acc02;
       current_T->type = stoi(type);
 
       if (acc01->type == 0){

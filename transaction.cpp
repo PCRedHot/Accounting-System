@@ -8,6 +8,8 @@ transaction::transaction(account* head, int dateInput, float amountInput, string
   amount = amountInput;
   name1 = acc1Input;
   acc1 = getAccount(acc1Input, head);
+  name2 = "";
+  acc2 = nullptr;
 };
 
 transaction::transaction(account* head, int dateInput, float amountInput, string acc1Input, string acc2Input){
