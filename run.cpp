@@ -54,6 +54,7 @@ int main(){
   file.close();
 
   //get transactions from file
+
   file.open(transactionFileName); //format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
   if (file.is_open()){
     string line;
@@ -88,7 +89,7 @@ int main(){
         totalExpense -= stof(amount);
       }
 
-      if (tranHead != nullptr){
+      if (tranHead == nullptr){
         tranHead = current_T;
         tranTail = current_T;
       }else{
