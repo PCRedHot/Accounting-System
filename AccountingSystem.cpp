@@ -32,6 +32,7 @@ void listRevenue(account* head){
       cout << curr->getData() << endl;//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
       totalRevenue += curr->balance;
     }
+    curr = curr->next;
   }
   cout << "Total Revenues:" << right << totalRevenue << endl;
   cout << left;
@@ -48,6 +49,7 @@ void listAsset(account* head){
       cout << curr->getData() << endl;//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
       totalAsset += curr->balance;
     }
+    curr = curr->next;
   }
   cout << "Total Assets:" << right << totalAsset << endl;
   cout << left;
@@ -64,6 +66,7 @@ void incomeStatement(account* head){
       cout << curr->getData() << endl;//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
       totalRevenue += curr->balance;
     }
+    curr = curr->next;
   }
   cout << "Total Revenues:" << right << totalRevenue << endl;
   cout << left;
@@ -76,6 +79,7 @@ void incomeStatement(account* head){
       cout << curr->getData() << endl;//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
       totalExpense += curr->balance;
     }
+    curr = curr->next;
   }
   cout << "Total Expenses:" << right << totalExpense << endl;
   cout << left << "----------------------------" << endl;
