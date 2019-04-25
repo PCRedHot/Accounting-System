@@ -503,7 +503,7 @@ int main(){
           cout << "2. List all revenue accounts" << endl;
           cout << "3. List all asset accounts" << endl;
           cout << "4. Income statement" << endl;
-          cout << "5. Set expense alert"
+          cout << "5. Set expense alert" << endl;
           cout << "6. Return to last page" << endl;
           cout << "Please select a function" << endl;
           cout << "********************************************" << endl;
@@ -552,7 +552,7 @@ int main(){
               cin >> input;
               if (input == "none"){
                 expenseAlert = -3035564940;
-                cout << "Expense alert disabled" << end
+                cout << "Expense alert disabled" << endl;
               }else{
                 expenseAlert = stof(input);
                 cout << "Alert threshold set to " << expenseAlert << endl;
