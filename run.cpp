@@ -56,12 +56,15 @@ int main(){
     while (getline(file, line)){
 
       transaction* current_T = nullptr;
-      string date, acc1, acc2, amount;
-      iss >> date >> amount >> acc1 >> acc2;
-      if (!acc2.empty()){
-        current_T = new transaction(accHead, stoi(date), stof(amount), acc1, acc2);
-      }else{
-        current_T = new transaction(accHead, stoi(date), stof(amount), acc1);
+      string date, type, name1, name2, amount;
+      iss >> date >> type >> name1 >> name2 >> amount;
+      if (!amount.empty()){//(account head, date, type, amount, name1, name2)
+        current_T = new transaction(accHead, stoi(date), type, stof(amount), name1, name2);
+      }
+      else{//(account head, date, type, amount, name1)
+        amount = name2;
+        name2 = "";
+        current_T = new transaction(accHead, stoi(date), type, stof(amount), name1);
       }
 
       if (acc1->type == 0){
@@ -79,7 +82,8 @@ int main(){
       }
 
     }
-  }else{
+  }
+  else{
     cout << "No transaction file is found" << endl;
   }
   file.close();
@@ -105,8 +109,10 @@ int main(){
         cout << "Please select functions of transaction" << endl;
         cout << "1. Create new transaction" << endl;
         cout << "2. Get transactions on specific date" << endl;
-        cout << "3. Sort existing transactions accouring date" << endl;
-        cout << "4. List all transactions" << endl;
+        cout << "3. Get transactions of particular type" << endl;
+        cout << "4. Sort existing transactions accouring date" << endl;
+        cout << "5. List all transactions" << endl;
+        cout << "6. Output all transactions to file" << endl;
         cout << "Please enter the number" << endl;
 
         cin >> userInput;
@@ -116,8 +122,8 @@ int main(){
           {
             string input;
             cout << "Which kinds of transaction you want to record?" << endl;
-            cout << "1. Expenses" << endl;
-            cout << "2. Revenues" << endl;
+            cout << "1. Expense" << endl;
+            cout << "2. Revenue" << endl;
             cin >> input;
             if (stoi(input) > 2 || stoi(input) < 1){
               cout << "Unknown user input, returning to menu" << endl;
@@ -137,7 +143,7 @@ int main(){
             }else {
               cout << "Revenue account: ";
               cin >> acc1Input;
-              cout <<  "Asset account  (input \"none\" if no asset account): ";
+              cout <<  "Asset account (input \"none\" if no asset account): ";
               cin >> acc2Input;
             }
             cout <<  "Amount: ";
@@ -206,13 +212,111 @@ int main(){
           }
 
           case 2:
-            break;
+            {
+              cout << "Please enter the date" << endl;
+              string userInput;
+              cin >> userInput;
+              int dateFound = stoi(userInput);
 
-          case 5:
-            listTransaction(tranHead);
+              transaction* current_T = tranHead;
+              while (current_T != nullptr){
+                if (current_T->date == dateFound){
+                  cout << current_T->date << " " << typeofTran(current_T->type) <<" ";
+                  cout << current_T->name1 << " " << current_T->name2 << " ";
+                  cout << current_T->amount <<endl;
+                }
+              }
+              break;
+            }
+
+          case 3:{
+            cout << "Please enter number of type" <<endl;
+            cout << "1. Expense" << endl;
+            cout << "2. Revenue" << endl;
+            int typeFound;
+            cin >> typeFound;
+
+            transaction* current_T = tranHead;
+            while (current_T != nullptr){
+              if (current_T->type == typeFound){
+                cout << current_T->date << " " << typeofTran(current_T->type) <<" ";
+                cout << current_T->name1 << " " << current_T->name2 << " ";
+                cout << current_T->amount <<endl;
+              }
+              current_T = current_T->next;
+            }
             break;
           }
-        }else if (userInput == "Account"){
+
+          case 4:{
+            transaction* tranHead_new = nullptr;
+            transaction* beforeTran = tranHead;
+
+            int dateBefore;
+            while (beforeTran != nullptr){
+              transaction* current_T_new = tranHead_new;
+              transaction temp = *beforeTran;
+              temp.previous = nullptr;
+              temp.next = nullptr;
+              transaction* afterthis = find_insert(tranHead_new, temp.date);
+
+              if (afterthis == nullptr){
+                temp.next = tranHead_new;
+                tranHead_new = &temp;
+                temp.previous = nullptr;
+              }
+              else {
+
+                afterthis->next->previous = &temp;
+                temp.next = afterthis->next;
+                temp.previous = afterthis;
+                afterthis->next = &temp;
+
+              }
+              beforeTran = beforeTran->next;
+            }
+            tranHead = tranHead_new;
+          }
+
+          case 5:
+            {
+            transaction* current_output = tranHead;
+            cout<< "Date  Type  Account1  Account2  Amount";//Need to correct format
+            while (current_output != nullptr){
+              cout << current_output->date << " ";
+              if (current_output->type == 1) cout << "Expense" <<" ";
+              else  cout << "Revenue" <<" ";
+              cout << current_output->name1 << " ";
+              if (!current_output->name2.empty()) cout << current_output->name2 << " ";
+              cout << current_output->amount <<endl;
+            }
+            current_output = nullptr;
+            break;
+            }
+
+          case 6:
+            {
+              ofstream fout("transaction");
+              if (fout.is_open()){
+                transaction* current_output = tranHead;
+                cout<< "Date  Type  Account1  Account2  Amount";//Need to correct format
+                while (current_output != nullptr){
+                  fout << current_output->date << " ";
+                  if (current_output->type == 1) fout << "Expense" <<" ";
+                  else  fout << "Revenue" <<" ";
+                  fout << current_output->name1 << " ";
+                  if (!current_output->name2.empty()) fout << current_output->name2 << " ";
+                  fout << current_output->amount <<endl;
+                }
+              }
+              fout.close();
+
+              cout << "All Transactions have been outputed to file!" << endl;
+              break;
+            }
+          }
+        }
+        else if (userInput == "Account"){
           cout << "Please select functions of accounts" << endl;
           cout << "1. Add an account" << endl;
           cout << "2. Delete an account" << endl;
