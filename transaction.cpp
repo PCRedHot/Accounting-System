@@ -88,7 +88,7 @@ string transaction::getPrintData(){
     }
   }
   output += " " + to_string(amount) + '\t' + name1;
-  if (name2 != "") output += '\t' + '\t' + name2;
+  if (name2 != "") output += "\t\t" + name2;
   return output;
 }
 
