@@ -8,19 +8,15 @@ transaction::transaction(account* head, int dateInput, string typeInput, float a
   amount = amountInput;
   name1 = acc1Input;
   acc1 = getAccount(acc1Input, head);
-  //Type: 1. Expense 2. Revenue
-  type = (typeInput = "Expense")?1:2;
 };
 
-transaction::transaction(account* head, int dateInput, string type, float amountInput, string acc1Input, string acc2Input){
+transaction::transaction(account* head, int dateInput, float amountInput, string acc1Input, string acc2Input){
   date = dateInput;
   amount = amountInput;
   name1 = acc1Input;
   name2 = acc2Input;
   acc1 = getAccount(acc1Input, head);
   acc2 = getAccount(acc2Input, head);
-  //Type: 1. Expense 2. Revenue
-  type = (typeInput = "Expense")?1:2;
 };
 
 transaction::transaction(int dateInput, float amountInput, account* acc1Input, account* acc2Input){
@@ -69,27 +65,13 @@ string transaction::getData(){
   return output;
 };// format: YYYYMMDD <tab> amount <tab> acc1 <tab> acc2
 
-void transaction::deleteTransaction(){
-  previous->setNext(next);
-  next->setPrevious(previous);
-  delete this;
-}
-
 void transaction::reverseTransaction(){
-
-}
-
-transaction* find_insert(transaction* head, int datetemp){
-  if (head == nullptr || head->date >= datetemp)
-    return nullptr;
-
-  transaction* current = head;
-
-  while (current->next != nullptr){
-    if (current->next->date >= datetemp)
-      return current;
-    else current = current->;
+  acc1->balance -= amount;
+  if (acc2!=nullptr){
+    if (type == 0){
+      acc2 += amount;
+    }else if (type == 1){
+      acc2 -= amount;
+    }
   }
-
-  return current;
 }

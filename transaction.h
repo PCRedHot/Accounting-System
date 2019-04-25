@@ -4,8 +4,8 @@
 
 class transaction{
 public:
-  transaction(account*, int, std::string, float, std::string);//(account head, date, type, amount, name1)
-  transaction(account*, int, std::string, float, std::string, std::string);//(account head, date, type, amount, name1, name2)
+  transaction(account*, int, float, std::string);//(account head, date, type, amount, name1)
+  transaction(account*, int, float, std::string, std::string);//(account head, date, type, amount, name1, name2)
   transaction(int, float, account*, account*);
   transaction(int, float, account*);
 
@@ -27,7 +27,6 @@ public:
   void setPrevious(transaction*);
   void setNext(transaction*);
 
-  void deleteTransaction();
   void reverseTransaction();
 
   string getData(); //format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)

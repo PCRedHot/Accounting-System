@@ -18,6 +18,8 @@ static transaction* tranHead = nullptr;  //head transaction pointer
 static transaction* tranTail = nullptr;
 static float expenseAlert = -3035564940;
 static float totalExpense = 0;
+static const string accountFileName = "account";
+static const string transactionFileName = "transaction";
 //========================================
 
 int main(){
@@ -25,7 +27,7 @@ int main(){
 
   //get accounts from file
   ifstream file;
-  file.open("account");
+  file.open(accountFileName);
   if (file.is_open()){
     string line;  //line format: name <tab> balance <tab> type
     account* curr = nullptr;
@@ -50,7 +52,7 @@ int main(){
   file.close();
 
   //get transactions from file
-  file.open("transaction"); //line format: YYYYMMDD <tab> amount <tab> acc1 <tab> acc2
+  file.open(transactionFileName); //format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
   if (file.is_open()){
     string line;
     istringstream iss(line);
@@ -58,19 +60,19 @@ int main(){
 
       transaction* current_T = nullptr;
       string date, type, name1, name2, amount;
-      iss >> date >> type >> name1 >> name2 >> amount;
-      if (!amount.empty()){//(account head, date, type, amount, name1, name2)
-        current_T = new transaction(accHead, stoi(date), type, stof(amount), name1, name2);
+      iss >> date >> type >> amount >> name1 >> name2;
+      if (!name2.empty()){//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
+        current_T = new transaction(accHead, stoi(date), stof(amount), name1, name2);
       }
-      else{//(account head, date, type, amount, name1)
-        amount = name2;
+      else{
         name2 = "";
-        current_T = new transaction(accHead, stoi(date), type, stof(amount), name1);
+        current_T = new transaction(accHead, stoi(date), stof(amount), name1);
       }
 
       account *acc01 = getAccount(name1, accHead), *acc02 = getAccount(name2, accHead);
       current_T->acc1 = acc01;
       current_T->acc2 = acc02;
+      current_T->type = stoi(type);
 
       if (acc01->type == 0){
         totalExpense += stof(amount);
@@ -114,10 +116,10 @@ int main(){
         cout << "Please select functions of transaction" << endl;
         cout << "1. Create new transaction" << endl;
         cout << "2. Get transactions on specific date" << endl;
-        cout << "3. Get transactions of particular type" << endl;
-        cout << "4. Sort existing transactions accouring date" << endl;
-        cout << "5. List all transactions" << endl;
-        cout << "6. Output all transactions to file" << endl;
+        cout << "3. List all transactions from old to new" << endl;
+        cout << "4. List all transactions from new to old" << endl;
+        cout << "5. Reverse and delete a transaction" << endl;
+        cout << "6. Output transactions to a file" << endl;
         cout << "Please enter the number" << endl;
 
         cin >> userInput;
@@ -234,94 +236,62 @@ int main(){
               break;
             }
 
-          case 3:{
-            cout << "Please enter number of type" <<endl;
-            cout << "1. Expense" << endl;
-            cout << "2. Revenue" << endl;
-            int typeFound;
-            cin >> typeFound;
-
-            transaction* current_T = tranHead;
-            while (current_T != nullptr){
-              if (current_T->type == typeFound){
-                cout << current_T->date << " " << typeofTran(current_T->type) <<" ";
-                cout << current_T->name1 << " " << current_T->name2 << " ";
-                cout << current_T->amount <<endl;
-              }
-              current_T = current_T->next;
-            }
+          case 3:
+          {
+            sortTransaction_Date(tranHead);
+            listTransaction(tranHead);
             break;
           }
 
-          case 4:{
-            transaction* tranHead_new = nullptr;
-            transaction* beforeTran = tranHead;
-
-            int dateBefore;
-            while (beforeTran != nullptr){
-              transaction* current_T_new = tranHead_new;
-              transaction temp = *beforeTran;
-              temp.previous = nullptr;
-              temp.next = nullptr;
-              transaction* afterthis = find_insert(tranHead_new, temp.date);
-
-              if (afterthis == nullptr){
-                temp.next = tranHead_new;
-                tranHead_new = &temp;
-                temp.previous = nullptr;
-              }
-              else {
-
-                afterthis->next->previous = &temp;
-                temp.next = afterthis->next;
-                temp.previous = afterthis;
-                afterthis->next = &temp;
-
-              }
-              beforeTran = beforeTran->next;
-            }
-            tranHead = tranHead_new;
+          case 4:
+          {
+            sortTransaction_Date(tranHead);
+            listTransaction(tranHead);
+            break;
           }
 
           case 5:
-            {
-            transaction* current_output = tranHead;
-            cout<< "Date  Type  Account1  Account2  Amount";//Need to correct format
-            while (current_output != nullptr){
-              cout << current_output->date << " ";
-              if (current_output->type == 1) cout << "Expense" <<" ";
-              else  cout << "Revenue" <<" ";
-              cout << current_output->name1 << " ";
-              if (!current_output->name2.empty()) cout << current_output->name2 << " ";
-              cout << current_output->amount <<endl;
+          {
+            string dateInput, id;
+            int max_id;
+            cout << "Please input the date of transaction (YYYYMMDD): ";
+            cin >> dateInput;
+            max_id = listTransaction_date(stoi(dateInput), tranHead);
+            cout << "Please select the transaction: ";
+            cin >> id;
+            if (stoi(id) > max_id || stoi(id) < 1){
+              cout << "invaild user input" << endl;
+              break;
+            }else {
+              transaction* target = getTransaction(stoi(dateInput), stoi(id), tranhead);
+              if (target != nullptr){
+                target->reverseTransaction();
+                deleteTransaction(target);
+              }
             }
-            current_output = nullptr;
             break;
-            }
+          }
 
           case 6:
-            {
-              ofstream fout("transaction");
-              if (fout.is_open()){
-                transaction* current_output = tranHead;
-                cout<< "Date  Type  Account1  Account2  Amount";//Need to correct format
-                while (current_output != nullptr){
-                  fout << current_output->date << " ";
-                  if (current_output->type == 1) fout << "Expense" <<" ";
-                  else  fout << "Revenue" <<" ";
-                  fout << current_output->name1 << " ";
-                  if (!current_output->name2.empty()) fout << current_output->name2 << " ";
-                  fout << current_output->amount <<endl;
-                }
-              }
-              fout.close();
-
-              cout << "All Transactions have been outputed to file!" << endl;
-              break;
+          {
+            string fileName;
+            cout << "Input the name of the file, include file type (e.g. output.txt): ";
+            cin >> fileName;
+            if (fileName == transactionFileName){
+              cout << "The file name \"" << transactionFileName << "\" is invaild!" << endl;
+              cout << "Output failed" << endl;
             }
+            outputTransactionFile(tranHead, fileName);
+            cout << "Output as \"" << fileName << "\"" << endl;
+            break;
           }
-        }
-        else if (userInput == "Account"){
+
+          default:
+          {
+          cout << "Unknown user input" << endl;
+          break;
+          }
+        }else if (userInput == "Account"){
           cout << "Please select functions of accounts" << endl;
           cout << "1. Add an account" << endl;
           cout << "2. Delete an account" << endl;
@@ -424,6 +394,10 @@ int main(){
               string fileName;
               cout << "Input the name of the file, include file type (e.g. output.txt): ";
               cin >> fileName;
+              if (fileName == accountFileName){
+                cout << "The file name \"" << accountFileName << "\" is invaild!" << endl;
+                cout << "Output failed" << endl;
+              }
               outputAccountFile(accHead, fileName);
               cout << "Output as \"" << fileName << "\"" << endl;
               break;
@@ -464,8 +438,8 @@ int main(){
   }
 
   //store accounts and transactions to files
-  outputAccountFile(accHead, "account");
-  //**TO-DO**//
+  outputAccountFile(accHead, accountFileName);
+  outputTransactionFile(tranHead, transactionFileName);
 
   return 0;
 }

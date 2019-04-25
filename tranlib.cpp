@@ -1,6 +1,7 @@
 #include "tranlib.h"
 #include <iostream>
 #include <string>
+#include <fstream>
 using namespace std;
 
 transaction* getLastTransaction(transaction* head){
@@ -69,8 +70,43 @@ void listTransaction(transaction* head){
   }
 };
 
-string typeofTran (int type){
-  if (type == 1)
-    return "Expense";
-  else return "Revenue";
+void outputTransactionFile(string name, transaction* head){
+  transaction* curr = head;
+  ofstream file;
+  file.open(name);
+  if (file.is_open()){
+    while (curr != nullptr){
+      file << curr->getData() << endl;
+    }
+    curr = curr->next;
+  }
+}
+
+transaction* getTransaction(int date, int id, transaction* head){
+  transaction* curr = head;
+  while (curr != nullptr){
+    if (curr->date == date){
+      if (--id == 0){
+        return curr;
+      }
+    }
+  }
+}
+
+int listTransaction_date(int date, transaction* head){
+  transaction* curr = head;
+  int id = 1;
+  while (curr != nullptr){
+    if (curr->date == date){
+        cout << id << "\t" << curr->getData();
+    }
+    curr = curr->next;
+  }
+  return id;
+};
+
+void deleteTransaction(transaction* target){
+  target->previous->setNext(next);
+  target->next->setPrevious(previous);
+  delete target;
 }
