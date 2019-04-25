@@ -115,18 +115,18 @@ In case of terminal, you can type in the command
 
 If succeed, the program will display like this
 
-    \********************************************
+    ********************************************
     This is an ENGG1340 project of group 120
     Powered by Parry Choi and Shane Chen
-    \********************************************
-    \********************************************
+    ********************************************
+    ********************************************
     Welcome to Accounting System!
     1. Account
     2. Transaction
     3. Finance analysis
     Please select the function
     Enter 'Exit' to teminate
-    \********************************************
+    ********************************************
 
 ## Teammembers
 
