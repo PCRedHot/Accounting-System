@@ -257,7 +257,7 @@ int main(){
               transaction* target = getTransaction(stoi(dateInput), stoi(id), tranHead);
               if (target != nullptr){
                 target->reverseTransaction();
-                deleteTransaction(target);
+                deleteTransaction(target, tranHead);
               }
             }
             break;
