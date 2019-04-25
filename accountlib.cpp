@@ -24,34 +24,29 @@ account* getAccount(string InputName, account* head){
 //	        account* acc2 - second account
 //	output:	None
 void switchAccount(account* acc1, account* acc2){
-  account* tempP2 = acc2->previous, *tempN2 = acc2->next;
-  if (tempP2 != acc1 && tempN2 != acc1){
-    acc2->setPrevious(acc1->previous);
-    acc2->setNext(acc1->next);
-    acc1->setPrevious(tempP2);
-    acc1->setNext(tempN2);
-  }else if (tempP2 == acc1){
-    acc2->setPrevious(acc1->previous);
-    acc2->setNext(acc1);
-    acc1->setPrevious(acc2);
-    acc1->setNext(tempN2);
-  }else if (tempN2 == acc1){
-    acc2->setPrevious(acc1);
-    acc2->setNext(acc1->next);
-    acc1->setPrevious(tempP2);
-    acc1->setNext(acc2);
-  }
+  string name2 = acc2->name;
+  float balance2 = acc2->balance;
+  int type2 = acc2->type;
+  acc2->name = acc1->name;
+  acc2->balance = acc1->balance;
+  acc2->type = acc1->type;
+  acc1->name = name2;
+  acc1->balance = balance2;
+  acc1->type = type2;
 };
 
 //Function: sort the accounts by balance, ascending order
 //	input: 	account* head - the pointer that point to the first account
 //	output:	None
 void sortAccount_Balance(account* head){
-  if (head == nullptr) return;
+  if (head == nullptr) {
+    return;
+  }
   account* curr = head;
   bool change;
   while (change){
     change = false;
+    curr = head;
     while (curr->next != nullptr){
       if (curr->balance > curr->next->balance){
         change = true;
@@ -66,11 +61,14 @@ void sortAccount_Balance(account* head){
 //	input: 	account* head - the pointer that point to the first account
 //	output:	None
 void rsortAccount_Balance(account* head){
-  if (head == nullptr) return;
+  if (head == nullptr) {
+    return;
+  }
   account* curr = head;
   bool change;
   while (change){
     change = false;
+    curr = head;
     while (curr->next != nullptr){
       if (curr->balance < curr->next->balance){
         change = true;
