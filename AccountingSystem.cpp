@@ -26,7 +26,7 @@ void listRevenue(account* head){
   account* curr = head;
   float totalRevenue = 0;
   cout << "==========Revenues==========" << endl;
-  cout << "Name\tBalance\tType" << endl;
+  cout << "Name\tBalance\t\tType" << endl;
   while (curr != nullptr){
     if (curr->type == 1){
       cout << curr->getData() << endl;//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
@@ -42,7 +42,7 @@ void listAsset(account* head){
   account* curr = head;
   float totalAsset = 0;
   cout << "==========Assets==========" << endl;
-  cout << "Name\tBalance\tType" << endl;
+  cout << "Name\tBalance\t\tType" << endl;
   while (curr != nullptr){
     if (curr->type == 2){
       cout << curr->getData() << endl;//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
@@ -58,7 +58,7 @@ void incomeStatement(account* head){
   account* curr = head;
   float totalRevenue = 0;
   cout << "==========Revenues==========" << endl;
-  cout << "Name\tBalance\tType" << endl;
+  cout << "Name\tBalance\t\tType" << endl;
   while (curr != nullptr){
     if (curr->type == 1){
       cout << curr->getData() << endl;//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
@@ -70,7 +70,7 @@ void incomeStatement(account* head){
   curr = head;
   float totalExpense = 0;
   cout << "==========Expenses==========" << endl;
-  cout << "Name\tBalance\tType" << endl;
+  cout << "Name\tBalance\t\tType" << endl;
   while (curr != nullptr){
     if (curr->type == 0){
       cout << curr->getData() << endl;//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)

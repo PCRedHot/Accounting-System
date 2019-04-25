@@ -377,8 +377,8 @@ int main(){
               cout << "Account information of " << name << ":"<< endl;
               cout << fixed << setprecision(2);
               cout << "Current Balance: " <<  accPtr->balance << endl;
-              cout << "----------transaction History----------" << endl;
-              cout << "Date\tType\tBalance\tAccount1\tAccount2" << endl;
+              cout << "-------------transaction History------------" << endl;
+              cout << "Date\t\tType\tBalance\tAccount1\tAccount2" << endl;
               transaction* curr = tranHead;
               while (curr != nullptr){
                 if (curr->acc1 == accPtr || curr->acc2 == accPtr){
