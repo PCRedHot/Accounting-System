@@ -68,7 +68,7 @@ int main(){
         current_T = new transaction(accHead, stoi(date), type, stof(amount), name1);
       }
 
-      account *acc01 = getAccount(name1), *acc02 = getAccount(name2);
+      account *acc01 = getAccount(name1, accHead), *acc02 = getAccount(name2, accHead);
       current_T->acc1 = acc01;
       current_T->acc2 = acc02;
 
