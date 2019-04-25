@@ -10,6 +10,9 @@ transaction.o:transaction.cpp transaction.h account.h accountlib.h
 tranlib.o:tranlib.cpp tranlib.h accountlib.h transaction.h
 	g++ -c $<
 
+AccountingSystem.o:AccountingSystem.cpp AccountingSystem.h
+	g++ -c $<
+
 run.o:run.cpp accountlib.h tranlib.h
 	g++ -c $<
 

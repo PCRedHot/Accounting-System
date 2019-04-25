@@ -3,7 +3,7 @@
 #include <sstream>
 #include <iomanip>
 #include <fstream>
-#include "tranlib.h"
+#include "AccountingSystem.h"
 
 using namespace std;
 
@@ -11,9 +11,13 @@ using namespace std;
 //functions
 
 //========================================
+//Static variables
 static account* accHead = nullptr; //head account pointer
 static transaction* tranHead = nullptr;  //head transaction pointer
 static transaction* tranTail = nullptr;
+static float expenseAlert = NULL;
+static float totalExpense = 0;
+//========================================
 
 int main(){
   //Create head and tail of transaction, point to nullptr
@@ -60,6 +64,12 @@ int main(){
         current_T = new transaction(accHead, stoi(date), stof(amount), acc1);
       }
 
+      if (acc1->type == 0){
+        totalExpense += stof(amount);
+      }else if (acc1->type == 1){
+        totalExpense -= stof(amount);
+      }
+
       if (tranHead != nullptr){
         tranTail->next = current_T;
         tranTail = current_T;
@@ -83,6 +93,11 @@ int main(){
       cin >> userInput;
       //**TO-DO**//
       //reminders: check if it is the first account to be created!! if so, accHead = newAcc
+
+      //Expense Alert
+      if (expenseAlert != NULL && expenseAlert < totalExpense) {
+        cout << "!WARNING! Total expense exceed budget set!" << endl;
+      }
 
       if (userInput == "Transaction"){
 
@@ -171,6 +186,12 @@ int main(){
               acc1->balance += stof(amountInput);
             }
 
+            if (stoi(input) == 1){
+              totalExpense += stof(amountInput);
+            }else if (stoi(input) == 2){
+              totalExpense -= stof(amountInput);
+            }
+
             //Link the new created transaction to linked list
             if (tranHead == nullptr){
               tranHead = current_T;
@@ -179,9 +200,8 @@ int main(){
               last->setNext(current_T);
               current_T->setPrevious(last);
             }
-            current_T->type = stoi(input);
+            current_T->type = stoi(input)-1;
 
-            //modifyAccounts(current_T, head_A); ??
             break;
           }
 
@@ -263,7 +283,7 @@ int main(){
               cout << "Account information of " << name << ":"<< endl;
               cout << fixed << setprecision(2);
               cout << "Current Balance: " <<  accPtr->balance << endl;
-              cout << "-----transaction History-----" << endl;
+              cout << "----------transaction History----------" << endl;
               cout << "Date\tType\tBalance\tAccount1\tAccount2" << endl;
               transaction* curr = tranHead;
               while (curr != nullptr){

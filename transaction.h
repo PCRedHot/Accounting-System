@@ -10,7 +10,7 @@ public:
   transaction(int, float, account*);
 
   int date; //date of the transaction YYYYMMDD
-  int type;
+  int type; //0:expense 1:revenue
   account* acc1; //the first account of the transaction
   account* acc2; //the second account of the transaction
   std::string name1;
