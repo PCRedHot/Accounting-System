@@ -107,9 +107,9 @@ Congratulations! The program has been built successfully.
 
 ### Step 2. Run the program
 
-The executable program now is created in your folder, named **run**. You can access it directly or using terminal.
+The executable program now is created in your folder, named **run**.
 
-In case of terminal, you can type in the command
+You can type in the command below to run the program in terminal.
 
     $ ./run
 
@@ -136,9 +136,13 @@ Note that if you run the program for the first time, these words will be display
     No transaction file is found
 
 Don't worry, that's because your have never created any data before.
-The program will output and save existing data automatically, in the file **account** and **transaction**. Next time when you run, it will read initialized data. This can optimize users' control and storage of their personal financial data.
 
-### Step 3. Account
+The program will output and save existing data automatically, in the file **account** and **transaction**.
+Next time when you run, it will read initialized data and add them to you current data.
+
+This can optimize users' control and storage of their personal financial data.
+
+### Account
 
 
     ********************************************
