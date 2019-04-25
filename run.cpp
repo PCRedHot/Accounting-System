@@ -35,7 +35,7 @@ int main(){
     file >> data;
     expenseAlert = stof(data);
   }else{
-    cout << "NO expense alert file is found" << endl;
+    cout << "No expense alert file is found" << endl;
   }
 
   //get accounts from file
