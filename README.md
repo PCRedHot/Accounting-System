@@ -150,7 +150,7 @@ The program will output and save existing data automatically, in the file **acco
     5. List all accounts in descending order
     6. Output all accounts to a file
     7. Set amount of an account
-		8. Return to last page
+    8. Return to last page
     Please select a function
     ********************************************
 
