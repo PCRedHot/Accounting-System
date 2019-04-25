@@ -140,17 +140,18 @@ The program will output and save existing data automatically, in the file **acco
 
 ### Step 3. Account
 
-	********************************************
-	Account Menu
-	1. Add an account
-	2. Delete an account
-	3. Get information of an account
-	4. List all accounts in ascending order
-	5. List all accounts in descending order
-	6. Output all accounts to a file
-	7. Set amount of an account
-	Please select the function
-	********************************************
+
+		********************************************
+    Account Menu
+    1. Add an account
+    2. Delete an account
+		3. Get information of an account
+		4. List all accounts in ascending order
+		5. List all accounts in descending order
+		6. Output all accounts to a file
+		7. Set amount of an account
+		Please select the function
+		********************************************
 
 ## Teammembers
 
