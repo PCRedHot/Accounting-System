@@ -16,6 +16,7 @@ void listExpense(account* head){
       cout << curr->getData() << endl;//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
       totalExpense += curr->balance;
     }
+    curr = curr->next;
   }
   cout << "Total Expenses:" << right << totalExpense << endl;
   cout << left;
