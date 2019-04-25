@@ -278,6 +278,7 @@ int main(){
                 target->reverseTransaction();
                 deleteTransaction(target, tranHead);
               }
+              cout << "Transaction deleted!" << endl;
             }
             break;
           }
@@ -378,7 +379,7 @@ int main(){
               cout << fixed << setprecision(2);
               cout << "Current Balance: " <<  accPtr->balance << endl;
               cout << "-------------transaction History------------" << endl;
-              cout << "Date\t\tType\tBalance\tAccount1\tAccount2" << endl;
+              cout << "Date\t\tType\tBalance\t\tAccount1\tAccount2" << endl;
               transaction* curr = tranHead;
               while (curr != nullptr){
                 if (curr->acc1 == accPtr || curr->acc2 == accPtr){
