@@ -3,6 +3,7 @@
 #include <sstream>
 #include <iomanip>
 #include <fstream>
+#include <cmath>
 #include "AccountingSystem.h"
 
 using namespace std;
@@ -15,7 +16,7 @@ using namespace std;
 static account* accHead = nullptr; //head account pointer
 static transaction* tranHead = nullptr;  //head transaction pointer
 static transaction* tranTail = nullptr;
-static float expenseAlert = NULL;
+static float expenseAlert = -3035564940;
 static float totalExpense = 0;
 //========================================
 
@@ -67,9 +68,13 @@ int main(){
         current_T = new transaction(accHead, stoi(date), type, stof(amount), name1);
       }
 
-      if (acc1->type == 0){
+      account *acc01 = getAccount(name1), *acc02 = getAccount(name2);
+      current_T->acc1 = acc01;
+      current_T->acc2 = acc02;
+
+      if (acc01->type == 0){
         totalExpense += stof(amount);
-      }else if (acc1->type == 1){
+      }else if (acc01->type == 1){
         totalExpense -= stof(amount);
       }
 
@@ -99,7 +104,7 @@ int main(){
       //reminders: check if it is the first account to be created!! if so, accHead = newAcc
 
       //Expense Alert
-      if (expenseAlert != NULL && expenseAlert < totalExpense) {
+      if (expenseAlert != -3035564940 && expenseAlert < totalExpense) {
         cout << "!WARNING! Total expense exceed budget set!" << endl;
       }
 
