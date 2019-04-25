@@ -23,6 +23,6 @@ clean:
 	rm run *.o
 
 clean_store:
-	rm transaction account
+	rm transaction account alert
 
 .PHONY:clean clean_store

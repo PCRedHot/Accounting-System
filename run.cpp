@@ -143,7 +143,7 @@ int main(){
       }
 
       //Expense Alert
-      if (expenseAlert != -3035564940 && expenseAlert < totalExpense) {
+      if (expenseAlert > -3035564941 && expenseAlert < totalExpense) {
         cout << "!WARNING! Total expense exceed budget set!" << endl;
       }
 
@@ -175,8 +175,9 @@ int main(){
             cout << "Which kinds of transaction you want to record?" << endl;
             cout << "1. Expense" << endl;
             cout << "2. Revenue" << endl;
+            cout << "3. Asset transfer" << endl;
             cin >> input;
-            if (stoi(input) > 2 || stoi(input) < 1){
+            if (stoi(input) > 3 || stoi(input) < 1){
               cout << "Unknown user input, returning to menu" << endl;
               break;
             }
@@ -191,10 +192,15 @@ int main(){
               cin >> acc1Input;
               cout << "Asset account (input \"none\" if no asset account): ";
               cin >> acc2Input;
-            }else {
+            }else if (stoi(input) == 2) {
               cout << "Revenue account: ";
               cin >> acc1Input;
-              cout <<  "Asset account (input \"none\" if no asset account): ";
+              cout << "Asset account (input \"none\" if no asset account): ";
+              cin >> acc2Input;
+            }else {
+              cout << "Asset account 1: ";
+              cin >> acc1Input;
+              cout << "Asset account 2input \"none\" if no asset account): ";
               cin >> acc2Input;
             }
             cout <<  "Amount: ";
@@ -218,6 +224,11 @@ int main(){
               cout << "This transaction is not created" << endl;
               break;
             }
+            if (acc1->type != 2 && stoi(input) == 3){
+              cout << "Account \"" << acc1Input << "\" is not an asset account!" << endl;
+              cout << "This transaction is not created" << endl;
+              break;
+            }
             transaction* current_T;
             if (acc2Input != "none"){
               acc2 = getAccount(acc2Input, accHead);
@@ -233,10 +244,10 @@ int main(){
               }
               current_T = new transaction(stoi(dateInput), stof(amountInput), acc1, acc2);
               acc1->balance += stof(amountInput);
-              if (stoi(input) == 1){
-                acc2->balance -= stof(amountInput);
-              } else{
+              if (stoi(input) == 2){
                 acc2->balance += stof(amountInput);
+              } else{
+                acc2->balance -= stof(amountInput);
               }
             }else{
               current_T = new transaction(stoi(dateInput), stof(amountInput), acc1);
@@ -374,8 +385,8 @@ int main(){
                 accHead = newAcc;
                 accTail = newAcc;
               }else{
-                accTail->setNext(newAcc);
-                newAcc->setPrevious(accTail);
+                accTail->next = newAcc;
+                newAcc->previous = accTail;
                 newAcc->next = nullptr;
               }
               accTail = newAcc;

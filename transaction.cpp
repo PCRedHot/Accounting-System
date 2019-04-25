@@ -82,6 +82,11 @@ string transaction::getPrintData(){
       break;
     }
 
+    case 2:
+    {
+      output += "Asset  ";
+    }
+
     default:
     {
       break;
@@ -90,7 +95,7 @@ string transaction::getPrintData(){
   output += " " + to_string(amount) + '\t' + name1;
   if (name2 != "") output += "\t\t" + name2;
   return output;
-}
+};
 
 void transaction::reverseTransaction(){
   acc1->balance -= amount;
@@ -99,6 +104,8 @@ void transaction::reverseTransaction(){
       acc2->balance += amount;
     }else if (type == 1){
       acc2->balance -= amount;
+    }else if (type == 2){
+      acc2->balance += amount;
     }
   }
 }
