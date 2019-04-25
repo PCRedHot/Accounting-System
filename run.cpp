@@ -143,6 +143,7 @@ int main(){
         cout << "4. List all transactions from new to old" << endl;
         cout << "5. Reverse and delete a transaction" << endl;
         cout << "6. Output transactions to a file" << endl;
+        cout << "7. Return to last page" << endl;
         cout << "Please select functions of transaction" << endl;
         cout << "********************************************" << endl;
 
@@ -239,6 +240,8 @@ int main(){
             tranTail = current_T;
             current_T->type = stoi(input)-1;
 
+            cout << "This transaction is created successfully!" << endl;
+
             break;
           }
 
@@ -272,6 +275,10 @@ int main(){
             cout << "Please input the date of transaction (YYYYMMDD): ";
             cin >> dateInput;
             max_id = listTransaction_date(stoi(dateInput), tranHead);
+            if (max_id == 0){
+              cout << "No transactions found!" << endl;
+              break;
+            }
             cout << "Please select the transaction: ";
             cin >> id;
             if (stoi(id) > max_id || stoi(id) < 1){
@@ -302,6 +309,11 @@ int main(){
             break;
           }
 
+          case 7:
+          {
+            break;
+          }
+
           default:
           {
           cout << "Unknown user input" << endl;
@@ -320,6 +332,7 @@ int main(){
           cout << "5. List all accounts in descending order" << endl;
           cout << "6. Output all accounts to a file" << endl;
           cout << "7. Set amount of an account" << endl;
+          cout << "8. Return to last page" << endl;
           cout << "Please select the function" << endl;
           cout << "********************************************" << endl;
 
@@ -449,6 +462,11 @@ int main(){
               break;
             }
 
+            case 8:
+            {
+              break;
+            }
+
             default:
             {
             cout << "Unknown user input" << endl;
@@ -462,6 +480,7 @@ int main(){
           cout << "2. List all revenue accounts" << endl;
           cout << "3. List all asset accounts" << endl;
           cout << "4. Income statement" << endl;
+          cout << "5. Return to last page" << endl;
           cout << "Please select the function" << endl;
           cout << "********************************************" << endl;
           cin >> userInput;
@@ -488,6 +507,11 @@ int main(){
             case 4:
             {
               incomeStatement(accHead);
+              break;
+            }
+
+            case 5:
+            {
               break;
             }
 
