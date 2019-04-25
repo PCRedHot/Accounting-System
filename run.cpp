@@ -21,15 +21,24 @@ static float expenseAlert = -3035564940;
 static float totalExpense = 0;
 static const string accountFileName = "account";
 static const string transactionFileName = "transaction";
+static const string alertFileName = "alert";
 //========================================
 
 int main(){
   cout << fixed << setprecision(2);
 
-  //Create head and tail of transaction, point to nullptr
+  //get alert information from file
+  ifstream file;
+  file.open(alertFileName);
+  if (file.is_open()){
+    string data;
+    file >> data;
+    expenseAlert = stof(data);
+  }else{
+    cout << "No expense alert file is found" << endl;
+  }
 
   //get accounts from file
-  ifstream file;
   file.open(accountFileName);
   if (file.is_open()){
     string line;  //line format: name <tab> balance <tab> type
@@ -127,6 +136,12 @@ int main(){
       cout << "********************************************" << endl;
 
       cin >> userInput;
+
+      if (!check(userInput) && userInput != "Exit"){
+        cout << "Unknown user input" << endl;
+        continue;
+      }
+
       //Expense Alert
       if (expenseAlert != -3035564940 && expenseAlert < totalExpense) {
         cout << "!WARNING! Total expense exceed budget set!" << endl;
@@ -143,10 +158,15 @@ int main(){
         cout << "4. List all transactions from new to old" << endl;
         cout << "5. Reverse and delete a transaction" << endl;
         cout << "6. Output transactions to a file" << endl;
+        cout << "7. Return to last page" << endl;
         cout << "Please select functions of transaction" << endl;
         cout << "********************************************" << endl;
 
         cin >> userInput;
+        if (!check(userInput)){
+          cout << "Unknown user input" << endl;
+          continue;
+        }
 
         switch (stoi(userInput)){
           case 1:
@@ -239,6 +259,8 @@ int main(){
             tranTail = current_T;
             current_T->type = stoi(input)-1;
 
+            cout << "This transaction is created successfully!" << endl;
+
             break;
           }
 
@@ -272,6 +294,10 @@ int main(){
             cout << "Please input the date of transaction (YYYYMMDD): ";
             cin >> dateInput;
             max_id = listTransaction_date(stoi(dateInput), tranHead);
+            if (max_id == 0){
+              cout << "No transactions found!" << endl;
+              break;
+            }
             cout << "Please select the transaction: ";
             cin >> id;
             if (stoi(id) > max_id || stoi(id) < 1){
@@ -302,6 +328,11 @@ int main(){
             break;
           }
 
+          case 7:
+          {
+            break;
+          }
+
           default:
           {
           cout << "Unknown user input" << endl;
@@ -320,10 +351,15 @@ int main(){
           cout << "5. List all accounts in descending order" << endl;
           cout << "6. Output all accounts to a file" << endl;
           cout << "7. Set amount of an account" << endl;
+          cout << "8. Return to last page" << endl;
           cout << "Please select the function" << endl;
           cout << "********************************************" << endl;
 
           cin >> userInput;
+          if (!check(userInput)){
+            cout << "Unknown user input" << endl;
+            continue;
+          }
           string name;
           switch (stoi(userInput)) {
             case 1:
@@ -449,6 +485,11 @@ int main(){
               break;
             }
 
+            case 8:
+            {
+              break;
+            }
+
             default:
             {
             cout << "Unknown user input" << endl;
@@ -462,9 +503,16 @@ int main(){
           cout << "2. List all revenue accounts" << endl;
           cout << "3. List all asset accounts" << endl;
           cout << "4. Income statement" << endl;
+          cout << "5. Set expense alert"
+          cout << "6. Return to last page" << endl;
           cout << "Please select the function" << endl;
           cout << "********************************************" << endl;
           cin >> userInput;
+
+          if (!check(userInput)){
+            cout << "Unknown user input" << endl;
+            continue;
+          }
 
           switch (stoi(userInput)) {
             case 1:
@@ -491,6 +539,32 @@ int main(){
               break;
             }
 
+            case 5:
+            {
+              string input;
+              cout << "Current expense alert threshold: ";
+              if (expenseAlert == -3035564940){
+                cout << "none" << endl;
+              }else{
+                cout << expenseAlert << endl;
+              }
+              cout << "New threshold (input \"none\" to disable the alert): ";
+              cin >> input;
+              if (input == "none"){
+                expenseAlert = -3035564940;
+                cout << "Expense alert disabled" << end
+              }else{
+                expenseAlert = stof(input);
+                cout << "Alert threshold set to " << expenseAlert << endl;
+              }
+
+            }
+
+            case 6:
+            {
+              break;
+            }
+
             default:
             {
               cout << "Unknown user input" << endl;
@@ -504,6 +578,7 @@ int main(){
   //store accounts and transactions to files
   outputAccountFile(accHead, accountFileName);
   outputTransactionFile(tranHead, transactionFileName);
+  outputAlert(expenseAlert, alertFileName);
 
   return 0;
 }

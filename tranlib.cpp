@@ -96,6 +96,7 @@ void outputTransactionFile(transaction* head, string name){
       curr = curr->next;
     }
   }
+  file.close();
 }
 
 transaction* getTransaction(int date, int id, transaction* head){

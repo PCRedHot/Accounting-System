@@ -1,7 +1,9 @@
 #include "AccountingSystem.h"
 #include <iostream>
 #include <string>
+#include <fstream>
 #include <iomanip>
+#include <ctype.h>
 
 using namespace std;
 
@@ -82,3 +84,25 @@ void incomeStatement(account* head){
   cout << "----------------------------" << endl;
   cout << "Net Gain/Loss: " << totalRevenue - totalExpense << endl;
 };
+
+bool check(string input){
+  if (input.length() != 1){
+    return false;
+  }
+  if (isdigit(input[0])){
+    return true;
+  }else{
+    return false;
+  }
+}
+
+void outputAlert(float amount, string fileName){
+  ofstream file;
+  file.open(fileName);
+  if (file.is_open()){
+    file << amount;
+  }else{
+    cout << "Output expense alert file failed" << endl;
+  }
+  file.close();
+}
