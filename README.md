@@ -85,8 +85,7 @@ The system will launch more incredible features in the comming soon.
 ## Usage
 
 
-###Step 1. Makefile
-
+### Step 1. Makefile
 
 If users use Accounting System for the first time, it's necessary to compile the executable programs from source files by reading Makefile.
 
@@ -96,13 +95,13 @@ Users can type in the command below to compile run.cpp
 
 If succeed, users' terminal will display compilation process shown below
 
-		g++ -c run.cpp
-		g++ -c account.cpp
-		g++ -c accountlib.cpp
-		g++ -c transaction.cpp
-		g++ -c tranlib.cpp
-		g++ -c AccountingSystem.cpp
-		g++ run.o account.o accountlib.o transaction.o tranlib.o AccountingSystem.o -o run
+    g++ -c run.cpp
+    g++ -c account.cpp
+    g++ -c accountlib.cpp
+    g++ -c transaction.cpp
+    g++ -c tranlib.cpp
+    g++ -c AccountingSystem.cpp
+    g++ run.o account.o accountlib.o transaction.o tranlib.o AccountingSystem.o -o run
 
 
 
