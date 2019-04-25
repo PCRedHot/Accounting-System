@@ -4,6 +4,7 @@
 
 using namespace std;
 
-void listExpense(transaction*);
-void listRevenue(transaction*);
+void listExpense(account*);
+void listRevenue(account*);
+void listAsset(account*);
 void incomeStatement(transaction*);

@@ -23,6 +23,7 @@ static const string transactionFileName = "transaction";
 //========================================
 
 int main(){
+  cout << fixed << setprecision(2);
 
   //Create head and tail of transaction, point to nullptr
 
@@ -107,21 +108,21 @@ int main(){
   cout << "This is an ENGG1340 project of group 120"  << endl;
   cout << "Powered by Parry Choi and Shane Chen" << endl;
   cout << "********************************************" << endl;
-  cout << "Welcome to Accounting System!" << endl;
-  cout << "1. Account" << endl;
-  cout << "2. Transaction" << endl;
-  cout << "Please select the function" << endl;
-  cout << "Enter 'Exit' to teminate"
-  cout << "********************************************" << endl;
 
   string userInput = "";
 
   while (userInput != "Exit"){
       cout << "intro" << endl;
       cin >> userInput;
-      //**TO-DO**//
-      //reminders: check if it is the first account to be created!! if so, accHead = newAcc
 
+      cout << "********************************************" << endl;
+      cout << "Welcome to Accounting System!" << endl;
+      cout << "1. Account" << endl;
+      cout << "2. Transaction" << endl;
+      cout << "3. Finance analysis" << endl;
+      cout << "Please select the function" << endl;
+      cout << "Enter 'Exit' to teminate"
+      cout << "********************************************" << endl;
       //Expense Alert
       if (expenseAlert != -3035564940 && expenseAlert < totalExpense) {
         cout << "!WARNING! Total expense exceed budget set!" << endl;
@@ -448,6 +449,15 @@ int main(){
             break;
             }
           }
+        }else if (userInput == "Finance analysis" || userInput == "3"){
+          cout << "********************************************" << endl;
+          cout << "Account Menu" << endl;
+          cout << "1. List all expense accounts" << endl;
+          cout << "2. List all revenue accounts" << endl;
+          cout << "3. List all asset accounts" << endl;
+          cout << "4. Income statement" << endl;
+          cout << "Please select the function" << endl;
+          cout << "********************************************" << endl;
         }
 
   }
