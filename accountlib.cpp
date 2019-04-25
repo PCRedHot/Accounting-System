@@ -92,6 +92,7 @@ void outputAccountFile(account* head, string name){
   }else{
     cout << "No account to store" << endl;
   }
+  file.close();
 };
 
 account* getLastAccount(account* head){
