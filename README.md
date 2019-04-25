@@ -94,9 +94,15 @@ Users can type in the command below to compile run.cpp
 
 If succeed, users' terminal will display compilation process shown below
 
-    
+		g++ -c run.cpp
+		g++ -c account.cpp
+		g++ -c accountlib.cpp
+		g++ -c transaction.cpp
+		g++ -c tranlib.cpp
+		g++ -c AccountingSystem.cpp
+		g++ run.o account.o accountlib.o transaction.o tranlib.o AccountingSystem.o -o run
 
-Besides building programs, Make can be used to manage any project where some files must be updated automatically from others whenever the others change.
+
 
 ## Teammembers
 
