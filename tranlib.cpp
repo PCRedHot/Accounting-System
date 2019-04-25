@@ -67,6 +67,8 @@ void rsortTransaction_Date(transaction* head){
 
 void listTransaction(transaction* head){
   transaction* curr = head;
+  cout << "==========Transactions===========" << endl;
+  cout << "Date\tType\tAmount\tAccount1\tAccount2" << endl;
   while (curr != nullptr){
     cout << curr->getData() << endl;
     curr = curr->next;
@@ -101,6 +103,8 @@ transaction* getTransaction(int date, int id, transaction* head){
 int listTransaction_date(int date, transaction* head){
   transaction* curr = head;
   int id = 1;
+  cout << "==========Transactions===========" << endl;
+  cout << "ID\tDate\tType\tAmount\tAccount1\tAccount2" << endl;
   while (curr != nullptr){
     if (curr->date == date){
         cout << id << "\t" << curr->getData();
