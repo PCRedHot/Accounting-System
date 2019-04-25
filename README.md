@@ -136,7 +136,7 @@ Note that if you run the program for the first time, these words will be display
     No transaction file is found
 
 Don't worry, that's because your have never created any data before.
-The program will output and save existing data automatically, in the file **account** and **transaction**. Next time when you run, it will read initialized data. This can optimize users' control and storage of their personal financial data.
+The program will output and save existing data automatically, in the file **account**, **transaction** and **alert**. Next time when you run, it will read initialized data. This can optimize users' control and storage of their personal financial data.
 
 ### Step 3. Account
 
