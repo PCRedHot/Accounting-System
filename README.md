@@ -105,12 +105,47 @@ If succeed, your terminal will display compilation process shown below
 
 Congratulations! The program has been built successfully.
 
-### Step 2. 
+### Step 2. Run the program
+
+The executable program now is created in your folder, named **run**. You can access it directly or using terminal.
+
+In case of terminal, you can type in the command
+
+    $ ./run
+
+If succeed, the program will display like this
+
+    ********************************************
+    This is an ENGG1340 project of group 120
+    Powered by Parry Choi and Shane Chen
+    ********************************************
+    ********************************************
+    Welcome to Accounting System!
+    1. Account
+    2. Transaction
+    3. Finance analysis
+    Please select the function
+    Enter 'Exit' to teminate
+    ********************************************
+
+Then you may choose function and enter the number, or type in **Exit** to terminate the programm.
+
+Note that if you run the program for the first time, these words will be displayed
+
+    No account file is found
+    No transaction file is found
+
+Don't worry, that's because your have never created any data before.
+The program will output and save existing data automatically, in the file **account** and **transaction**. Next time when you run, it will read initialized data. This can optimize users' control and storage of their personal financial data.
+
+### Step 3. Account
+
+
 
 ## Teammembers
 
 | **CHOI Chong Hing** | **CHEN Xingsheng** |
 | :---: |:---:|
 | 3035564940 | 3035535547 |
-| [![CHOI Chong Hing](https://i.imgur.com/elZNX0z.jpg)](https://github.com/PCRedHot)    | [![CHEN Xing Sheung](https://i.imgur.com/xasWEFT.jpg)](https://github.com/XsChen524) |
+| [![CHOI Chong Hing](https://i.imgur.com/elZNX0z.jpg)](https://github.com/PCRedHot)    | [![CHEN Xingsheng](https://i.imgur.com/xasWEFT.jpg)](https://github.com/XsChen524) |
 | <a href="https://github.com/PCRedHot" target="_blank">`github.com/PCRedHot`</a> | <a href="https://github.com/XsChen524" target="_blank">`github.com/XsChen524`</a> |
