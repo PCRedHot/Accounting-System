@@ -210,8 +210,8 @@ int main(){
               tranHead = current_T;
             }else{
               transaction* last = getLastTransaction(tranHead);
-              last->setNext(current_T);
-              current_T->setPrevious(last);
+              last->next = current_T;
+              current_T->previous = last;
             }
             current_T->type = stoi(input)-1;
 
