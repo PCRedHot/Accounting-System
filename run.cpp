@@ -105,7 +105,7 @@ int main(){
   cout << "1. Account" << endl;
   cout << "2. Transaction" << endl;
   cout << "Please select the function" << endl;
-  cout << "Enter 'Exit' to teminate"
+  cout << "Enter 'Exit' to teminate" << endl;
   cout << "********************************************" << endl;
 
   string userInput = "";
