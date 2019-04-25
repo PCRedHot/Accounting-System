@@ -62,13 +62,13 @@ void transaction::setNext(transaction* tran){
 };
 
 string transaction::getData(){
-  string output = to_string(date) + " " + to_string(type) + " " + to_string(amount) + '\t' + name1;
+  string output = to_string(date) + '\t' + to_string(type) + '\t' + to_string(amount) + '\t' + name1;
   if (name2 != "") output += '\t' + name2;
   return output;
 };// format: YYYYMMDD <tab> amount <tab> acc1 <tab> acc2
 
 string transaction::getPrintData(){
-  string output = to_string(date) + '\t';
+  string output = to_string(date) + " ";
   switch (type) {
     case 0:
     {
@@ -87,7 +87,7 @@ string transaction::getPrintData(){
       break;
     }
   }
-  output += '\t' + to_string(amount) + '\t' + name1;
+  output += " " + to_string(amount) + '\t' + name1;
   if (name2 != "") output += '\t' + name2;
   return output;
 }
