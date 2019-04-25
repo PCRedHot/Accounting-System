@@ -3,7 +3,7 @@
 #include "transaction.h"
 using namespace std;
 
-transaction::transaction(account* head, int dateInput, string typeInput, float amountInput, string acc1Input){
+transaction::transaction(account* head, int dateInput, float amountInput, string acc1Input){
   date = dateInput;
   amount = amountInput;
   name1 = acc1Input;
@@ -69,9 +69,9 @@ void transaction::reverseTransaction(){
   acc1->balance -= amount;
   if (acc2!=nullptr){
     if (type == 0){
-      acc2 += amount;
+      acc2->balance += amount;
     }else if (type == 1){
-      acc2 -= amount;
+      acc2->balance -= amount;
     }
   }
 }
