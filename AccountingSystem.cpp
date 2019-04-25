@@ -9,7 +9,6 @@ void listExpense(account* head){
   cout << fixed << setprecision(2);
   float totalExpense = 0;
   account* curr = head;
-  sortTransaction_Date(head);
   cout << "==========Expenses==========" << endl;
   cout << "Name\tBalance\tType" << endl;
   while (curr != nullptr){
@@ -26,7 +25,6 @@ void listRevenue(account* head){
   cout << fixed << setprecision(2);
   account* curr = head;
   float totalRevenue = 0;
-  sortTransaction_Date(head);
   cout << "==========Revenues==========" << endl;
   cout << "Name\tBalance\tType" << endl;
   while (curr != nullptr){
@@ -42,7 +40,6 @@ void listRevenue(account* head){
 void listAsset(accout* head){
   cout << fixed << setprecision(2);
   account* curr = head;
-  sortTransaction_Date(head);
   float totalAsset = 0;
   cout << "==========Assets==========" << endl;
   cout << "Name\tBalance\tType" << endl;
@@ -59,7 +56,6 @@ void listAsset(accout* head){
 void incomeStatement(account* head){
   cout << fixed << setprecision(2);
   account* curr = head;
-  sortTransaction_Date(head);
   float totalRevenue = 0;
   cout << "==========Revenues==========" << endl;
   cout << "Name\tBalance\tType" << endl;
