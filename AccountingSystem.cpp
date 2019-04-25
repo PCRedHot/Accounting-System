@@ -6,6 +6,7 @@
 using namespace std;
 
 void listExpense(transaction* head){
+  cout << fixed << setprecision(2);
   transaction* curr = head;
   sortTransaction_Date(head);
   cout << "=====Expense Transaction History=====" << endl;
@@ -18,7 +19,7 @@ void listExpense(transaction* head){
 };
 
 void listRevenue(transaction* head){
-    cout << fixed << setprecision(2);
+  cout << fixed << setprecision(2);
   transaction* curr = head;
   sortTransaction_Date(head);
   cout << "=====Renvenue Transaction History=====" << endl;

@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <iomanip>
 using namespace std;
 
 transaction* getLastTransaction(transaction* head){
@@ -72,6 +73,7 @@ void listTransaction(transaction* head){
 
 void outputTransactionFile(transaction* head, string name){
   transaction* curr = head;
+  cout << fixed << setprecision(2);
   ofstream file;
   file.open(name);
   if (file.is_open()){
