@@ -22,5 +22,6 @@ public:
   void setPrevious(account&);
   void setNext(account&);
 
+  string getPrintData();
   string getData();
 };

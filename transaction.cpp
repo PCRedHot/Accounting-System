@@ -67,6 +67,31 @@ string transaction::getData(){
   return output;
 };// format: YYYYMMDD <tab> amount <tab> acc1 <tab> acc2
 
+string transaction::getPrintData(){
+  string output = to_string(date) + " ";
+  switch (type) {
+    case 0:
+    {
+      output += "Expense";
+      break;
+    }
+
+    case 1:
+    {
+      output += "Revenue";
+      break;
+    }
+
+    default:
+    {
+      break;
+    }
+  }
+  output += " " + to_string(amount) + '\t' + name1;
+  if (name2 != "") output += "\t\t" + name2;
+  return output;
+}
+
 void transaction::reverseTransaction(){
   acc1->balance -= amount;
   if (acc2!=nullptr){
