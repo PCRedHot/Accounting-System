@@ -239,7 +239,7 @@ int main(){
 
           case 2:
             {
-              cout << "Please input the date:";
+              cout << "Please input the date: ";
               string userInput;
               cin >> userInput;
               listTransaction_date(stoi(userInput), tranHead);
