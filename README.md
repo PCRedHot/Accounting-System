@@ -87,6 +87,7 @@ The system will launch more incredible features in the comming soon.
 
 ### Step 1. Makefile
 
+
 If you are using Accounting System for the first time, it's necessary to compile the executable programs from source files by reading Makefile.
 
 Users can type in the command below to compile run.cpp
@@ -105,7 +106,9 @@ If succeed, your terminal will display compilation process shown below
 
 Congratulations! The program has been built successfully.
 
+
 ### Step 2. Run the program
+
 
 The executable program now is created in your folder, named **run**.
 
@@ -150,6 +153,7 @@ This can optimize users' control and storage of their personal financial data.
 
 ### Account
 
+
 The Accounting System provides the basic function **Account**.
 
 You can simply create varied type account, modified the existing accounts, list all of them and output to file.
@@ -171,7 +175,9 @@ The Account Menu is shown below
 
 You can choose the function and type in the number
 
+
 #### Create an acount
+
 
 For the first time you run the program, there is no initialized data. So you need to create your personal accounts.
 
@@ -197,7 +203,7 @@ After your account has been created, you can set its amount by **Set amount of a
 Here we provide you a sample of created accounts list, it can also be outputed by yourself.
 
     Name		Balance			Type
-    Cash		-425.000000		Asset
+    Cash		75.000000		Asset
     Credit		30.000000		Expense
     Clothing	200.000000		Expense
     Healthcare	225.000000		Expense
