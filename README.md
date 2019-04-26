@@ -177,19 +177,34 @@ For the first time you run the program, there is no initialized data. So you nee
 
 Enter the function Add an account, it will show
 
-    Please input the name of the account:
+    Please input the name of the account: Cash
 
-You can create accounts like **Debit**, **Credit**, **Salary**, or just type in the name you like.
-In this case, we create the account named **Credit**. After enter the name of account, the program will ask you the type of such account
+You can create accounts like **Credit**, **Salary**, **Food**, or type in the name whatever you like.
+In this case, we create the account named **Cash**, it has been stored in our **Sample cases**. After enter the name of account, the program will ask you the type of such account
 
     Which type is the account?
     1. Expense Account
     2. Revenue Account
     3. Asset Account
 
-In this case, we make it as an Expense Account. Type in **1**
+In this case, we make it as an Asset Account. Type in **3**
 
-    Account named "Credit" is created!
+    Account named "Cash" is created!
+
+Firstly initialized account's amount is preset as 0 (float).
+After your account has been created, you can set its amount by **Set amount of account** function.
+
+Here we provide you a sample of created accounts list, it can also be outputed by yourself.
+
+    Name	Balance	Type
+    Cash	-425.000000	Asset
+    Credit	30.000000	Expense
+    Clothing	200.000000	Expense
+    Healthcare	225.000000	Expense
+    Salary	2000.339966	Revenue
+    Debit	20000.000000	Asset
+
+
 
 
 
