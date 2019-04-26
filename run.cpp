@@ -144,7 +144,7 @@ int main(){
       }
 
       //Expense Alert
-      if (expenseAlert > -3035564941 && expenseAlert < totalExpense) {
+      if (expenseAlert > -3035564939 && expenseAlert < totalExpense) {
         cout << "!WARNING! Total expense exceed budget set!" << endl;
       }
 
