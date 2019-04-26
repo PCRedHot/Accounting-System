@@ -196,7 +196,7 @@ After your account has been created, you can set its amount by **Set amount of a
 
 Here we provide you a sample of created accounts list, it can also be outputed by yourself.
 
-    Name			Balance			Type
+    Name		Balance		Type
     Cash		-425.000000		Asset
     Credit		30.000000		Expense
     Clothing	200.000000		Expense
