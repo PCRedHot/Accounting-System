@@ -200,6 +200,12 @@ In this case, we make it as an Asset Account. Type in **3**
 Firstly initialized account's amount is preset as 0 (float).
 After your account has been created, you can set its amount by **Set amount of account** function.
 
+
+#### list all accounts
+
+The program allows you to list all existing accounts in ascending and descending order.
+They can also be outputed directly to file that you created.
+
 Here we provide you a sample of created accounts list, it can also be outputed by yourself.
 
     Name		Balance			Type
