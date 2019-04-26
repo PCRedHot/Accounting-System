@@ -199,8 +199,8 @@ Here we provide you a sample of created accounts list, it can also be outputed b
     Name			Balance			Type
     Cash			-425.000000			Asset
     Credit			30.000000			Expense
-    Clothing			200.000000			Expense
-    Healthcare			225.000000			Expense
+    Clothing		200.000000		Expense
+    Healthcare		225.000000		Expense
     Salary			2000.339966			Revenue
     Debit			20000.000000			Asset
 
