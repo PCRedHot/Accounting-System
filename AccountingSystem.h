@@ -10,3 +10,4 @@ void listAsset(account*);
 void incomeStatement(account*);
 bool check(string);
 void outputAlert(float, string);
+void deleteAccount(account*, account*&, account*&, transaction*);

@@ -96,7 +96,7 @@ bool check(string input){
   }else{
     return false;
   }
-}
+};
 
 void outputAlert(float amount, string fileName){
   ofstream file;
@@ -107,4 +107,31 @@ void outputAlert(float amount, string fileName){
     cout << "Output expense alert file failed" << endl;
   }
   file.close();
-}
+};
+
+void deleteAccount(account* acc, account* &head, account* &tail, transaction* headT){
+  if (acc->previous == nullptr && acc->next != nullptr){
+    acc->next->previous = nullptr;
+    head = acc->next;
+  }else if (acc->previous != nullptr && acc->next == nullptr){
+    acc->previous->next = nullptr;
+    tail = acc->previous;
+  }else if (acc->previous != nullptr && acc->next != nullptr){
+    acc->previous->next = acc->next;
+    acc->next->previous = acc->previous;
+  }else{
+    head = nullptr;
+    tail = nullptr;
+  }
+  transaction* curr = headT;
+  while (curr != nullptr){
+    if (curr->name1 == acc->name){
+      curr->acc1 = nullptr;
+    }
+    if (curr->name2 == acc->name){
+      curr->acc2 = nullptr;
+    }
+    curr = curr->next;
+  }
+  delete acc;
+};
