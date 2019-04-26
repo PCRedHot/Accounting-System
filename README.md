@@ -132,6 +132,7 @@ Then you may choose function and enter the number, or type in **Exit** to termin
 
 Note that if you run the program for the first time, these words will be displayed
 
+    No alert file is found
     No account file is found
     No transaction file is found
 
@@ -167,7 +168,7 @@ The Account Menu is shown below
     Please select a function
     ********************************************
 
-#### Create a acount
+#### Create an acount
 
 ## Teammembers
 
