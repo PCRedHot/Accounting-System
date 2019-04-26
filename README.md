@@ -168,7 +168,7 @@ The Account Menu is shown below
     Please select a function
     ********************************************
 
-#### Create a acount
+#### Create an acount
 
 ## Teammembers
 
