@@ -147,6 +147,7 @@ This can optimize users' control and storage of their personal financial data.
 
 ## Functions
 
+
 ### Account
 
 The Accounting System provides the basic function **Account**.
@@ -168,7 +169,29 @@ The Account Menu is shown below
     Please select a function
     ********************************************
 
+You can choose the function and type in the number
+
 #### Create an acount
+
+For the first time you run the program, there is no initialized data. So you need to create your personal accounts.
+
+Enter the function Add an account, it will show
+
+    Please input the name of the account:
+
+You can create accounts like **Debit**, **Credit**, **Salary**, or just type in the name you like.
+In this case, we create the account named **Credit**. After enter the name of account, the program will ask you the type of such account
+
+    Which type is the account?
+    1. Expense Account
+    2. Revenue Account
+    3. Asset Account
+
+In this case, we make it as an Expense Account. Type in **1**
+
+    Account named "Credit" is created!
+
+
 
 ## Teammembers
 
