@@ -107,7 +107,7 @@ void listAccount(account* head){
   }
 };
 
-void deleteAccount(account* acc, account* &head, account* &tail){
+void deleteAccount(account* acc, account* &head, account* &tail, transaction* head){
   if (acc->previous == nullptr && acc->next != nullptr){
     acc->next->previous = nullptr;
     head = acc->next;
@@ -120,6 +120,16 @@ void deleteAccount(account* acc, account* &head, account* &tail){
   }else{
     head = nullptr;
     tail = nullptr;
+  }
+  transaction* curr = head;
+  while (curr != nullptr){
+    if (curr->name1 == acc->name){
+      curr->acc1 = nullptr;
+    }
+    if (curr->name2 == acc->name){
+      curr->acc2 = nullptr;
+    }
+    curr = curr->next;
   }
   delete acc;
 };

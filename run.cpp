@@ -409,14 +409,23 @@ int main(){
 
             case 2:
             {
+            string yesorno;
             cout << "Please input the name of the account: ";
             cin >> name;
             account* accPtr = getAccount(name, accHead);
             if (accPtr == nullptr){
               cout << "Account named \"" << name << "\" not exist!" << endl;
             }else{
-              deleteAccount(accPtr, accHead, accTail);
-              cout << "Account \"" << name << "\" deleted!" << endl;
+              cout << "!WARNING! THIS ACTION WILL DELETE THE ACCOUNT AND YOU ARE NOT ABLE TO RECOVER IT!" << endl;
+              cout << "Proceed? (Y/N) " ;
+              cin >> yesorno;
+              if (yesorno != "Y"){
+                cout << "Cancelled" << endl;
+                break;
+              }else{
+                deleteAccount(accPtr, accHead, accTail, tranHead);
+                cout << "Account \"" << name << "\" deleted!" << endl;
+              }
             }
             break;
             }
