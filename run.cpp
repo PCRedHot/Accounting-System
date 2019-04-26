@@ -145,7 +145,7 @@ int main(){
 
       //Expense Alert
       if (expenseAlert > -3035564939 && expenseAlert < totalExpense) {
-        cout << "!WARNING! Total expense exceed budget set!" << endl;
+        cout << "!WARNING! Total expense exceed threshold set!" << endl;
       }
 
       if (userInput == "Transaction" || userInput == "2"){
