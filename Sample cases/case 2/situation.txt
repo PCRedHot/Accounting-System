@@ -9,5 +9,6 @@ On 28/7/2019, he spent $200 on food using cash to pay
 However, he later found out that he actually spent $250 on food instead of $200
 So he corrected the transaction by deleting it and creating a new one
 
+The file account is the initial account storage
 The file input.txt includes the input to perform the above transaction
 The files account.txt and transaction.txt include all accounts and transactions at the end of March (sort in ascending order)
