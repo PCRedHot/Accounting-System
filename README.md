@@ -227,7 +227,7 @@ Then the balance of such account, together with corresponding transaction record
 
 We will introduce **Transaction** function to you in next section.
 
-If you want to delete some account, choose the function **Delete an function**.
+If you want to delete some account, choose the function **Delete an account**.
 
     Please input the name of the account: Cash
     !WARNING! THIS ACTION WILL DELETE THE ACCOUNT AND YOU ARE NOT ABLE TO RECOVER IT!
@@ -259,6 +259,7 @@ When you output them, program will ask you the file name. Here we named it as **
     Input the name of the file, include file type (e.g. output.txt): Accounts.txt
     Output as "Accounts.txt"
 
+Note: The programm will sort according to your choice when listing out the accounts, so if you want to output a sorted account file, simply list it once in the program and then output as usual paratice.
 
 ### Transaction
 
