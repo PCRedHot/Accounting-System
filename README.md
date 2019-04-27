@@ -351,11 +351,11 @@ Here we provide a sample list
 
     ==========Transactions===========
     Date		Type		Amount		Account1	Account2
-    20190301	Revenue	500.000000		Salary		Cash
-    20190303	Expense	200.000000		Clothing	Cash
-    20190330	Expense	225.000000		Healthcare	Cash
-    20190405	Asset	35.119999		Cash		Debit
-    20190420	Revenue	3000.000000		Salary
+    20190301	Revenue		500.000000	Salary		Cash
+    20190303	Expense		200.000000	Clothing	Cash
+    20190330	Expense		225.000000	Healthcare	Cash
+    20190405	Asset		35.119999	Cash		Debit
+    20190420	Revenue		3000.000000	Salary
 ---
 
 ## Teammembers
