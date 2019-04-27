@@ -430,7 +430,7 @@ The program can basically show your total expense, revenue and asset states, usi
     Name		Balance		Type
     Healthcare	450.000000	Expense
     Clothing	400.000000	Expense
-    Credit	30.000000	Expense
+    Credit		30.000000	Expense
     Total Expenses: 880.00
     ----------------------------
     Net Gain/Loss: 4620.34
