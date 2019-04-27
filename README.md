@@ -295,7 +295,7 @@ Enter the function **Create new transaction**, program will ask you which type o
 
 Here we provide three kinds of transactions, which has covered most of daily demand
 
-In this case, assuming you want to deposit cash $40.5 to the debit account. Thus we choose **Asset transfer**.
+In this case, assuming you want to withdraw cash $40.5 from the debit account. Thus we choose **Asset transfer**.
 
 Then the function will record necessary infomation of transactions to make it clear
 
@@ -351,11 +351,11 @@ Here we provide a sample transaction list.
 
     ==========Transactions===========
     Date		Type		Amount		Account1		Account2
-    20190301	Revenue		500.000000	Salary			Cash
-    20190303	Expense		200.000000	Clothing		Cash
-    20190330	Expense		225.000000	Healthcare		Cash
-    20190405	Asset		35.119999	Cash			Debit
-    20190420	Revenue		3000.000000	Salary
+    20190301	Revenue	500.000000		Salary		Cash
+    20190303	Expense	200.000000		Clothing		Cash
+    20190330	Expense	225.000000		Healthcare		Cash
+    20190405	Asset	35.119999		Cash		Debit
+    20190420	Revenue	3000.000000		Salary
 ---
 
 ## Teammembers
