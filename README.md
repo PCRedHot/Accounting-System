@@ -307,7 +307,7 @@ Then the function will record necessary infomation of transactions to make it cl
 
 An deposit of $40.5 has been created successfully!
 
-The program allow you to record **expense** and **revenue** with the outside as well, where you may just need one account.
+The program allow you to record **expense** and **revenue** without the asset account.
 
 Here we provide a case of gain the salary of $3000. For the **Asset account**, type in **none**.
 
