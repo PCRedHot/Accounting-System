@@ -382,10 +382,42 @@ Finance analysis is a class of functions helping users to clearly understand the
 
 Based on current datas, you can use the program to generate total expense ,revenue and asset. And ask it to offer you an evaluation statement of income.
 
-You can also set a budget in advance. When your total expense exceeds this value, program will warn you.
+You can also set a budget in advance. When your total expense exceeds this value, program will **warn** you.
 
+Finance Analysis Menus is shown below
 
+    ********************************************
+    Finance Analysis Menu
+    1. List all expense accounts
+    2. List all revenue accounts
+    3. List all asset accounts
+    4. Income statement
+    5. Set expense alert
+    6. Return to last page
+    Please select a function
+    ********************************************
 
+#### List all expense/revenue/asset accounts
+
+The program can basically show your total expense, revenue and asset states, using the first three **List all accounts** functions.
+
+    ==========Expenses==========
+    Name		Balance		Type
+    Healthcare	450.000000	Expense
+    Clothing	400.000000	Expense
+    Credit	30.000000	Expense
+    Total Expenses: 880.00
+
+    ==========Revenues==========
+    Name	Balance		Type  
+    Salary	5500.339844	Revenue
+    Total Revenues: 5500.34
+
+    ==========Assets==========
+    Name	Balance		Type
+    Cash	185.119995	Asset
+    Debit	19964.880859	Asset
+    Total Assets: 20150.00
 
 
 ### Conclusion
