@@ -441,7 +441,7 @@ int main(){
               cout << "Account information of " << name << ":"<< endl;
               cout << fixed << setprecision(2);
               cout << "Current Balance: " <<  accPtr->balance << endl;
-              cout << "-------------transaction History------------" << endl;
+              cout << "-------------Transaction History------------" << endl;
               cout << "Date\t\tType\tBalance\t\tAccount1\tAccount2" << endl;
               transaction* curr = tranHead;
               while (curr != nullptr){

@@ -210,6 +210,20 @@ After your account has been created, you can set its amount by **Set amount of a
     Proceed? (Y/N) Y
     Cash has been set to 75
 
+After you create an account, you can access its status using **Get information of an account**.
+
+    Please input the name of the account: Cash
+
+Then the balance of such account, together with corresponding transaction records will be display
+
+    Account information of Cash:
+    Current Balance: 75.00
+    -------------transaction History------------
+    Date            Type    Balance         Account1        Account2
+		20190405        2       40.500000       Cash    Debit
+
+We will introduce **Transaction** function to you in next section.
+
 If you want to delete some account, choose the function **Delete an function**.
 
     Please input the name of the account: Cash
@@ -256,8 +270,20 @@ These are also the base of Transaction functions.
 
 It can help you to create transfer between existing personal accounts, recording revenue and expense with the outside on specific date.
 
-The transactions it stored can be sorted
+The transactions it stored can be sorted accounding date
 
+
+    ********************************************
+    Transaction Menu
+    1. Create new transaction
+    2. Get transactions on specific date
+    3. List all transactions from old to new
+    4. List all transactions from new to old
+    5. Reverse and delete a transaction
+    6. Output transactions to a file
+    7. Return to last page
+    Please select a function
+    ********************************************
 
 
     Which kinds of transaction you want to record?
@@ -270,6 +296,18 @@ The transactions it stored can be sorted
     Asset account 1: Cash
     Asset account 2 (input "none" if no asset account): Debit
     Amount: 40.5
+    This transaction is created successfully!
+
+    Which kinds of transaction you want to record?
+    1. Expense
+    2. Revenue
+    3. Asset transfer
+
+    Please enter transaction infomation
+    Date (YYYYMMDD): 20190420
+    Revenue account: Salary
+    Asset account (input "none" if no asset account): none
+    Amount: 3000
     This transaction is created successfully!
 
 
