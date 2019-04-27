@@ -395,6 +395,7 @@ All above is what we have for the group project **Accounting System**.
 Using C++ programming language, Makefile, Github and based on algorithms and applications we learnt in ENGG1340 course, we present this project to show our comprehension of implementing an solution to problem in daily life, and promote it in practice by programming. It's also necessary to keep debugging and later maintance, as well as providing potential users a friendly UI and file input/output functions.
 
 Thank you for your use and evaluation!
+
 ---
 
 ## Teammembers
