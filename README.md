@@ -9,6 +9,7 @@
 - [Problem Statement](#problem-statement)
 - [Problem Setting](#problem-setting)
 - [Teammembers](#teammembers)
+- [Usage](#Usage)
 
 ---
 
