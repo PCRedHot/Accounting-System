@@ -1,11 +1,13 @@
 At the beginning, Company A has the following accounts:
 Name        Balance Type
-Cash	      300.0000	2
-Sales	      0.000000	1
-Purchases
-Electricity	0.000000	0
-Bank	      2500.000	2
-Salary	    0.000000	1
+Food	    0.000000	0
+Clothing    0.000000	0
+Cash	    0.000000	2
+Sales	    0.000000	1
+Electricity 0.000000	0
+Bank	    0.000000	2
+Healthcare  0.000000	0
+Salary	    0.000000	2
 
 Company A
 

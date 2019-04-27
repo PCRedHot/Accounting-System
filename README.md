@@ -436,6 +436,7 @@ The program can basically show your total expense, revenue and asset states, usi
     Net Gain/Loss: 4620.34
     Expense-Revenue Ratio: 1:6.25
 
+
 #### Set expense alert
 
 The default warning threshold is negative, which will not launch the alert.
@@ -448,11 +449,17 @@ In this case, we set $1500 as an expense threshold
     New threshold (input "none" to disable the alert): 1500
     Alert threshold set to 1500.00
 
-After alert threshold has been set, if your expense exceed this value, the program will warn you about overspending.
+After alert threshold has been set, if your expense exceed this value, the program will warn you about overspending when you **enter Finance Analysis Menu once again**.
+
+    Please enter transaction infomation
+    Date (YYYYMMDD): 20190427
+    Expense account: Credit
+    Asset account (input "none" if no asset account): Debit
+    Amount: 8400
+    This transaction is created successfully!
 
 
-
-####
+    !WARNING! Total expense exceed threshold set!
 
 ### Conclusion
 
