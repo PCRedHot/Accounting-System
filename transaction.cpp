@@ -67,24 +67,25 @@ string transaction::getData(){
   return output;
 };// format: YYYYMMDD <tab> amount <tab> acc1 <tab> acc2
 
-string transaction::getPrintData(){
-  string output = to_string(date) + " ";
+void transaction::PrintData(){
+  cout << setfill(' ');
+  cout << left << setw(9) << to_string(date);
   switch (type) {
     case 0:
     {
-      output += "Expense";
+      cout << setw(8) << "Expense";
       break;
     }
 
     case 1:
     {
-      output += "Revenue";
+      cout << setw(8) << "Revenue";
       break;
     }
 
     case 2:
     {
-      output += "Asset  ";
+      cout << setw(8) << "Asset";
     }
 
     default:
@@ -92,9 +93,8 @@ string transaction::getPrintData(){
       break;
     }
   }
-  output += " " + to_string(amount) + '\t' + name1;
-  if (name2 != "") output += "\t\t" + name2;
-  return output;
+  cout << setw(11) << fixed << setprecision(2) << to_string(amount) << setw(11) << name1;
+  if (name2 != "") cout << setw(11) << name2;
 };
 
 void transaction::reverseTransaction(){

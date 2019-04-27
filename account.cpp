@@ -73,32 +73,32 @@ string account::getData(){
   return data;
 };
 
-string account::getPrintData(){
-  string data = name + '\t' + to_string(balance) + '\t';
+void account::PrintData(){
+  cout << setfill(' ');
+  cout << left << setw(11) << name << setw(11) << fixed << setprecision(2) << to_string(balance);
   switch (type) {
     case 0:
     {
-      data += "Expense";
+      cout << setw(8) << "Expense";
       break;
     }
 
     case 1:
     {
-      data += "Revenue";
+      cout << setw(8) << "Revenue";
       break;
     }
 
     case 2:
     {
-      data += "Asset";
+      cout << setw(8) << "Asset";
       break;
     }
 
     default:
     {
-      data += "Unknown";
+      cout << setw(8) << "Unknown";
       break;
     }
   }
-  return data;
 };

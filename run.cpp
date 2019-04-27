@@ -441,12 +441,14 @@ int main(){
               cout << "Account information of " << name << ":"<< endl;
               cout << fixed << setprecision(2);
               cout << "Current Balance: " <<  accPtr->balance << endl;
-              cout << "-------------Transaction History------------" << endl;
-              cout << "Date\t\tType\tBalance\t\tAccount1\tAccount2" << endl;
+              cout << setw(35) << right << setfill('=') << "Transactions History" << setw(15) << left << "=" << endl;
+              cout << setfill(' ');
+              cout << left << setw(9) << "Date" << setw(8) << "Type" << setw(11) << "Amount" << setw(11) << "Account 1" << setw(11) << "Account 2" << endl;
               transaction* curr = tranHead;
               while (curr != nullptr){
                 if (curr->acc1 == accPtr || curr->acc2 == accPtr){
-                  cout << curr->getPrintData() << endl;
+                  curr->PrintData();
+                  cout << endl;
                 }
                 curr = curr->next;
               }
@@ -457,6 +459,8 @@ int main(){
             case 4:
             {
             sortAccount_Balance(accHead);
+            cout << setw(19) << right << setfill('=') << "Accounts" << setw(11) << left << "=" << endl;
+            cout << setfill(' ');
             listAccount(accHead);
             break;
             }
@@ -464,6 +468,8 @@ int main(){
             case 5:
             {
             rsortAccount_Balance(accHead);
+            cout << setw(19) << right << setfill('=') << "Accounts" << setw(11) << left << "=" << endl;
+            cout << setfill(' ');
             listAccount(accHead);
             break;
             }

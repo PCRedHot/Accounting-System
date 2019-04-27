@@ -11,11 +11,13 @@ void listExpense(account* head){
   cout << fixed << setprecision(2);
   float totalExpense = 0;
   account* curr = head;
-  cout << "==========Expenses==========" << endl;
-  cout << "Name\tBalance\tType" << endl;
+  cout << setw(19) << right << setfill('=') << "Expenses" << setw(11) << left << "=" << endl;
+  cout << setfill(' ');
+  cout << left << setw(11) << "Name" << setw(11) << "Balance" << setw(8) << "Type" << endl;
   while (curr != nullptr){
     if (curr->type == 0){
-      cout << curr->getPrintData() << endl;//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
+      curr->PrintData();
+      cout << endl;
       totalExpense += curr->balance;
     }
     curr = curr->next;
@@ -27,11 +29,13 @@ void listRevenue(account* head){
   cout << fixed << setprecision(2);
   account* curr = head;
   float totalRevenue = 0;
-  cout << "==========Revenues==========" << endl;
-  cout << "Name\tBalance\t\tType" << endl;
+  cout << setw(19) << right << setfill('=') << "Expenses" << setw(11) << left << "=" << endl;
+  cout << setfill(' ');
+  cout << left << setw(11) << "Name" << setw(11) << "Balance" << setw(8) << "Type" << endl;
   while (curr != nullptr){
     if (curr->type == 1){
-      cout << curr->getPrintData() << endl;//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
+      curr->PrintData();
+      cout << endl;
       totalRevenue += curr->balance;
     }
     curr = curr->next;
@@ -43,11 +47,13 @@ void listAsset(account* head){
   cout << fixed << setprecision(2);
   account* curr = head;
   float totalAsset = 0;
-  cout << "==========Assets==========" << endl;
-  cout << "Name\tBalance\t\tType" << endl;
+  cout << setw(18) << right << setfill('=') << "Assets" << setw(12) << left << "=" << endl;
+  cout << setfill(' ');
+  cout << left << setw(11) << "Name" << setw(11) << "Balance" << setw(8) << "Type" << endl;
   while (curr != nullptr){
     if (curr->type == 2){
-      cout << curr->getPrintData() << endl;//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
+      curr->PrintData();
+      cout << endl;
       totalAsset += curr->balance;
     }
     curr = curr->next;
@@ -59,11 +65,13 @@ void incomeStatement(account* head){
   cout << fixed << setprecision(2);
   account* curr = head;
   float totalRevenue = 0;
-  cout << "==========Revenues==========" << endl;
-  cout << "Name\tBalance\t\tType" << endl;
+  cout << setw(19) << right << setfill('=') << "Revenues" << setw(11) << left << "=" << endl;
+  cout << setfill(' ');
+  cout << left << setw(11) << "Name" << setw(11) << "Balance" << setw(8) << "Type" << endl;
   while (curr != nullptr){
     if (curr->type == 1){
-      cout << curr->getPrintData() << endl;//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
+      curr->PrintData();
+      cout << endl;
       totalRevenue += curr->balance;
     }
     curr = curr->next;
@@ -71,17 +79,19 @@ void incomeStatement(account* head){
   cout << "Total Revenues: " << totalRevenue << endl;
   curr = head;
   float totalExpense = 0;
-  cout << "==========Expenses==========" << endl;
-  cout << "Name\tBalance\t\tType" << endl;
+  cout << setw(19) << right << setfill('=') << "Expenses" << setw(11) << left << "=" << endl;
+  cout << setfill(' ');
+  cout << left << setw(11) << "Name" << setw(11) << "Balance" << setw(8) << "Type" << endl;
   while (curr != nullptr){
     if (curr->type == 0){
-      cout << curr->getPrintData() << endl;//format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
+      curr->PrintData();
+      cout << endl;
       totalExpense += curr->balance;
     }
     curr = curr->next;
   }
   cout << "Total Expenses: " << totalExpense << endl;
-  cout << "----------------------------" << endl;
+  cout << "------------------------------" << endl;
   cout << "Net Gain/Loss: " << totalRevenue - totalExpense << endl;
   float ratio = totalRevenue/totalExpense;
   cout << "Expense-Revenue Ratio: 1:" << ratio << endl;

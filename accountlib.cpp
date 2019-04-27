@@ -100,9 +100,10 @@ account* getLastAccount(account* head){
 
 void listAccount(account* head){
   account* curr = head;
-  cout << "Name\tBalance\t\tType" << endl;
+  cout << left << setw(11) << "Name" << setw(11) << "Balance" << setw(8) << "Type" << endl;
   while (curr != nullptr){
-    cout << curr->getPrintData() << endl;
+    curr->PrintData();
+    cout << endl;
     curr = curr->next;
   }
 };

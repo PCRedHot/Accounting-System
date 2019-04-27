@@ -29,6 +29,6 @@ public:
 
   void reverseTransaction();
 
-  string getPrintData();
+  void PrintData();
   string getData(); //format YYYYMMDD <tab> type <tab> amount <tab> acc1 (<tab> acc2)
 };

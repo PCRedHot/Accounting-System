@@ -77,10 +77,12 @@ void rsortTransaction_Date(transaction* head){
 
 void listTransaction(transaction* head){
   transaction* curr = head;
-  cout << "==========Transactions===========" << endl;
-  cout << "Date     Type    Amount\t\tAccount1\tAccount2" << endl;
+  cout << setw(31) << right << setfill('=') << "Transactions" << setw(19) << left << "=" << endl;
+  cout << setfill(' ');
+  cout << left << setw(9) << "Date" << setw(8) << "Type" << setw(11) << "Amount" << setw(11) << "Account 1" << setw(11) << "Account 2" << endl;
   while (curr != nullptr){
-    cout << curr->getPrintData() << endl;
+    curr->PrintData();
+    cout << endl;
     curr = curr->next;
   }
 };
@@ -114,11 +116,14 @@ transaction* getTransaction(int date, int id, transaction* head){
 int listTransaction_date(int date, transaction* head){
   transaction* curr = head;
   int id = 1;
-  cout << "==========Transactions===========" << endl;
-  cout << "ID Date     Type    Amount\t\tAccount1\tAccount2" << endl;
+  cout << setw(32) << right << setfill('=') << "Transactions" << setw(21) << left << "=" << endl;
+  cout << setfill(' ');
+  cout << left << setw(3) << "ID" << setw(9) << "Date" << setw(8) << "Type" << setw(11) << "Amount" << setw(11) << "Account 1" << setw(11) << "Account 2" << endl;
   while (curr != nullptr){
     if (curr->date == date){
-        cout << id << "  " << curr->getPrintData() << endl;
+        cout << left << setw(3) << id ;
+        curr->PrintData();
+        cout << endl;
     }
     curr = curr->next;
   }
