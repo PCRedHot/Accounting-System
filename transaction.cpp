@@ -99,7 +99,7 @@ void transaction::PrintData(){
 };
 
 void transaction::reverseTransaction(){
-  acc1->balance -= amount;
+  if (acc1 != nullptr) acc1->balance -= amount;
   if (acc2!=nullptr){
     if (type == 0){
       acc2->balance += amount;

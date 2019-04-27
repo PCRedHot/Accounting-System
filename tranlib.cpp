@@ -107,6 +107,7 @@ transaction* getTransaction(int date, int n, transaction* head){
         return curr;
       }
     }
+    curr = curr->next;
   }
   return nullptr;
 }
@@ -131,18 +132,18 @@ int listTransaction_date(int date, transaction* head){
 
 //delete the target transaction
 void deleteTransaction(transaction* target, transaction* &head, transaction* &tail){
-  if (target->previous == nullptr && target->next != nullptr){
+  if (head == target && tail != target){
     target->next->previous = nullptr;
     head = target->next;
-  }else if (target->previous != nullptr && target->next == nullptr){
+  }else if (tail == target && head != target){
     target->previous->next = nullptr;
     tail = target->previous;
-  }else if (target->previous != nullptr && target->next != nullptr){
-    target->previous->next = target->next;
-    target->next->previous = target->previous;
-  }else{
+  }else if (head == target && tail == target){
     head = nullptr;
     tail = nullptr;
+  }else{
+    target->previous->next = target->next;
+    target->next->previous = target->previous;
   }
   delete target;
 }
