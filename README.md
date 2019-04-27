@@ -221,7 +221,7 @@ Then the balance of such account, together with corresponding transaction record
     Account information of Cash:
     Current Balance: 75.00
     -------------Transaction History------------
-    Date		Type	Balance		Account1	Account2
+    Date		Type		Balance		Account1	Account2
     20190405	Transfer	40.500000	Cash		Debit
     20190413	Transfer	3000.000000	Debit		Cash
 
