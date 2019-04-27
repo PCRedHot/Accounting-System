@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "transaction.h"
+#include <iomanip>
 using namespace std;
 
 transaction::transaction(account* head, int dateInput, float amountInput, string acc1Input){
