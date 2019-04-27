@@ -76,7 +76,7 @@ string account::getData(){
 
 void account::PrintData(){
   cout << setfill(' ');
-  cout << left << setw(11) << name << setw(11) << fixed << setprecision(2) << to_string(balance);
+  cout << left << setw(11) << name << setw(11) << fixed << setprecision(2) << balance;
   switch (type) {
     case 0:
     {

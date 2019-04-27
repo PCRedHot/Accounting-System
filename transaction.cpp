@@ -94,7 +94,7 @@ void transaction::PrintData(){
       break;
     }
   }
-  cout << setw(11) << fixed << setprecision(2) << to_string(amount) << setw(11) << name1;
+  cout << setw(11) << fixed << setprecision(2) << amount << setw(11) << name1;
   if (name2 != "") cout << setw(11) << name2;
 };
 
