@@ -118,7 +118,7 @@ int listTransaction_date(int date, transaction* head){
   cout << "ID Date     Type    Amount\t\tAccount1\tAccount2" << endl;
   while (curr != nullptr){
     if (curr->date == date){
-        cout << id << " " << curr->getPrintData() << endl;
+        cout << id << "  " << curr->getPrintData() << endl;
     }
     curr = curr->next;
   }
