@@ -374,6 +374,26 @@ To output transactions to file, use **Output transactions to a file**
 
 Then you transactions will output all your transaction records to file named **output_transactions.txt**
 
+
+### Finance analysis
+
+Finance analysis is a class of functions helping users to clearly understand their current financial states generally
+
+Based on current datas, you can use the program to generate total expense ,revenue and asset. And ask it to offer you an evaluation statement of income.
+
+You can also set a budget in advance. When your total expense exceeds this value, program will warn you.
+
+
+
+
+
+### Conclusion
+
+All above is what we have for the group project **Accounting System**.
+
+Using C++ programming language, Makefile, Github and based on algorithms and applications we learnt in ENGG1340 course, we present this project to show our comprehension of implementing an solution to problem in daily life, and promote it in practice by programming. It's also necessary to keep debugging and later maintance, as well as providing potential users a friendly UI and file input/output functions.
+
+Thank you for your use and evaluation!
 ---
 
 ## Teammembers
