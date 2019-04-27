@@ -227,7 +227,7 @@ Then the balance of such account, together with corresponding transaction record
 
 We will introduce **Transaction** function to you in next section.
 
-If you want to delete some account, choose the function **Delete an function**.
+If you want to delete some account, choose the function **Delete an account**.
 
     Please input the name of the account: Cash
     !WARNING! THIS ACTION WILL DELETE THE ACCOUNT AND YOU ARE NOT ABLE TO RECOVER IT!
