@@ -327,7 +327,18 @@ Here we provide a case of gain the salary of $3000. For the **Asset account**, t
 
 #### Reverse and delete
 
-After you have created one transaction but want
+After you have created one transaction but want to cancel it, use the function **Reverse and delete a transaction**.
+
+The program may need you to provide the date, and choose the one you want to reverse and delete on that day.
+
+    Please input the date of transaction (YYYYMMDD): 20190405
+    ==========Transactions===========
+    ID Date     Type    Amount              Account1        Account2
+    1 20190405 Asset   40.500000    Cash            Debit
+    Please select the transaction: 1
+    Transaction deleted!
+
+After transaction deleted, modified data in accounts will be recovered to the states before.
 
 
 ---
