@@ -254,11 +254,23 @@ These are also the base of Transaction functions.
 
 **Transaction** is the most powerful function with great flexibility that we provide in our program
 
-It can help you to create transactions between existing personal accounts, recording revenue and expense with the outside
+It can help you to create transfer between existing personal accounts, recording revenue and expense with the outside on specific date.
 
-The transactions with **date** it stored can be sorted 
+The transactions it stored can be sorted
 
 
+
+    Which kinds of transaction you want to record?
+    1. Expense
+    2. Revenue
+    3. Asset transfer
+
+    Please enter transaction infomation
+    Date (YYYYMMDD): 20190405
+    Asset account 1: Cash
+    Asset account 2 (input "none" if no asset account): Debit
+    Amount: 40.5
+    This transaction is created successfully!
 
 
 ## Teammembers

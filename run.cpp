@@ -201,7 +201,7 @@ int main(){
             }else {
               cout << "Asset account 1: ";
               cin >> acc1Input;
-              cout << "Asset account 2input \"none\" if no asset account): ";
+              cout << "Asset account 2 (input \"none\" if no asset account): ";
               cin >> acc2Input;
             }
             cout <<  "Amount: ";
