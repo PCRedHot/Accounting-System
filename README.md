@@ -461,9 +461,6 @@ After alert threshold has been set, if your expense exceed this value, the progr
 
     !WARNING! Total expense exceed threshold set!
 
-
-####
-
 ### Conclusion
 
 All above is what we have for the group project **Accounting System**.
