@@ -186,7 +186,10 @@ Enter the function **Add an account**, it will show
     Please input the name of the account: Cash
 
 You can create accounts like **Credit**, **Salary**, **Food**, or type in the name whatever you like.
-In this case, we create the account named **Cash**, it has been stored in our **Sample cases**. After enter the name of account, the program will ask you the type of such account
+
+In this case, we create the account named **Cash**, it has been stored in our **Sample cases**.
+
+After enter the name of account, the program will ask you the type of such account
 
     Which type is the account?
     1. Expense Account
@@ -198,6 +201,7 @@ In this case, we make it as an Asset Account. Type in **3**
     Account named "Cash" is created!
 
 Firstly initialized account's amount is preset as 0 (float).
+
 After your account has been created, you can set its amount by **Set amount of account** function.
 
     Input the name of the account: Cash
@@ -218,7 +222,9 @@ If you want to delete some account, choose the function **Delete an function**.
 
 
 The program allows you to list all existing accounts in ascending and descending order.
+
 They can also be outputed directly to file that you created.
+
 Just simply make use of the function **List all accounts** and **Output all accounts to a file**.
 
 Here we provide you a sample of accounts list, it can also be outputed by yourself.
@@ -231,19 +237,26 @@ Here we provide you a sample of accounts list, it can also be outputed by yourse
     Salary		2000.339966		Revenue
     Debit		20000.000000		Asset
 
-When you output them, program will ask you the file name.
-Here we named it as **"Accounts.txt"**.
+When you output them, program will ask you the file name. Here we named it as **"Accounts.txt"**.
 
     Input the name of the file, include file type (e.g. output.txt): Accounts.txt
     Output as "Accounts.txt"
 
 
 All the functions above make it possible to easily manage personal accounts.
-All data will be outputed to file on user's demand
+
+The accounts data will be outputed to file on user's demand
+
 These are also the base of Transaction functions.
 
 
 ### Transaction
+
+**Transaction** is the most powerful function with great flexibility that we provide in our program
+
+It can help you to create transactions between existing personal accounts, recording revenue and expense with the outside
+
+The transactions with **date** it stored can be sorted 
 
 
 
