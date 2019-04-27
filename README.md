@@ -335,7 +335,7 @@ The program may need you to provide the date, and choose the one you want to rev
 
     ==========Transactions===========
     ID	Date		Type		Amount		Account1	Account2
-    1	20190405	Asset		40.500000		Cash	Debit
+    1	20190405	Asset		40.500000	Cash	Debit
 
     Please select the transaction: 1
     Transaction deleted!
