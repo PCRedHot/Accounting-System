@@ -412,7 +412,7 @@ The program can basically show your total expense, revenue and asset states, usi
     Name	Balance		Type  
     Salary	5500.339844	Revenue
     Total Revenues: 5500.34
-
+		
     ==========Assets==========
     Name	Balance		Type
     Cash	185.119995	Asset
