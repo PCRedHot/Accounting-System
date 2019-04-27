@@ -58,10 +58,12 @@ void account::setNext(account* acc){
   next = acc;
 };
 
+//set the previous account pointer to acc
 void account::setPrevious(account& acc){
   previous = &acc;
 };
 
+//set the next account pointer to acc
 void account::setNext(account& acc){
   next = &acc;
 };
