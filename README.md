@@ -449,7 +449,7 @@ In this case, we set $1500 as an expense threshold
     New threshold (input "none" to disable the alert): 1500
     Alert threshold set to 1500.00
 
-After alert threshold has been set, if your expense exceed this value, the program will warn you about overspending when you **enter Finance Analysis Menu once again**.
+After alert threshold has been set, if your net expense* exceed this value, the program will warn you about overspending when you **enter Finance Analysis Menu once again**.
 
     Please enter transaction infomation
     Date (YYYYMMDD): 20190427
@@ -460,6 +460,8 @@ After alert threshold has been set, if your expense exceed this value, the progr
 
 
     !WARNING! Total expense exceed threshold set!
+
+*Net Expense = Total Expense - Total Revenue
 
 ### Conclusion
 
