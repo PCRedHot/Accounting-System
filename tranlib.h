@@ -1,7 +1,6 @@
 #include <string>
 #include "transaction.h"
 
-transaction* getLastTransaction(transaction*);
 void switchTransaction(transaction*, transaction*);
 void sortTransaction_Date(transaction*);
 void rsortTransaction_Date(transaction*);

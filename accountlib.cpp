@@ -80,6 +80,7 @@ void rsortAccount_Balance(account* head){
   }
 };
 
+//output account file
 void outputAccountFile(account* head, string name){
   ofstream file;
   file.open(name);
@@ -91,14 +92,7 @@ void outputAccountFile(account* head, string name){
   file.close();
 };
 
-account* getLastAccount(account* head){
-  account* curr = head;
-  while (curr->next != nullptr){
-    curr = curr->next;
-  }
-  return curr;
-};
-
+//list all accounts
 void listAccount(account* head){
   account* curr = head;
   cout << left << setw(11) << "Name" << setw(11) << "Balance" << setw(8) << "Type" << endl;

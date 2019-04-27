@@ -7,6 +7,7 @@
 
 using namespace std;
 
+//list all expense account
 void listExpense(account* head){
   cout << fixed << setprecision(2);
   float totalExpense = 0;
@@ -25,6 +26,7 @@ void listExpense(account* head){
   cout << "Total Expenses: " << totalExpense << endl;
 };
 
+//list all revenue account
 void listRevenue(account* head){
   cout << fixed << setprecision(2);
   account* curr = head;
@@ -43,6 +45,7 @@ void listRevenue(account* head){
   cout << "Total Revenues: " << totalRevenue << endl;
 };
 
+//list all asset accounts
 void listAsset(account* head){
   cout << fixed << setprecision(2);
   account* curr = head;
@@ -61,6 +64,7 @@ void listAsset(account* head){
   cout << "Total Assets: " << totalAsset << endl;
 }
 
+//print income statement
 void incomeStatement(account* head){
   cout << fixed << setprecision(2);
   account* curr = head;
@@ -97,6 +101,7 @@ void incomeStatement(account* head){
   cout << "Expense-Revenue Ratio: 1:" << ratio << endl;
 };
 
+//check if the input string is a single digit
 bool check(string input){
   if (input.length() != 1){
     return false;
@@ -108,6 +113,7 @@ bool check(string input){
   }
 };
 
+//output alert file
 void outputAlert(float amount, string fileName){
   ofstream file;
   file.open(fileName);
@@ -119,6 +125,7 @@ void outputAlert(float amount, string fileName){
   file.close();
 };
 
+//delete target account
 void deleteAccount(account* acc, account* &head, account* &tail, transaction* headT){
   if (acc->previous == nullptr && acc->next != nullptr){
     acc->next->previous = nullptr;

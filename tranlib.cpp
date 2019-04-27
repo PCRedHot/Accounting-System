@@ -5,14 +5,7 @@
 #include <iomanip>
 using namespace std;
 
-transaction* getLastTransaction(transaction* head){
-  transaction* curr = head;
-  while (curr->next != nullptr){
-    curr = curr->next;
-  }
-  return curr;
-};
-
+//switch two transactions' position
 void switchTransaction(transaction* tran1, transaction* tran2){
   int date2 = tran2->date;
   int type2 = tran2->type;
@@ -37,6 +30,7 @@ void switchTransaction(transaction* tran1, transaction* tran2){
   tran1->amount = amount2;
 };
 
+//sort according to date
 void sortTransaction_Date(transaction* head){
   if (head == nullptr) {
     return;
@@ -56,6 +50,7 @@ void sortTransaction_Date(transaction* head){
   }
 };
 
+//reverse sort according to date
 void rsortTransaction_Date(transaction* head){
   if (head == nullptr) {
     return;
@@ -75,6 +70,7 @@ void rsortTransaction_Date(transaction* head){
   }
 };
 
+//list all transactions
 void listTransaction(transaction* head){
   transaction* curr = head;
   cout << setw(31) << right << setfill('=') << "Transactions" << setw(19) << left << "=" << endl;
@@ -87,6 +83,7 @@ void listTransaction(transaction* head){
   }
 };
 
+//output all transaction to file named "name"
 void outputTransactionFile(transaction* head, string name){
   transaction* curr = head;
   cout << fixed << setprecision(2);
@@ -101,11 +98,12 @@ void outputTransactionFile(transaction* head, string name){
   file.close();
 }
 
-transaction* getTransaction(int date, int id, transaction* head){
+//get the n-th transaction (use with int listTransaction_date() )
+transaction* getTransaction(int date, int n, transaction* head){
   transaction* curr = head;
   while (curr != nullptr){
     if (curr->date == date){
-      if (--id == 0){
+      if (--n == 0){
         return curr;
       }
     }
@@ -113,6 +111,7 @@ transaction* getTransaction(int date, int id, transaction* head){
   return nullptr;
 }
 
+//list all transactions on a particular date
 int listTransaction_date(int date, transaction* head){
   transaction* curr = head;
   int id = 1;
@@ -130,6 +129,7 @@ int listTransaction_date(int date, transaction* head){
   return id;
 };
 
+//delete the target transaction
 void deleteTransaction(transaction* target, transaction* &head, transaction* &tail){
   if (target->previous == nullptr && target->next != nullptr){
     target->next->previous = nullptr;
