@@ -446,7 +446,7 @@ int main(){
               transaction* curr = tranHead;
               while (curr != nullptr){
                 if (curr->acc1 == accPtr || curr->acc2 == accPtr){
-                  cout << curr->getData() << endl;
+                  cout << curr->getPrintData() << endl;
                 }
                 curr = curr->next;
               }
