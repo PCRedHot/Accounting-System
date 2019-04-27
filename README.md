@@ -201,7 +201,7 @@ Firstly initialized account's amount is preset as 0 (float).
 After your account has been created, you can set its amount by **Set amount of account** function.
 
 
-#### list all accounts
+#### list all accounts and output to file
 
 The program allows you to list all existing accounts in ascending and descending order.
 They can also be outputed directly to file that you created.
@@ -216,7 +216,7 @@ Here we provide you a sample of created accounts list, it can also be outputed b
     Salary		2000.339966		Revenue
     Debit		20000.000000		Asset
 
-
+####
 
 
 
