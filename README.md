@@ -332,9 +332,11 @@ After you have created one transaction but want to cancel it, use the function *
 The program may need you to provide the date, and choose the one you want to reverse and delete on that day.
 
     Please input the date of transaction (YYYYMMDD): 20190405
+
     ==========Transactions===========
-    ID Date     Type    Amount              Account1        Account2
-    1 20190405 Asset   40.500000    Cash            Debit
+    ID	Date		Type		Amount		Account1	Account2
+    1	20190405		Asset		40.500000		Cash	Debit
+
     Please select the transaction: 1
     Transaction deleted!
 
