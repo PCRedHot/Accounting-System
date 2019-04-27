@@ -326,6 +326,16 @@ Here we provide a case of gain the salary of $3000. For the **Asset account**, t
     Amount: 3000
     This transaction is created successfully!
 
+To get the transactions on specific date, use the function **Get transactions on specific date**.
+
+In this case, we'd like to get all transactions on April 5th, 2019. Type in the date in YYYYMMDD format.
+
+    Please input the date: 20190405
+
+    ==========Transactions===========
+    ID	Date		Type	Amount		Account1	Account2
+    1	20190405	Asset	35.119999	Cash		Debit
+
 #### Reverse and delete
 
 After you have created one transaction but want to cancel it, use the function **Reverse and delete a transaction**.
@@ -345,9 +355,9 @@ After transaction deleted, modified data in accounts will be recovered to the st
 
 #### List and output to file
 
-You can use the function **List all transactions** to check all transactions you created, sorting by date or revereds
+You can use the function **List all transactions** to check all transactions you created, sorting by date or rever.eds
 
-Here we provide a sample list
+Here we provide a sample transactions list
 
     ==========Transactions===========
     Date		Type		Amount		Account1	Account2
@@ -356,6 +366,14 @@ Here we provide a sample list
     20190330	Expense		225.000000	Healthcare	Cash
     20190405	Asset		35.119999	Cash		Debit
     20190420	Revenue		3000.000000	Salary
+
+To output transactions to file, use **Output transactions to a file**
+
+    Input the name of the file, include file type (e.g. output.txt): output_transactions.txt
+    Output as "output_transactions.txt"
+
+Then you transactions will output all your transaction records to file named **output_transactions.txt**
+
 ---
 
 ## Teammembers
