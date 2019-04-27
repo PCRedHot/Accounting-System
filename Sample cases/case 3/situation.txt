@@ -1,0 +1,18 @@
+At the beginning, John has the following accounts:
+Name        Balance Type
+Food	      0.000000	0
+Clothing	  0.000000	0
+Cash	      0.000000	2
+Sales	      0.000000	1
+Electricity	0.000000	0
+Bank	      0.000000	2
+Healthcare	0.000000	0
+Salary	    0.000000	2
+
+On 27/4/2019, he withdraw $500 from the bank
+On 28/4/2019, he spent $200 on food using cash
+
+However, he later found out that he actually spent $250 on food instead of $200. So he corrected the transaction by deleting it and creating a new one
+
+The file input.txt includes the input to perform the above transaction
+The files account.txt and transaction.txt include all accounts and transactions at the end of March (sort in ascending order)
