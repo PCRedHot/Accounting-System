@@ -154,9 +154,11 @@ This can optimize users' control and storage of their personal financial data.
 ### Account
 
 
-The Accounting System provides the basic function **Account**.
+The Accounting System provides the basic functions **Account**, which make it possible to easily manage personal accounts.
 
-You can simply create varied type account, modified the existing accounts, list all of them and output to file.
+You can simply create varied type account, modified existing accounts, list all of them and output to file on your demand.
+
+These are also the base of **Transaction** functions, we will covered in next section.
 
 The Account Menu is shown below
 
@@ -214,7 +216,7 @@ After you create an account, you can access its status using **Get information o
 
     Please input the name of the account: Cash
 
-Then the balance of such account, together with corresponding transaction records will be display
+Then the balance of such account, together with corresponding transaction records
 
     Account information of Cash:
     Current Balance: 75.00
@@ -258,21 +260,16 @@ When you output them, program will ask you the file name. Here we named it as **
     Output as "Accounts.txt"
 
 
-All the functions above make it possible to easily manage personal accounts.
-
-The accounts data will be outputed to file on user's demand
-
-These are also the base of Transaction functions.
-
-
 ### Transaction
+
 
 **Transaction** is the most powerful function with great flexibility that we provide in our program
 
-It can help you to create transfer between existing personal accounts, recording revenue and expense with the outside on specific date.
+It can help you to create **transfer** between existing personal accounts, recording **revenue** and **expense** with the outside on specific **date**.
 
-The transactions it stored can be sorted accounding date
+The transactions it stored can also be sorted accounding date, and further output to file.
 
+The Transaction Menu is shown below
 
     ********************************************
     Transaction Menu
@@ -287,10 +284,21 @@ The transactions it stored can be sorted accounding date
     ********************************************
 
 
+#### Create a transaction
+
+First we introduce you how to create a transaction.
+Enter the function **Create new transaction**, program will ask you which type of transaction you want
+
     Which kinds of transaction you want to record?
     1. Expense
     2. Revenue
     3. Asset transfer
+
+Here we provide three kinds of transactions, which has covered most of daily demand
+
+In this case, assuming you want to deposit cash $40.5 to the debit account. Thus we choose **Asset transfer**.
+
+Then the function will record necessary infomation of transactions to make it clear
 
     Please enter transaction infomation
     Date (YYYYMMDD): 20190405
@@ -299,10 +307,18 @@ The transactions it stored can be sorted accounding date
     Amount: 40.5
     This transaction is created successfully!
 
+An deposit of $40.5 has been created successfully!
+
+The program allow you to record **expense** and **revenue** with the outside as well, where you may just need one account.
+
+Here we provide a case of gain the salary of $3000. For the **Asset account**, type in none.
+
     Which kinds of transaction you want to record?
     1. Expense
     2. Revenue
     3. Asset transfer
+
+		2
 
     Please enter transaction infomation
     Date (YYYYMMDD): 20190420
