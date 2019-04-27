@@ -259,6 +259,7 @@ When you output them, program will ask you the file name. Here we named it as **
     Input the name of the file, include file type (e.g. output.txt): Accounts.txt
     Output as "Accounts.txt"
 
+Note: The programm will sort according to your choice when listing out the accounts, so if you want to output a sorted account file, simply list it once in the program and then output as usual paratice.
 
 ### Transaction
 
