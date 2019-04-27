@@ -1,15 +1,19 @@
 At the beginning, Company A has the following accounts:
-Name        Balance Type
-Food	    0.000000	0
-Clothing    0.000000	0
-Cash	    0.000000	2
-Sales	    0.000000	1
-Electricity 0.000000	0
-Bank	    0.000000	2
-Healthcare  0.000000	0
-Salary	    0.000000	2
+Name        Balance   Type
+Purchases   0.000000  Expense
+Cash	    3000.000  Asset
+Sales	    0.000000  Revenue
+Electricity 0.000000  Expense
+Bank	    20000.00  Asset
+Salary	    0.000000  Expense
 
-Company A
+Company A is a retail company
+On 10/3/2018, the company purchased 200 units of inventory, $50 per unit, by cheque
+On 15/3/2018, the company sold half of the inventory (i.e. 100 units) with selling price $120
+On 20/3/2018, electricity of $780 was auto-paid via bank account
+On 27/3/2018, the company sold the remaining inventory with selling price $140
+On 28/3/2018, the company deposited $25,000 into its bank account
+On 2/4/2018, the company paid salary of $3,000 to employee via cheque
 
 The file input.txt includes the input to perform the above transaction
 The files account.txt and transaction.txt include all accounts and transactions at the end of March (sort in ascending order)
