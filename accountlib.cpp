@@ -6,7 +6,7 @@
 
 using namespace std;
 
-//Function: get the pointer that point to account that named InputName
+//get the pointer that point to account that named InputName
 //	input: 	string InputName - name to search
 //	        account* head - the pointer that point to the first account
 //	output:	account* - pointer that point to account that named InputName
@@ -20,7 +20,7 @@ account* getAccount(string InputName, account* head){
   return nullptr;
 };
 
-//Function: switch the position of the two accounts
+//switch the position of the two accounts
 //	input: 	account* acc1 - first account
 //	        account* acc2 - second account
 //	output:	None
@@ -36,7 +36,7 @@ void switchAccount(account* acc1, account* acc2){
   acc1->type = type2;
 };
 
-//Function: sort the accounts by balance, ascending order
+//sort the accounts by balance, ascending order
 //	input: 	account* head - the pointer that point to the first account
 //	output:	None
 void sortAccount_Balance(account* head){
@@ -58,7 +58,7 @@ void sortAccount_Balance(account* head){
   }
 };
 
-//Function: sort the accounts by balance, descending order
+//sort the accounts by balance, descending order
 //	input: 	account* head - the pointer that point to the first account
 //	output:	None
 void rsortAccount_Balance(account* head){
