@@ -220,8 +220,8 @@ Then the balance of such account, together with corresponding transaction record
     Current Balance: 75.00
     -------------Transaction History------------
     Date		Type		Balance		Account1		Account2
-    20190405		2		40.500000		Cash		Debit
-    20190413		2		3000.000000		Debit		Cash
+    20190405	2	40.500000	Cash	Debit
+    20190413	2	3000.000000	Debit	Cash
 
 We will introduce **Transaction** function to you in next section.
 
