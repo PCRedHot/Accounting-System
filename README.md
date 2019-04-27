@@ -265,9 +265,7 @@ When you output them, program will ask you the file name. Here we named it as **
 
 **Transaction** is the most powerful function with great flexibility that we provide in our program
 
-It can help you to create **transfer** between existing personal accounts, recording **revenue** and **expense** with the outside on specific **date**.
-
-The transactions it stored can also be sorted accounding date, and further output to file.
+It can help you to create **transfer** between existing personal accounts, recording **revenue** and **expense** with the outside on specific **date**. Existing transactions it stored can also be sorted accounding date, and further output to file.
 
 The Transaction Menu is shown below
 
@@ -311,14 +309,14 @@ An deposit of $40.5 has been created successfully!
 
 The program allow you to record **expense** and **revenue** with the outside as well, where you may just need one account.
 
-Here we provide a case of gain the salary of $3000. For the **Asset account**, type in none.
+Here we provide a case of gain the salary of $3000. For the **Asset account**, type in **none**.
 
     Which kinds of transaction you want to record?
     1. Expense
     2. Revenue
     3. Asset transfer
 
-		2
+    2
 
     Please enter transaction infomation
     Date (YYYYMMDD): 20190420
