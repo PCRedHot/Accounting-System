@@ -199,7 +199,19 @@ In this case, we make it as an Asset Account. Type in **3**
 
 Firstly initialized account's amount is preset as 0 (float).
 After your account has been created, you can set its amount by **Set amount of account** function.
+
+    Input the name of the account: Cash
+    Input the amount: 75
+    !WARNING! THIS ACTION WILL CHANGE THE AMOUNT OF THE ACCOUNT DIRECTLY!
+    Proceed? (Y/N) Y
+    Cash has been set to 75
+
 If you want to delete some account, choose the function **Delete an function**.
+
+    Please input the name of the account: Cash
+    !WARNING! THIS ACTION WILL DELETE THE ACCOUNT AND YOU ARE NOT ABLE TO RECOVER IT!
+    Proceed? (Y/N) Y
+    Account "Cash" deleted!
 
 
 #### List all accounts and output to file
@@ -219,8 +231,19 @@ Here we provide you a sample of accounts list, it can also be outputed by yourse
     Salary		2000.339966		Revenue
     Debit		20000.000000		Asset
 
+When you output them, program will ask you the file name.
+Here we named it as **"Accounts.txt"**.
 
-####
+    Input the name of the file, include file type (e.g. output.txt): Accounts.txt
+    Output as "Accounts.txt"
+
+
+All the functions above make it possible to easily manage personal accounts.
+All data will be outputed to file on user's demand
+These are also the base of Transaction functions.
+
+
+### Transaction
 
 
 
