@@ -306,7 +306,7 @@ Then the function will record necessary infomation of transactions to make it cl
     Amount: 40.5
     This transaction is created successfully!
 
-An deposit of $40.5 has been created successfully!
+A transaction of $40.5 from the debit account to cash account has been created successfully!
 
 The program allow you to record **expense** and **revenue** without the asset account.
 
@@ -345,9 +345,9 @@ After transaction deleted, modified data in accounts will be recovered to the st
 
 #### List and output to file
 
-You can use the function **List all transactions** to check all transactions you created, **sorting by date or reversed**.
+You can use the function **List all transactions** to check all transactions you created, sorting by date or revereds
 
-Here we provide a sample transaction list.
+Here we provide a sample list
 
     ==========Transactions===========
     Date		Type		Amount		Account1		Account2
