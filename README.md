@@ -181,7 +181,7 @@ You can choose the function and type in the number
 
 For the first time you run the program, there is no initialized data. So you need to create your personal accounts.
 
-Enter the function Add an account, it will show
+Enter the function **Add an account**, it will show
 
     Please input the name of the account: Cash
 
@@ -199,14 +199,17 @@ In this case, we make it as an Asset Account. Type in **3**
 
 Firstly initialized account's amount is preset as 0 (float).
 After your account has been created, you can set its amount by **Set amount of account** function.
+If you want to delete some account, choose the function **Delete an function**.
 
 
-#### list all accounts and output to file
+#### List all accounts and output to file
+
 
 The program allows you to list all existing accounts in ascending and descending order.
 They can also be outputed directly to file that you created.
+Just simply make use of the function **List all accounts** and **Output all accounts to a file**.
 
-Here we provide you a sample of created accounts list, it can also be outputed by yourself.
+Here we provide you a sample of accounts list, it can also be outputed by yourself.
 
     Name		Balance			Type
     Cash		75.000000		Asset
@@ -215,6 +218,7 @@ Here we provide you a sample of created accounts list, it can also be outputed b
     Healthcare	225.000000		Expense
     Salary		2000.339966		Revenue
     Debit		20000.000000		Asset
+
 
 ####
 
