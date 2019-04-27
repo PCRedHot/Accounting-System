@@ -525,7 +525,7 @@ int main(){
           }
         }else if (userInput == "Finance analysis" || userInput == "3"){
           cout << "********************************************" << endl;
-          cout << "Account Menu" << endl;
+          cout << "Finance Analysis Menu" << endl;
           cout << "1. List all expense accounts" << endl;
           cout << "2. List all revenue accounts" << endl;
           cout << "3. List all asset accounts" << endl;
