@@ -375,6 +375,93 @@ To output transactions to file, use **Output transactions to a file**
 
 Then you transactions will output all your transaction records to file named **output_transactions.txt**
 
+
+### Finance analysis
+
+Finance analysis is a class of functions helping users to clearly understand their current financial states generally
+
+Based on current datas, you can use the program to generate total expense ,revenue and asset. And ask it to offer you an statistic statement of income.
+
+You can also set a budget in advance. When your total expense exceeds this value, program will **warn** you.
+
+Finance Analysis Menus is shown below
+
+    ********************************************
+    Finance Analysis Menu
+    1. List all expense accounts
+    2. List all revenue accounts
+    3. List all asset accounts
+    4. Income statement
+    5. Set expense alert
+    6. Return to last page
+    Please select a function
+    ********************************************
+
+#### List all expense/revenue/asset accounts
+
+The program can basically show your total expense, revenue and asset states, using the first three **List all accounts** functions.
+
+    ==========Expenses==========
+    Name		Balance		Type
+    Healthcare	450.000000	Expense
+    Clothing	400.000000	Expense
+    Credit		30.000000	Expense
+    Total Expenses: 880.00
+
+    ==========Revenues==========
+    Name	Balance		Type  
+    Salary	5500.339844	Revenue
+    Total Revenues: 5500.34
+
+    ==========Assets==========
+    Name	Balance		Type
+    Cash	185.119995	Asset
+    Debit	19964.880859	Asset
+    Total Assets: 20150.00
+
+**Income statement** will show you the statistic datas. Sample case is shown below
+
+    ==========Revenues==========
+    Name    Balance         Type
+    Salary  5500.339844     Revenue
+    Total Revenues: 5500.34
+
+    ==========Expenses==========
+    Name		Balance		Type
+    Healthcare	450.000000	Expense
+    Clothing	400.000000	Expense
+    Credit		30.000000	Expense
+    Total Expenses: 880.00
+    ----------------------------
+    Net Gain/Loss: 4620.34
+    Expense-Revenue Ratio: 1:6.25
+
+#### Set expense alert
+
+The default warning threshold is negative, which will not launch the alert.
+
+Thus the program allows you to set an alert of expense value previously.
+
+In this case, we set $1500 as an expense threshold
+
+    Current expense alert threshold: -3035569920.00
+    New threshold (input "none" to disable the alert): 1500
+    Alert threshold set to 1500.00
+
+After alert threshold has been set, if your expense exceed this value, the program will warn you about overspending.
+
+
+
+####
+
+### Conclusion
+
+All above is what we have for the group project **Accounting System**.
+
+Using C++ programming language, Makefile, Github and based on algorithms and applications we learnt in ENGG1340 course, we present this project to show our comprehension of implementing an solution to problem in daily life, and promote it in practice by programming. It's also necessary to keep debugging and later maintance, as well as providing potential users a friendly UI and file input/output functions.
+
+Thank you for your use and evaluation!
+
 ---
 
 ## Teammembers
