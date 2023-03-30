@@ -1,4 +1,6 @@
 # Accounting System
+* A Simple Accounting System
+* Account Tracking, Record Transctions, Accounting Reports
 
 > This is a group project from HKU ENGG1340 Group 120
 
